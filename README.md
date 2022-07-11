@@ -2,7 +2,7 @@
 
 Welcome to Contrast Security's Developer Learning Guide.
 
-The purpose of this guide is to 
+TODO.
 
 
 
