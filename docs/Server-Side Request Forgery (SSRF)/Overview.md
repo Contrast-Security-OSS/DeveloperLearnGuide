@@ -48,4 +48,4 @@ If user control of URL is required, verify the URL to-be-requested is acceptable
 
 ### Further Reading
 
-[SSRF Detection With IAST] (https://www.contrastsecurity.com/security-influencers/iast-is-the-only-way-to-accurately-detect-ssrf?hsLang=en-us)
+[SSRF Detection With IAST](https://www.contrastsecurity.com/security-influencers/iast-is-the-only-way-to-accurately-detect-ssrf?hsLang=en-us)
