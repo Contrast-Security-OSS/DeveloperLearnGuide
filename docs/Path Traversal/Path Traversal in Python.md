@@ -27,8 +27,7 @@ return render(request, 'template.html', {'file_contents': file_contents})
 
 Often, there is no filename validation at all. 
 Either way, an attacker could abuse this functionality to view protected configuration files by passing the
-following value for the ```filename``` parameter:
-```http://yoursite.com/app/pathTraversal?statement=../../../../../../config.yaml``` 
+following value for the ```filename``` parameter:```http://yoursite.com/app/pathTraversal?statement=../../../../../../config.yaml``` 
 
 
 To prevent attacks like this, any of the following steps could help: 
