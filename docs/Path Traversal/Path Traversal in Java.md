@@ -26,10 +26,9 @@ response.getOutputStream().write(fileBytes);
 
 Often, there is no filename validation at all. 
 Either way, an attacker could abuse this functionality to view the /etc/passwd file 
-on a UNIX system by passing the following value for the {{#code}}statement{{/code}} parameter: 
-```http://yoursite.com/app/pathTraversal?statement=../../../../../../../../etc/passwd%00.xml``` 
+on a UNIX system by passing the following value for the {{#code}}statement{{/code}} parameter:```http://yoursite.com/app/pathTraversal?statement=../../../../../../../../etc/passwd%00.xml``` 
 
-The NULL byte (%00) is just another ```char``` to Java, so the malicious value passes the ```endsWith()``` check. 
+The NULL byte ```(%00)``` is just another ```char``` to Java, so the malicious value passes the ```endsWith()``` check. 
 However, when the value is passed to the operating system's native API, the NULL byte will represent an end-of-string character, and open the attacker's intended file.
 
 **Note** that Null byte injection in Java was fixed in Java 7 Update 45. So, make sure you are using at least this version of Java, 
