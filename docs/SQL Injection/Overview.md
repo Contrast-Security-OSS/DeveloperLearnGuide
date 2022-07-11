@@ -20,7 +20,7 @@ SQL injection attacks are one of the most prevalent among OWASP Top 10 vulnerabi
 ## Impact
 
 
-A successful SQL injection exploit can read sensitive data from the database, modify database data (, insert, update, or delete), execute administrative operations on the database, recover the content of a file present in the database management system, and even issue commands to the operating system in some instances.
+A successful SQL injection exploit can read sensitive data from the database, modify database data (insert, update, or delete), execute administrative operations on the database, recover the content of a file present in the database management system, and even issue commands to the operating system in some instances.
 
 One example is an attacker could use SQL Injection on a vulnerable application in order to query the database for customer credit card numbers and other data, even if it wasn't part of the query the developer created. 
 
