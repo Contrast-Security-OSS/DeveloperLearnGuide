@@ -25,13 +25,15 @@ Many developers assume that some network control like IP restrictions, user-agen
 There is almost never such a compensating control, and thus session IDs must be protected.
 
 Although the overexposure in the various log files is undesirable, it may not appear to be a serious issue. The bigger problem with session rewriting is that it allows an attack called Session Fixation. 
-**Session Fixation** is an umbrella term for any attack that can allow an attacker to cause a victim to use a session ID that they know. If the victim then authenticates under the attacker's chosen session ID, they can present the same session ID to the server and be recognized as the victim. 
+
+**Session Fixation** is an umbrella term for any attack that can allow an attacker to cause a victim to use a session ID that they know. 
+If the victim then authenticates under the attacker's chosen session ID, they can present the same session ID to the server and be recognized as the victim. 
 
 Let's walkthrough a simple example:
 
 - User A visits the site http://demo.example.com/
 - Server responds with Set-Cookie: SID=0F2571EFA941B2
-- User A sends User B a message: "Hey, take a look at this demo! http://demo.example.com/?SID=0F2571EFA941B2
+- User A sends User B a message: "Hey, take a look at this demo! http://demo.example.com/?SID=0F2571EFA941B2"
 - User B clicks on link, and is now logged in with with fixated session identifier SID=0F2571EFA941B2
 
 
@@ -39,9 +41,9 @@ Let's walkthrough a simple example:
 
 When successfully exploited, the risk can range from unauthorized access to sensitive data and privileges, ultimately ompromising the confidentiality, integrity, and availability of your application. 
 
-### Prevention
+### Prevention 
 
-#### Java 
+### Java 
 
 Until the Java Servlet Specification (JSS) 3.0, the disabling of URL rewriting were all container-specific. 
 Our advice is arranged into two sections - recommendations for JSS 3.0 compatible applications, and recommendations for everyone else. 
@@ -91,10 +93,7 @@ public String encodeURL(String url) {
 }
 ``` 
 
-3. If using Spring, utilize the `disable-url-rewriting` attribute in your `http` bean definition: 
-```
-<security:http auto-config="false" use-expressions="true" disable-url-rewriting="true">
-``` 
+3. If using Spring, utilize the `disable-url-rewriting` attribute in your `http` bean definition: `<security:http auto-config="false" use-expressions="true" disable-url-rewriting="true">`
 
 **Note:**  
 It's also a good idea to rotate the user's session ID after they've logged in. That way, if an attacker has compromised or seeded the session in any way, only the user who just proved they are who they say they are (via authentication) will have continued access.  
@@ -105,7 +104,7 @@ request.getSession(true);
 ``` 
 
 
-#### .NET 
+### .NET 
 
 The .NET framework implements session management via the `&lt;sessionState&gt;` directive in Web.config. 
 Using the attribute `cookieless="true"`, the session token will be stored in the URL instead of a cookie. 

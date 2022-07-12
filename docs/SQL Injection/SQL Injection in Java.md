@@ -10,7 +10,7 @@ nav_order: 5
 
 
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) like [Hibernate](https://hibernate.org/orm/) that safely handles database interaction. 
-If you must execute queries manually, use [Callable Statements](https://docs.oracle.com/javase/6/docs/api/index.html)for stored procedures and [Prepared Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for normal queries. 
+If you must execute queries manually, use [Callable Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for stored procedures and [Prepared Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for normal queries. 
 
 Both of these APIs utilize bind variables. Both techniques completely stop the injection of code if used properly. 
 You must still avoid concatenating user supplied input to queries and use the binding pattern to keep user input from being misinterpreted as SQL code.
@@ -47,7 +47,7 @@ of variables is not predetermined. If you are unable to avoid building such a SQ
 user data is necessary. 
 Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
 
-This is difficult to do by hand, but luckily the[ESAPI](https://owasp.org/www-project-enterprise-security-api/)library offers such functionality. 
+This is difficult to do by hand, but luckily the [ESAPI](https://owasp.org/www-project-enterprise-security-api/) library offers such functionality. 
 
 Here's an example of safely encoding a dynamically built statement for an Oracle database using untrusted data: 
 

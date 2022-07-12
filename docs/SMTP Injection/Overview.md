@@ -10,28 +10,26 @@ nav_order: 1
 
 ## What Is It?
 
-This vulnerability can be used to controls part of the outgoing email or inject attachments
+SMTP Injection is an attack that can be used to control part of the outgoing email or inject attachments.
+When email or contact form headers are set and interpreted, these are turned into SMTP commands, and subsequently proocessed by the SMTP server. 
+
+An application is at risk, however, if user input is not validated. 
+
+This makes it possible for an attacker to set additional headers, allowing the mail server to perform unintended actions. 
 
 
-
-## When Can It Affect My Application?
-
-
-
-
-
-## Impact
-
-
+## Impact 
 
 As is shown, the user controls a piece of the outgoing SMTP message. Depending on the piece of the message the untrusted user can control, it's possible that the functionality can be abused.  
 
-By controlling the destination fields, subject or body, they can possibly repurpose the email for phishing purposes.  
-By controlling headers directly, they can create malicious attachments, re-route the message, or other undesirable behavior.
+- By controlling the destination fields, subject or body, they can possibly repurpose the email for phishing purposes.  
+- By controlling headers directly, they can create malicious attachments, re-route the message, or other undesirable behavior.
 
 
 ## Prevention 
-Use indirect references, or static/trusted data to supply all the fields and headers of an SMTP message.
+
+Use indirect references, or static/trusted data to supply all the fields and headers of an SMTP message. 
+As always, sanitize all user input. 
 
 ### Java
 
@@ -91,5 +89,10 @@ mailMessage.Subject = subject;
 
 
 
-## How can Contrast help?
+## How can Contrast help? 
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect CMTP Injection vulnerabilities as you code.
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SMTP Injection attacks at runtime. 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SMTP Injection vulnerabilities in many applications by scanning code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack.
 

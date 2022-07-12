@@ -8,7 +8,6 @@ nav_order: 1
 
 ## Session Cookie No HTTPOnly Flag
 
-{:toc}
 
 ### What Is It?
 
@@ -27,9 +26,9 @@ For more information, please visit our guide on: [Cross Site Scripting](/io/Deve
 
 
 
-### Prevention
+### Prevention 
 
-#### In Python 
+### In Python 
 
 
 Django is configured in application's ```settings.py``` file: 
@@ -57,7 +56,7 @@ session = pyramid.session.SignedCookieSessionFactory(..., httponly=True)
 session = beaker.session.Session(..., httponly=True) 
 ``` 
 
-#### In .NET 
+### In .NET 
 
 Set the `HTTPOnly` flag on the session cookie when the cookie is generated. The `HTTPOnly` flag (e.g. `cookieName=cookieValue; httpOnly`) will prevent cookies from being accessed by scripts in modern browsers:
 - Internet Explorer 6 SP 1+
@@ -82,7 +81,7 @@ HttpCookie customCookie = new HttpCookie("customCookie");
 customCookie.HttpOnly = true;
 ```
 
-**#### In .NET Core** 
+### In .NET Core
 
 By default, the session cookie used in ASP.NET Core (which defaults to `.AspNetCore.Session`), has the `HttpOnly` flag set. If this rule was triggered, consider ensuring that that the [CookieBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.cookiebuilder).[HttpOnly](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) property is set to `true` during service configuration.
 
@@ -110,7 +109,7 @@ Response.Cookies.Append("cookie-name", "cookie-value", option);
 
 
 
-#### In Ruby
+### In Ruby
 
 Change the `HttpOnly` value to `true` or remove the attribute. 
 By default, this setting is true and all cookies issued by the application will have the HTTPOnly flag. 
