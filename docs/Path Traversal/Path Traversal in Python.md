@@ -31,7 +31,8 @@ following value for the ```filename``` parameter:```http://yoursite.com/app/path
 
 
 To prevent attacks like this, any of the following steps could help: 
-**Use maps to filter out invalid values**  
+
+**Use maps to filter out invalid values** 
 Instead of accepting input like ```file_id=string```, accept
 ```file_id=int```. That ```int``` can be a key in a Map that points to an allowed file. 
 If the map has no corresponding value for the key given, then throw an error.

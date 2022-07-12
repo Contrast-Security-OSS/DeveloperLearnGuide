@@ -32,12 +32,12 @@ Either way, an attacker could abuse this functionality to view protected configu
 
 To prevent attacks like this, any of the following steps could help: 
 
-- **Use maps to filter out invalid values** 
+**Use maps to filter out invalid values** 
 
 Instead of accepting input like ```file_id=string```, accept
 ``file_id=int```. That ```int``` can be a key in a map that points to an allowed file. 
 If the map has no corresponding value for the key given, then throw an error.
 
-- **Strongly validate the filename value** 
+**Strongly validate the filename value** 
 
 For example, validate the filename using an allowlist or regular expression.
