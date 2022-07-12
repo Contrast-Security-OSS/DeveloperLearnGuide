@@ -33,5 +33,5 @@ The consensus amongst security researchers is that developers should be moving a
 
 For language specific fix details and deep dive, please visit the links below:
 
-- [Untrusted Deserialization in Dotnet](DeveloperLearnGuide/io/Untrusted%20Deserialization/Untrusted%20Deserialization%20in%20Dotnet)
-- [Untrusted Deserialization in Java](DeveloperLearnGuide/io/Untrusted%20Deserialization/Untrusted%20Deserialization%20in%20Java)
+- [Untrusted Deserialization in Dotnet](/Untrusted Deserialization in Dotnet)
+- [Untrusted Deserialization in Java](/Untrusted Deserialization in Java)
