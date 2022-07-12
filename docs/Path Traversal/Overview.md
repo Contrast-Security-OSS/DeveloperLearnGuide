@@ -6,18 +6,20 @@ parent: Path Traversal
 nav_order: 1
 ---
 
-## Path Traversal
+## Path Traversal 
 
 
 ### What Is It? 
 
 
-Path traversal (also known as directory traversal) is an attack that uses an affected application to gain unauthorized access to server file system folders that are higher in the hierarchy than the web root folder. A successful path traversal attack can fool a web application into reading and consequently exposing the contents of files outside of the document root directory of the application or the web server, including credentials for back-end systems, application code and data, and sensitive operating system files.
+Path traversal (also known as directory traversal) is an attack that uses an affected application to gain unauthorized access to server file system folders that are higher in the hierarchy than the web root folder. 
 
-Path traversal vulnerabilities can exist in a variety of programming languages, including Python, PHP, Apache, ColdFusion, and Perl. They can also be located in web server software or in application code executed on a server. While not technically gaining root access, an attacker can still use path or directory traversal to gain access to critical data such as passwords, log files, intellectual property, and other sensitive data – all of which can lead to further attacks and compromise.
+A successful path traversal attack can fool a web application into reading and consequently exposing the contents of files outside of the document root directory of the application or the web server, including credentials for back-end systems, application code and data, and sensitive operating system files.
+
+Path traversal vulnerabilities can exist in a variety of programming languages, including Python, PHP, Apache, ColdFusion, and Perl. They can also be located in web server software or in application code executed on a server. 
 
 
-### When Can It Affect My Application?
+### When Can It Affect My Application? 
 
 Path Traversal occurs when remote input is sent to file APIs that select which file to open for read or write.
 
@@ -33,7 +35,7 @@ In some cases, bad actors may also be able to write data to arbitrary files, ena
 
 
 
-### How can Contrast help?
+### How can Contrast help? 
 
 
 

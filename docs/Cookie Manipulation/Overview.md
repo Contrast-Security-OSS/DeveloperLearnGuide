@@ -16,7 +16,8 @@ The most effective method of preventing Cookie Manipulation is to restrict data 
 ### Impact
 
 - For cookies that control behaviour from user actions, a malicious actor may be able to manipulate the cookie's value in order to perform unintended actions on behalf of the user.
-- For session tracking cookies, the attacker may be able to leverage a session fixation attack. This attack works by using a valid token within the cookie parameter, and hijacking the user's next interaction with the site. The risk of this can range from privacy concerns to takeover of user's account.
+- For session tracking cookies, the attacker may be able to leverage a session fixation attack. 
+This attack works by using a valid token within the cookie parameter, and hijacking the user's next interaction with the site. The risk of this can range from privacy concerns to takeover of user's account.
 
 
 

@@ -24,3 +24,12 @@ nav_order: 1
 
 
 
+---
+layout: page
+title: Overview
+permalink: /io/SQL Injection/Overview
+parent: SQL Injection
+nav_order: 38
+---
+
+## Verb Tampering 

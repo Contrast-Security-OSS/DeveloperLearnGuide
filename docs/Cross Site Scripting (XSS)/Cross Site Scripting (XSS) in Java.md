@@ -8,6 +8,8 @@ nav_order: 3
 
 ## Cross Site Scripting (XSS) in Java
 
+### How To Fix 
+
 
 If the input or output of the parameter can be removed, it should. 
 Otherwise, encode the parameter using the appropriate technique, based on where the parameter is rendered on the page:
@@ -51,5 +53,6 @@ var str = \"<spring:escapeBody javaScriptEscape=\"true\">${userControlledValue}<
 ```
 
 Input validation helps, but many times the characters used in XSS attacks are necessary for the application's purpose. 
+
 So, while we always recommend allowlist input validation, we recognize that it's not always possible to use this as a defense against XSS.
 

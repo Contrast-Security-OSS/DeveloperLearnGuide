@@ -37,18 +37,7 @@ Instead of accepting input like ```file_id=string```, accept
 If the map has no corresponding value for the key given, then throw an error.
 
 **Strongly validate the filename value** 
-For example, validate the filename using an allowlist or regular expression.
-Some frameworks provide functions for safely accessing the file system. 
 
-```
-statement = params['statement']
-regexp = /^[A-Za-z0-9]+\.yaml$/
+For example, validate the filename using an allowlist or regular expression. 
 
-# Validate 'statement' to prevent access to anything but yaml files with no path
-if statement =~ regexp
-  logger.Error {'Bad filename sent'}
-  return
-}
-# Read the file here as normal
-```
-
+Some frameworks provide functions for safely accessing the file system. For example, [Flask](https://flask.palletsprojects.com/en/1.1.x/api/#flask.safe_join) provides the function for safely joining user input to a trusted base directory. 

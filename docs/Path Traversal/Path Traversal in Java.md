@@ -8,7 +8,7 @@ nav_order: 4
 
 ## Path Traversal in Java 
 
-Let's walkthrough an example of Path Traversal in Java and how to fix this.
+Let's walkthrough an example of Path Traversal in Java and how to fix this. 
 
 ```
 String statement = request.getParameter("statement");
@@ -25,26 +25,28 @@ response.getOutputStream().write(fileBytes);
 ``` 
 
 Often, there is no filename validation at all. 
-Either way, an attacker could abuse this functionality to view the /etc/passwd file 
-on a UNIX system by passing the following value for the {{#code}}statement{{/code}} parameter:```http://yoursite.com/app/pathTraversal?statement=../../../../../../../../etc/passwd%00.xml``` 
+
+Either way, an attacker could abuse this functionality to view the ```/etc/passwd``` file on a UNIX system by passing the following value for the ```statement``` parameter: ```http://yoursite.com/app/pathTraversal?statement=../../../../../../../../etc/passwd%00.xml``` 
+
 
 The NULL byte ```(%00)``` is just another ```char``` to Java, so the malicious value passes the ```endsWith()``` check. 
+
 However, when the value is passed to the operating system's native API, the NULL byte will represent an end-of-string character, and open the attacker's intended file.
 
-**Note** that Null byte injection in Java was fixed in Java 7 Update 45. So, make sure you are using at least this version of Java, 
-in addition to validating the user's input to this File accessor code
+**Note:** that Null byte injection in Java was fixed in Java 7 Update 45. Ensure you are using _at least_ this version of Java, in addition to validating the user's input to this File accessor code. 
 
 
 ### How to Fix 
 
-To prevent these types of attacks when using Dotnet, try the following steps:
 
-**Use maps to filter out invalid values** 
+To prevent these types of attacks when using Dotnet, try the following steps: 
 
-Instead of accepting input like ```file=string```, accept ```file=int```. That ```int``` can be a key in a Map that points to an allowed file. 
+- **Use maps to filter out invalid values** 
+
+Instead of accepting input like ```file=string```, accept ```file=int```. That ```int``` can be a key in a map that points to an allowed file.  
 If the map has no corresponding value for the key given, then throw an error. 
 
-**Strongly validate the file value8** 
+- **Strongly validate the file value** 
 
 Validate the file using an allowlist or regular expression: 
 ```

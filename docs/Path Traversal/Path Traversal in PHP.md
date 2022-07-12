@@ -21,18 +21,17 @@ if (str_ends_with($filename, ".yaml")) {
 }
 ```
 
-Often, there is no filename validation at all. 
-Either way, an attacker could abuse this functionality to view protected configuration files by passing the
-following value for the ```filename``` parameter:
-```http://yoursite.com/app/pathTraversal?statement=../../../../../../config.yaml``` 
+Often, there is no filename validation at all.  
+Either way, an attacker could abuse this functionality to view protected configuration files by passing the following value for the ```filename``` parameter: ```http://yoursite.com/app/pathTraversal?statement=../../../../../../config.yaml``` 
 
 
 To prevent attacks like this, any of the following steps could help: 
+
 **Use maps to filter out invalid values** 
-Instead of accepting input like ```$file_id=string```, accept
-```$file_id=int```. That ```int``` can be a key in an array that
-  points to an allowed file. If the array has no corresponding value for the key given,
-  then throw an error.
+
+Instead of accepting input like ```$file_id=string```, accept ```$file_id=int```. 
+```int``` can be a key in an array that points to an allowed file. 
+If the array has no corresponding value for the key given then throw an error. 
 
 **Strongly validate the filename value** 
 
