@@ -15,13 +15,15 @@ In some cases, this interpretation is done by a middleware framework and resolvi
 
 Here's an example of using `XmlReader`
 
-- Unsafe example 
+- **Unsafe example** 
+
 ```
 XmlReader reader = XmlReader.Create(untrustedDataSource);    // Unsafe!
 /* Unsafe! We haven't turned any security features on in the factory! */
 ``` 
 
-- Safe example 
+
+- **Safe example**
 
 The next code snippet makes two changes to the configuration of the `XmlReader`. 
 It turns off the resolution of external entities and disallows the document supplying its own DOCTYPE. 

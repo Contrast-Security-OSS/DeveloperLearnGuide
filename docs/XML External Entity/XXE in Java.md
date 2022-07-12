@@ -25,7 +25,7 @@ Preventing a `DocumentBuilderFactory` from being susceptible to XXE is easy.
 
 Here's an example of using DocumentBuilderFactory: 
 
-- Unsafe example
+- **Unsafe example**
 
 ```
     DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -34,7 +34,7 @@ Here's an example of using DocumentBuilderFactory:
     Document doc = docBuilder.parse(untrustedDataSource); // Unsafe!
 ``` 
 
-- Safe example
+- **Safe example**
 
 The next code snippet makes two changes to the configuration of the DocumentBuilderFactory.  
 It turns off the resolution of external entities and disallows the document supplying its own DOCTYPE. 
@@ -53,9 +53,10 @@ It turns off the resolution of external entities and disallows the document supp
 ### XXE Cheat Sheet 
 
 There are other popular Java libraries that require similar steps to be protected. 
+
 These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
 
-- SAXParser
+- SAXParser 
 ```
     SAXParserFactory factory = SAXParserFactory.newInstance();
     factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
@@ -78,13 +79,13 @@ These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](h
     Document document = parser.build(targetFile);
 ``` 
 
-- XMLInputFactory 
+- XMLInputFactory  
 ```
     xmlInputFactory.setProperty(XMLInputFactory.SUPPORT_DTD, false); // This disables DTDs entirely for that factory
     xmlInputFactory.setProperty("javax.xml.stream.isSupportingExternalEntities", false); // disable external entities
 ``` 
 
-- Unmarshaller / JAXBContext
+- Unmarshaller / JAXBContext 
 ```
     SAXParserFactory spf = SAXParserFactory.newInstance();
     spf.setFeature("http://xml.org/sax/features/external-general-entities", false);

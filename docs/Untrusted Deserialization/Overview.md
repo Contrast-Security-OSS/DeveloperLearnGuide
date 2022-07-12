@@ -6,26 +6,21 @@ parent: Untrusted Deserialization
 nav_order: 1
 ---
 
-
+In Progress
 
 ## What Is It?
 
-nsecure deserialization, the unpacking and reconstitution of user-supplied data, represents an application vulnerability in which all serialized data structures are treated the same—that is, by default, data received from an unvalidated source is treated the same as data received from a validated one. If exploited, data deserialized insecurely can serve as an embarkation point for a cascading series of cyberattacks, including denial of service (DoS), authentication bypass, remote code execution attacks, and SQL injection.
+Insecure deserialization, represents an application vulnerability in which all serialized data structures are treated the same—that is, by default, data received from an unvalidated source is treated the same as data received from a validated one. 
 
-To illustrate, an application attack can assail a web application by loading malicious code into a serialized object and pass it to the application. If the web application deserializes user-controlled input in the absence of any validation check, the malicious code is enabled to access more surface area of the application. Subsequently, this sets the table for the initiation of secondary application attacks that could potentially lead to sensitive data exposure.
+To illustrate, an application attack can assail a web application by loading malicious code into a serialized object and pass it to the application.  
+If the web application deserializes user-controlled input in the absence of any validation check, the malicious code is enabled to access more surface area of the application. 
 
-
-
-
-https://github.com/Contrast-Security-Inc/rule-i18n-resources/tree/master/src/main/resources/i18n/rulepack/untrusted-deserialization/risk-mustache
-
-## When Can It Affect My Application?
-
-
-
+Subsequently, this sets the table for the initiation of secondary application attacks that could potentially lead to sensitive data exposure.
 
 
 ## Impact
+
+If exploited, data deserialized insecurely can serve as an embarkation point for a cascading series of cyberattacks, including denial of service (DoS), authentication bypass, remote code execution attacks, and SQL injection.
 
 
 ## Prevention
@@ -38,3 +33,5 @@ The consensus amongst security researchers is that developers should be moving a
 
 For language specific fix details and deep dive, please visit the links below:
 
+- [Untrusted Deserialization in Dotnet](DeveloperLearnGuide/io/Untrusted%20Deserialization/Untrusted%20Deserialization%20in%20Dotnet)
+- [Untrusted Deserialization in Java](DeveloperLearnGuide/io/Untrusted%20Deserialization/Untrusted%20Deserialization%20in%20Java)
