@@ -23,13 +23,14 @@ Setting this cookie attribute does not eliminate XSS vulnerabilities, but does r
 
 
 This type of vulnerability is often used in a chain-attack, for example XSS. 
-For more information, please visit our guide on: [Cross Site Scripting](/io/Cross Site Scripting (XSS)/Overview)
+For more information, please visit our guide on: [Cross Site Scripting](/io/DeveloperLearnGuide/Cross Site Scripting (XSS)/Overview)
 
 
 
 ### Prevention
 
-**#### In Python**
+#### In Python 
+
 
 Django is configured in application's ```settings.py``` file: 
 ```
@@ -53,10 +54,10 @@ session = pyramid.session.SignedCookieSessionFactory(..., httponly=True)
 **Pylons** is configured by the ```httponly``` parameter of the session constructor: 
 
 ```
-session = beaker.session.Session(..., httponly=True)
+session = beaker.session.Session(..., httponly=True) 
 ``` 
 
-**#### In .NET** 
+#### In .NET 
 
 Set the `HTTPOnly` flag on the session cookie when the cookie is generated. The `HTTPOnly` flag (e.g. `cookieName=cookieValue; httpOnly`) will prevent cookies from being accessed by scripts in modern browsers:
 - Internet Explorer 6 SP 1+
@@ -104,12 +105,12 @@ CookieOptions option = new CookieOptions
     HttpOnly = true
 };
 
-Response.Cookies.Append("cookie-name", "cookie-value", option);  
+Response.Cookies.Append("cookie-name", "cookie-value", option); 
 ```
 
 
 
-**#### In Ruby** 
+#### In Ruby
 
 Change the `HttpOnly` value to `true` or remove the attribute. 
 By default, this setting is true and all cookies issued by the application will have the HTTPOnly flag. 
@@ -123,4 +124,7 @@ Demo::Rack::Application.config.session_store :cookie_store,
 
 ### How can Contrast help?
 
-
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as they are tested by watching HTML output and encoding.
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack.
