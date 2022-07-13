@@ -17,10 +17,22 @@ Applications use Log4j to write short amounts of information into files/database
 
 ### What is Log4Shell? 
 
+<img
+  src="/path/to/img.jpg"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px"> 
+
 Log4Shell is the nickname provided to the Remote Code Execution (RCE) vulnerability that was disclosed in the Log4J utility managed by the Apache Foundation. 
 Specifically, Log4Shell refers to [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) and associated vulnerabilities. 
 
 If an application is using a vulnerable version of Log4j, an attacker can trigger the application to reach out to an attacker-controlled host which then deploys malicious code on the application’s server and gives the attacker control over the application and the server it sits on. 
+
+<img
+  src="/assets/images/log4jcontrast.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px"> 
 
 A single web request can be enough to initiate a Log4j hack. Often the request can occur even before a user
 is authenticated. 
