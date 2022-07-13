@@ -7,7 +7,7 @@ nav_order: 3
 ---
 
 ## How To Fix
-
+<br/>
 Teams should leverage the [SBOM](https://www.contrastsecurity.com/security-influencers/securing-the-software-supply-chain-starts-with-a-software-bill-of-materials-sbom) (Software Bill of Materials) that tools like Contrast produce, to locate Log4J and other vulnerable libraries. 
 These inventories provide immediate guidance on which applications are affected so that you can take action.
 
@@ -19,7 +19,7 @@ Alternatively, check out how we can help to detect and protect your application
 
 
 ### Once You have located your Log4j, what should you do?
-
+<br/>
 
 **Log4j2**
 
@@ -51,7 +51,7 @@ zip -d log4j-1.x.x.jar org/apache/log4j/net/SocketServer.class
 ```
 
 ### How can Contrast help?
-
+<br/>
 
 
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 

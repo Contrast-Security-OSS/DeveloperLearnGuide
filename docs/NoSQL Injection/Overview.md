@@ -9,20 +9,16 @@ nav_order: 1
 ## NoSQL Injection
 
 ### What Is It?
-
+<br/>
 NoSQL injection occurs when developers hand-build NoSQL statements containing user-supplied data without validation or encoding. 
 
 
 
 ### Impact
-
+<br/>
 The goal of such attacks is to force the database to retrieve and output data to which the user would not otherwise have access. 
 
 For example, an attacker could use NoSQL Injection on a vulnerable application in order to query the database for customer credit card numbers and other data, even if it wasn't part of the query the developer created. NoSQL injection also allows privilege escalation and account hijacking.
-
-
-
-### How Do People Attack Using This Flaw? 
 
 
 ### How can Contrast help?

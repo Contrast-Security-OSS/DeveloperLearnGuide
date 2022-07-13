@@ -9,7 +9,7 @@ nav_order: 5
 ## NoSQL Injection in Node 
 
 ### Prevention 
-
+<br/>
 
 - For MongoDB (String / JavaScript Injection):
 
@@ -33,7 +33,7 @@ Here's an example of an **UNSAFE** execution:
 		res.json = db.myCollection.find(query);
 	});
 ``` 
-
+<br/>
 The preferred fix would be to not use a string-based `$where` clause at all and instead use the use the `$eq` method and with proper validation. 
 The following is an example using the [npm module](https://www.npmjs.com/package/validator) supported by Contrast. 
 
@@ -49,11 +49,13 @@ The following is an example using the [npm module](https://www.npmjs.com/package
     }
 	});
 ``` 
+<br/>
 
 If the developers want to control what is flagged as vulnerable and what not they can achieve this by using Mongoose and custom validators. 
 This form of sanitization is supported since `v4.*.*`. 
+<br/>
 
-- **Example 1** 
+**Example 1** 
 
 ```
 	const mongoose = require('mongoose');
@@ -78,7 +80,7 @@ This form of sanitization is supported since `v4.*.*`.
     res.send(await blogPost.save());
 	});
 ``` 
-
+<br/>
 - **Example 2** 
 
 ```
@@ -100,12 +102,12 @@ This form of sanitization is supported since `v4.*.*`.
     res.send(await blogPost.save());
 	});
 ``` 
-
+<br/>
 Keep in mind that these examples are focused on showing the custom validation and don't represent overal production grade code. 
 
 Another type of noSQL injection can happen when part of the user input is “expandable” and then passed
 without validation allowing the user to control the query operators passed to Mongo. 
-
+<br/>
 Expandable data can come from URL query parameters for example in Express:
 A query with `?username=admin&password[$ne]=x`
 
@@ -140,7 +142,7 @@ See the following example using the [validation library](https://www.npmjs.com/p
     res.status(200).json(users);
 	}
 ``` 
-
+<br/>
 - For RethinkDB: 
 [RethinkDB Docs](https://rethinkdb.com/api/javascript) 
 [RethinkDB .js method](https://rethinkdb.com/api/javascript/js) 
@@ -165,4 +167,122 @@ It is strongly advised to not include any user supplied data to `rethinkdb.js`.
 There are some scenarios, like dynamic search, that make it difficult to use parameterized queries because the order and quantity of variables is not predetermined. 
 If you are unable to avoid building such a NoSQL call on the fly, then validation and escaping all user data is necessary. 
 Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
+
+
+Firstly, ensure to also comply with the official DynamoDB Security Best Practices from AWS: [DynamoDB Preventative Security Best Practices](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices-security-preventative.html) 
+
+DynamoDB APIs utilize bind variables. You must still avoid concatenating user supplied input to queries to keep user input from being misinterpreted as NoSQL injections. If you are using aws-sdk v2.x, consider querying attribute values as a name-value pair where the data type is specified as a name.
+
+### Example 1 
+
+- Here is an example of `UNSAFE` query: 
+
+```
+// aws-sdk version 2.x
+const AWS = require("aws-sdk");
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+docClient.scan({
+  TableName: 'Movies',
+  FilterExpression: 'title = :title',
+  ExpressionAttributeValues: { ':title': req.query.title }
+}, callback);
+``` 
+
+- Let's fix this query to make `SAFE` 
+
+```
+// aws-sdk version 2.x
+const AWS = require("aws-sdk");
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+docClient.scan({
+  TableName: 'Movies',
+  FilterExpression: 'title = :title',
+  ExpressionAttributeValues: { ':title': { S: req.query.title }}
+}, callback);
+```
+
+### Example 2 
+
+
+- `UNSAFE` example with ScanCommand via string concatenation when the user input is not validated: 
+
+```
+// aws-sdk version 3.x
+const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb");
+const client = new DynamoDBClient(config);
+
+// if FilterExpression (or part of) is user-controlled
+client.send(new ScanCommand({
+  TableName: 'Movies',
+  FilterExpression: req.query.key + " = :title AND released_year = :released_year",
+  ExpressionAttributeValues: {
+    ":title": { "S": data.title },
+    ":released_year": { "N": data.year }
+  }
+}));
+
+// if ProjectionExpression (or part of) is user-controlled
+client.send(new ScanCommand({
+  TableName: 'Movies',
+  FilterExpression: 'title = :title',
+  ProjectionExpression: `released_year, ${req.query.key}`,
+  ExpressionAttributeValues: {
+    ":title": { "S": data.title }
+  }
+}));
+
+// if ComparisonOperator is user-controlled
+client.send(new ScanCommand({
+  TableName: 'Movies',
+  Select: 'ALL_ATTRIBUTES',
+  ScanFilter: {
+    'title': {
+      'AttributeValueList': [{'S': data.title }],
+      'ComparisonOperator': req.query.comp
+    }
+  }
+}));
+```
+<br/>
+
+We recommend the validation and escaping of all user data prior to a database query execution. 
+Creation of a validator depends on the libraries in use and the context into which the untrusted data is being placed. 
+
+- Here's an example of `SAFELY` validating a DynamoDB query using untrusted data: 
+
+```
+// aws-sdk version 3.x
+const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb");
+
+const Joi = require("joi");
+const schema = Joi.string().valid('title', 'subtitle', 'season');
+let key = schema.validate(req.query.key);
+if (key.error) /* ... return validation error */
+
+await client.send(new ScanCommand({
+  TableName: 'Movies',
+  FilterExpression: 'title = :title',
+  ProjectionExpression: `released_year, ${key}`,
+  ExpressionAttributeValues: {
+    ":title": { "S": req.query.title }
+  }
+}));
+``` 
+
+If you are using [PartiQL](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html) with DynamoDB, make sure to always use Prepared Statements. Do NOT concatenate user-supplied input with parameterized statements.
+
+```
+// UNSAFE
+let params = { Statement:`SELECT * from Movies WHERE title='${input}'` }
+
+// SAFE
+let params = {
+  Statement:`SELECT * from Movies WHERE title= ?`,
+  Parameters: [{ S: input }]
+};
+
+client.send(new ExecuteStatementCommand(params));
+```
 

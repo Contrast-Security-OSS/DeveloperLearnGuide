@@ -37,8 +37,7 @@ is authenticated.
 <br/>
 
 
-https://user-images.githubusercontent.com/50103523/178736510-ba02f326-ccd8-4667-b313-13926f1bb8ff.mp4
-
+<p><a href="https://www.contrastsecurity.com/security-influencers/contrast-vs-the-log4j2-cve-a-demonstration?wvideo=80y2qkb6aq"><img src="https://embed-ssl.wistia.com/deliveries/d996a1a71283e29ebd26b0d4bcf46f6b41a2e14e.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=ffffffe0" width="400" height="225" style="width: 400px; height: 225px;"></a></p><p><a href="https://www.contrastsecurity.com/security-influencers/contrast-vs-the-log4j2-cve-a-demonstration?wvideo=80y2qkb6aq">Log4j Contrast Demonstration</a></p> 
 
 
 ### Impact 
