@@ -97,3 +97,8 @@ These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](h
     Unmarshaller unmarshaller = jc.createUnmarshaller();
     unmarshaller.unmarshal(xmlSource);
 ``` 
+
+### Further Reading
+
+- [XXE Pitfalls with JAXB](https://www.contrastsecurity.com/security-influencers/xml-xxe-pitfalls-with-jaxb)
+

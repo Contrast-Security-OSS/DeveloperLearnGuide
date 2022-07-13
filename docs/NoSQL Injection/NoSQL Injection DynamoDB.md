@@ -1,7 +1,7 @@
 ---
 layout: page
-title: NoSQL Injection in Node
-permalink: /io/NoSQL Injection/NoSQL Injection in Node
+title: NoSQL Injection in DynamoDB
+permalink: /io/NoSQL Injection/NoSQL Injection in DynamoDB
 parent: NoSQL Injection
 nav_order: 6
 ---
