@@ -6,9 +6,6 @@ parent: XML External Entity
 nav_order: 1
 ---
 
-In Progress 
-
-
 ## XML External Entity 
 
 

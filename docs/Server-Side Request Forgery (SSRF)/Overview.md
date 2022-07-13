@@ -8,14 +8,14 @@ nav_order: 1
 
 ## Server-Side Request Forgery (SSRF)
 
-### What Is It?
+## What Is It?
 
 SSRF vulnerabilities enable an attacker to trick the targeted application or application programming interface (API) into sending a crafted request to an unexpected destination—turning a vulnerable application into a sort of attack relay that gives an attacker access to internal systems. 
 
 SSRF requires two conditions: 
 
-- The application performs requests to the server/localhost
-- The attacker controls the server/localhost through the external app/user input 
+- The application performs requests to the serve or localhost
+- The attacker controls the server or localhost through the external app/user input 
 
 
 ## Impact

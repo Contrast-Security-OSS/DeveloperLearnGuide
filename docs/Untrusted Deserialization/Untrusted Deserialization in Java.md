@@ -63,19 +63,18 @@ Acme acmeObject = (Acme)in.readObject();
 
 
 
-#### **Kyro** 
+### Kyro  
 
 The only definite way to protect yourself against side-effects is to allow the types that Kryo is allowed to deserialize. 
-This can be done by requiring registration, which is accomplished by adding one line of code:
+This can be done by requiring registration, which is accomplished by adding one line of code: 
 
 
 ```
 Kryo kryo = new Kryo();
 kryo.setRegistrationRequired(true);
-```
+``` 
 
-#### **XStream** 
-
+### XStream 
 
 The only definite way to protect yourself against unwanted side-effects is to [specify](https://x-stream.github.io/security.html) the types 
 that XStream is allowed to deserialize. This can be done by modifying the permissions. Here is an example from XStream's own documentation:
