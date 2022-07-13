@@ -8,11 +8,23 @@ nav_order: 1
 
 ## Log4Shell
 
+### What is Log4j? 
 
-Log4shell is the nickname provided to the Remote Code Execution (RCE) vulnerability that was disclosed in the Log4J utility managed by the Apache Foundation. Specifically, log4shell refers to CVE-2021-44228 and associated vulnerabilities. 
+First, let's talk about the affected package. Log4j is a programming library (ie. pre-written code) that appears in millions of computer applications globally. 
+It is free, open-source, and has been widely-used since 2001.
 
-If an application is using a vulnerable version of log4j, an attacker can trigger the application to reach out to an attacker-controlled host which then deploys malicious code on the application’s server and gives the attacker control over the application and the server it sits on. 
+Applications use Log4j to write short amounts of information into files/databases for “logging” purposes. 
 
+Log4Shell is the nickname provided to the Remote Code Execution (RCE) vulnerability that was disclosed in the Log4J utility managed by the Apache Foundation. Specifically, Log4Shell refers to CVE-2021-44228 and associated vulnerabilities. 
+
+If an application is using a vulnerable version of Log4j, an attacker can trigger the application to reach out to an attacker-controlled host which then deploys malicious code on the application’s server and gives the attacker control over the application and the server it sits on. 
+
+A single web request can be enough to initiate a Log4j hack. Often the request can occur even before a user
+is authenticated. 
+- Some 8.2 million programmers around the world currently use Java (ZDNet)
+- 58% of Java apps contain vulnerable versions of Log4j
+- While multiple patches have been so far released (with more likely coming in the future) Log4j is so common that
+most organizations struggle to identify all the instances in their environments
 
 ### Demo
 
@@ -24,7 +36,7 @@ If an application is using a vulnerable version of log4j, an attacker can trigge
 
 
 Log4Shell is a critical vulnerability, and can allow attackers to execute malicious code remotely to a target.
-If exploited, impact can range from theft of data, installation of malware, and full takeover of system.
+If exploited, impact can range from theft of data, installation of malware, and full takeover of system. 
 
 
 
@@ -37,10 +49,12 @@ If exploited, impact can range from theft of data, installation of malware, and 
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 
 This means, Contrast was protecting you against the log4j vulnerability long before it was disclosed as a CVE.
 
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) & [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can identify that the application uses the vulnerable version of log4j. 
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) & [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can identify that the application uses the vulnerable version of Log4j. 
 Our runtime context also allows you to identify which applications use JMSAppender, the specific class that can be exploited using this CVE.
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) application security detects the underlying vulnerability in applications. 
-This means, Contrast will find the next application vulnerability like this one, before it becomes a disclosed CVE or major incident.
+This means, Contrast will find the next application vulnerability like this one, before it becomes a disclosed CVE or major incident. 
+
+- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can not only detect Lambda functions with vulnerable versions of this library but can also verify whether these functions are vulnerable to Log4Shell.
 
 

@@ -8,11 +8,13 @@ nav_order: 3
 
 ## How To Fix
 
-Teams should leverage the Software Bill of Materials that tools like Contrast produce, to locate Log4J and other vulnerable libraries. 
+Teams should leverage the [SBOM](https://www.contrastsecurity.com/security-influencers/securing-the-software-supply-chain-starts-with-a-software-bill-of-materials-sbom) (Software Bill of Materials) that tools like Contrast produce, to locate Log4J and other vulnerable libraries. 
 These inventories provide immediate guidance on which applications are affected so that you can take action.
 
 We recommend looking at other applications where you have not yet created an inventory. 
-You can use a tool such as SafeLog4J to evaluate these applications.
+You can use a tool such as SafeLog4J to evaluate these applications. 
+
+Alternatively, check out how we can help to detect and protect your application 
 
 
 
@@ -48,3 +50,15 @@ zip -d log4j-1.x.x.jar org/apache/log4j/net/JMSAppender.class
 zip -d log4j-1.x.x.jar org/apache/log4j/net/SocketServer.class
 ```
 
+### How can Contrast help?
+
+
+
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 
+This means, Contrast was protecting you against the log4j vulnerability long before it was disclosed as a CVE.
+
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) & [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can identify that the application uses the vulnerable version of Log4j. 
+Our runtime context also allows you to identify which applications use JMSAppender, the specific class that can be exploited using this CVE.
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) application security detects the underlying vulnerability in applications. 
+This means, Contrast will find the next application vulnerability like this one, before it becomes a disclosed CVE or major incident.
