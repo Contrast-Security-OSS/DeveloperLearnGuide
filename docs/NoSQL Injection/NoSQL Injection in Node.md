@@ -9,9 +9,8 @@ nav_order: 5
 ## NoSQL Injection in Node 
 
 ### Prevention 
-<br/>
 
-- For MongoDB (String / JavaScript Injection):
+## MongoDB  
 
 The best way to remediate or avoid this type of attack is to simply not use the following $query string-based operators
 or database methods since they have the ability to execute JavaScript: 
@@ -143,11 +142,12 @@ See the following example using the [validation library](https://www.npmjs.com/p
 	}
 ``` 
 <br/>
-- For RethinkDB: 
-[RethinkDB Docs](https://rethinkdb.com/api/javascript) 
-[RethinkDB .js method](https://rethinkdb.com/api/javascript/js) 
-You must still avoid concatenating user supplied input to queries and instead use the binding pattern to keep user input from being misinterpreted as NoSQL commands.  
-It is strongly advised to not include any user supplied data to `rethinkdb.js`. 
+
+## RethinkDB  
+
+- [RethinkDB Docs](https://rethinkdb.com/api/javascript) 
+- [RethinkDB .js method](https://rethinkdb.com/api/javascript/js) 
+You must still avoid concatenating user supplied input to queries and instead use the binding pattern to keep user input from being misinterpreted as NoSQL commands.  It is strongly advised to not include any user supplied data to `rethinkdb.js`. 
 
 - Here's an example of an **UNSAFE** execution: 
 ```
@@ -168,6 +168,9 @@ There are some scenarios, like dynamic search, that make it difficult to use par
 If you are unable to avoid building such a NoSQL call on the fly, then validation and escaping all user data is necessary. 
 Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
 
+
+
+### DynamoDB  
 
 Firstly, ensure to also comply with the official DynamoDB Security Best Practices from AWS: [DynamoDB Preventative Security Best Practices](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices-security-preventative.html) 
 

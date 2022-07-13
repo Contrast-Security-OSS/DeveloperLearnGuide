@@ -19,14 +19,14 @@ If you must execute queries manually, use:
 - For MongoDB: 
 (normal queries) 
 
-[com.mongodb.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.4/javadoc/?com/mongodb/client/MongoDatabase.html) 
-[com.mongodb.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.6/javadoc/?com/mongodb/client/MongoCollection.html 
+- [com.mongodb.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.4/javadoc/?com/mongodb/client/MongoDatabase.html) 
+- [com.mongodb.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.6/javadoc/?com/mongodb/client/MongoCollection.html)
 
 
 (asynchronous queries)
 
-[com.mongodb.async.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoDatabase.html) 
-[com.mongodb.async.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoCollection.html) 
+- [com.mongodb.async.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoDatabase.html) 
+- [com.mongodb.async.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoCollection.html) 
 
 These APIs utilize bind variables. Both techniques completely stop the injection of code if used properly. 
 You must still avoid concatenating user supplied input to queries and instead use the binding pattern to keep user input from being misinterpreted as NoSQL commands. 
@@ -92,7 +92,8 @@ This is difficult to do by hand, but luckily the ESAPI library offers such funct
 The following [APIs](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html) utilize bind variables. You must still avoid concatenating or using user supplied input to queries to keep user input from being misinterpreted as NoSQL injections.
 
 
-Here are two examples of `UNSAFE` queries:
+Here are two examples of `UNSAFE` queries: 
+
 ```
 // Scan Filter
 DynamoDbClient client = DynamoDbClient.create();
@@ -101,9 +102,10 @@ String user = request.getParameter("user");
 client.scan(TableName = 'users', Select = 'ALL_ATTRIBUTES',
 ScanFilter = {'username': {"AttributeValueList": [{"S": user}],
 "ComparisonOperator": "GT"}}) // UNSAFE
-```
+``` 
 
-```// Filter Expression
+```
+// Filter Expression
 DynamoDbClient client = DynamoDbClient.create();
 String user = request.getParameter("user");
 

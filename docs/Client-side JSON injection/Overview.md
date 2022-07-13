@@ -71,11 +71,7 @@ Vulnerabilities like this can also lead to other dangerous attacks, such as Cros
 
 The most effective method of preventing JSON injection is to avoid allowing strings containing data from any untrusted source to be parsed as JSON.
 
-Additionally, ensure to not use the ```eval()``` function to evaluate JSON data, instead use ```JSON.parse()``` to safely parse JSON response data.
-
-
-
-### How can Contrast help?
+Additionally, ensure to not use the ```eval()``` function to evaluate JSON data, instead use ```JSON.parse()``` to safely parse JSON response data. 
 
 
 
