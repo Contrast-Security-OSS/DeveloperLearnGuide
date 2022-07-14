@@ -9,7 +9,7 @@ nav_order: 2
 ## Session Rewriting
 
 ### What Is It?
-
+<br/>
 
 If your application allows browsers that don't support cookies to rewrite session IDs into the URL, it is vulnerable to attack. 
 
@@ -31,17 +31,19 @@ If the victim then authenticates under the attacker's chosen session ID, they ca
 
 Let's walkthrough a simple example:
 
-- User A visits the site http://demo.example.com/
-- Server responds with Set-Cookie: SID=0F2571EFA941B2
+- User A visits the site `http://demo.example.com/`
+- Server responds with Set-Cookie: `SID=0F2571EFA941B2`
 - User A sends User B a message: "Hey, take a look at this demo! http://demo.example.com/?SID=0F2571EFA941B2"
-- User B clicks on link, and is now logged in with with fixated session identifier SID=0F2571EFA941B2
+- User B clicks on link, and is now logged in with with fixated session identifier `SID=0F2571EFA941B2`
 
 
 ### Impact
 
 When successfully exploited, the risk can range from unauthorized access to sensitive data and privileges, ultimately ompromising the confidentiality, integrity, and availability of your application. 
+<br/>
+<br/>
 
-### Prevention 
+## Prevention 
 
 ### Java 
 
@@ -96,6 +98,7 @@ public String encodeURL(String url) {
 3. If using Spring, utilize the `disable-url-rewriting` attribute in your `http` bean definition: `<security:http auto-config="false" use-expressions="true" disable-url-rewriting="true">`
 
 **Note:**  
+<br/>
 It's also a good idea to rotate the user's session ID after they've logged in. That way, if an attacker has compromised or seeded the session in any way, only the user who just proved they are who they say they are (via authentication) will have continued access.  
 This won't affect the user. Rotating the session ID in Java EE applications is fairly easy: 
 ```
@@ -125,6 +128,7 @@ Here is an example of Web.config set to use cookies:
 ``` 
 
 **Note:** 
+<br/>
 It's also a good idea to rotate the user's session ID after they've logged in. That way, if an attacker has compromised or seeded the session in any way, only the user who just proved they are who they say they are (via authentication) will have continued access. This won't affect the user. 
 Unfortunately, rotating the session ID in ASP.NET applications is more difficult than it needs to be. You can't simply force .NET to create a new session. 
 Instead you have to do two things as described in this [article](https://stackoverflow.com/questions/12148647/generating-new-sessionid-in-asp-net) on Generating New SessionIDs in ASP.NET, and these steps need to be done on the login page itself so when the user logs in, they won't have a session. 
@@ -136,6 +140,7 @@ Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", "")); // This erases th
 ``` 
 
 **Note:** 
+<br/>
 Without clearing the old session cookie out of the browser, the browser will present it to the server as part of the Login request and the server will create a new session, but adopt the old session ID presented by the cookie. 
 
 This thwarts the whole point of rotating the session ID, which is why this second line is required. 

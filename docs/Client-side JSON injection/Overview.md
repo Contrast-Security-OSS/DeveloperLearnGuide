@@ -11,7 +11,7 @@ nav_order: 1
 
 
 ### What Is It?
-
+<br/>
 This attack occurs when data from an untrusted source is not sanitized sufficiently, and then parsed directly using the Javascript ```eval()``` function.
 
 Let's walkthrough an vulnerable example. 
@@ -60,13 +60,13 @@ The user now has elevated their tier level for this airline.
 
 
 ### Impact
-
+<br/>
 An attacker may be able to use this flaw in order to process unintended actions on behalf of another user.  
 
 Vulnerabilities like this can also lead to other dangerous attacks, such as Cross Site Scripting (XSS).
 
 ### Prevention
-
+<br/>
 
 
 The most effective method of preventing JSON injection is to avoid allowing strings containing data from any untrusted source to be parsed as JSON.

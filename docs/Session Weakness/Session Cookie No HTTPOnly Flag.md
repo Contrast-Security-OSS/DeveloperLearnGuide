@@ -10,7 +10,7 @@ nav_order: 1
 
 
 ### What Is It?
-
+<br/>
 If your application does not specify the HTTPOnly flag for session cookies, it is vulnerable to attack. 
 
 In most browsers, the HTTPOnly flag prevents a user's cookie from being accessed by various client side scripts, including malicious scripts inserted by Cross-Site Scripting (XSS) attacks. 
@@ -19,14 +19,14 @@ Setting this cookie attribute does not eliminate XSS vulnerabilities, but does r
 
 
 ### Impact
-
+<br/>
 
 This type of vulnerability is often used in a chain-attack, for example XSS. 
 For more information, please visit our guide on: [Cross Site Scripting](/io/DeveloperLearnGuide/Cross Site Scripting (XSS)/Overview)
+<br/>
+<br/>
 
-
-
-### Prevention 
+## Prevention 
 
 ### In Python 
 
