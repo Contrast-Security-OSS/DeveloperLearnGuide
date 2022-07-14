@@ -7,7 +7,7 @@ nav_order: 7
 ---
 
 ## Path Traversal in Go 
-
+<br/>
 
 Let's walkthrough an example of Path Traversal in Go and how to fix this.
 

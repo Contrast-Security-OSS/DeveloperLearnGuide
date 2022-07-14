@@ -7,7 +7,7 @@ nav_order: 5
 ---
 
 ## Path Traversal in Ruby 
-
+<br/>
 Let's walkthrough an example of Path Traversal in Ruby and how to fix this. 
 
 ```

@@ -10,14 +10,14 @@ nav_order: 1
 
 
 ### What Is It? 
-
+<br/>
 An XML External Entity (XXE) attack can occur when an application parses an XML document from an untrusted source, with a parser that doesn't disable resolution of external entities. 
 
 Attackers can supply malicious XML to this interface, and trick the XML interpreter into leaking sensitive server side data back to the attacker.
 
 
 ### Scenario 
-
+<br/>
 
 Let's look at an example attack. The following is a malicious document that an attacker would send. 
 Notice the malicious ENTITY defined in the DOCTYPE: 
@@ -49,7 +49,7 @@ In the majority of cases, attackers who meet the first condition almost always a
 
 
 ### Impact
-
+<br/>
 A successful exploit can result in local files containing sensitive data, such as passwords, being disclosed.
 Additionally, it is also common to use this vulnerability to perform a Denial of Service (DoS) attack. 
 Attackers can also utilize this flaw to laterally traverse to other internal systems, leading to a potential SSRF attack.

@@ -8,8 +8,8 @@ nav_order: 1
 
 ## Regular Expression DoS
 
-## What Is It?
-
+### What Is It?
+<br/>
 
 Regular expressions can reside in every layer of the web. The Regular expression Denial of Service (ReDoS) produces one or more regular expressions or regex(s) that “run on and on” by design. 
 
@@ -18,14 +18,14 @@ Using an “evil regex,” the attacker is able to exploit a web browser on eith
 With a ReDoS attack, carefully crafted inputs trick innocent but regular expressions to run indefinitely. ReDoS will either slow down the application or completely crash it, as the regex engine tries to find a match by running every possible combination of characters. When all permutations fail to find a match, the regular expression will run on forever until manually terminated.
 
 
-## Impact 
-
+### Impact 
+<br/>
 During exploit, While attempting to match the regex, application threads will become overconsumed. 
 As the name suggests, this attack can result in lack of access to services. 
 
 
-## Prevention 
-
+### Prevention 
+<br/>
 There are two ways to fix this vulnerability: prevent the untrusted input from running through the regular expression or fixing the regular expression
 itself. 
 Unfortunately, there is no generic solution for altering an "evil regex" to not allow abuse. There a few hints: 

@@ -7,6 +7,7 @@ nav_order: 7
 ---
 
 ## SQL Injection in Go 
+<br/>
 
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) to safely handle database interaction. 
 

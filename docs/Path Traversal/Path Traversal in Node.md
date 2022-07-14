@@ -6,7 +6,8 @@ parent: Path Traversal
 nav_order: 6
 ---
 
-## Path Traversal in Node 
+## Path Traversal in Node
+<br/>
 
 
 The following [module](https://nodejs.org/api/path.html) contains tools to help reduce the risk of an attacker accessing 

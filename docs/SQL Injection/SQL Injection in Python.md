@@ -7,7 +7,7 @@ nav_order: 5
 ---
 
 ## SQL Injection in Python 
-
+<br/>
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) to safely handles database interaction. 
 
 Common ORMs for Python include [Models](https://docs.djangoproject.com/en/4.0/topics/db/models) and [SQL Alchemy](https://www.sqlalchemy.org). 

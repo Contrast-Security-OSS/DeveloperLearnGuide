@@ -7,7 +7,7 @@ nav_order: 4
 ---
 
 ## Path Traversal in Java 
-
+<br/>
 Let's walkthrough an example of Path Traversal in Java and how to fix this. 
 
 ```
@@ -33,10 +33,12 @@ The NULL byte ```(%00)``` is just another ```char``` to Java, so the malicious v
 
 However, when the value is passed to the operating system's native API, the NULL byte will represent an end-of-string character, and open the attacker's intended file.
 
-**Note:** that Null byte injection in Java was fixed in Java 7 Update 45. Ensure you are using _at least_ this version of Java, in addition to validating the user's input to this File accessor code. 
+**Note:** that Null byte injection in Java was fixed in Java 7 Update 45. 
+Ensure you are using _at least_ this version of Java, in addition to validating the user's input to this File accessor code. 
 
 
 ### How to Fix 
+<br/>
 
 
 To prevent these types of attacks when using Dotnet, try the following steps: 

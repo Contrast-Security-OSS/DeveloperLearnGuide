@@ -9,9 +9,12 @@ nav_order: 3
 # SQL Injection Cheat Sheet 
 
 Organizations need to compile a SQL injection cheat sheet to ensure they effectively prevent SQL injection attacks. 
+<br/>
 Effective vulnerability detection and remediation during application development is a critical linchpin in preventing SQL injection attacks. 
 
-This requires a comprehensive application security approach that shifts security testing to the left—which incurs significantly less time and cost to remediate—and embeds security within software using instrumentation. The latter creates continuous, real-time security testing versus legacy application security scanning approaches that are point in time and produce large volumes of false positives.
+This requires a comprehensive application security approach that shifts security testing to the left—which incurs significantly less time and cost to remediate—and embeds security within software using instrumentation.
+<br/> 
+The latter creates continuous, real-time security testing versus legacy application security scanning approaches that are point in time and produce large volumes of false positives.
 
 Securing applications in development is only one part of the SQL injection equation. Once code is released into production, the same continuous, accurate application security approach is required. 
 
@@ -37,7 +40,7 @@ SQL injection attacks can pose serious risks, and organizations need to ensure t
 It starts when application development commences and extends all of the way through production.
 
 ## How can Contrast Security secure your application against SQL Injection attacks? 
-
+<br/>
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qisfDONFgAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

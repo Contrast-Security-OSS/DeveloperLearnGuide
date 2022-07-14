@@ -9,13 +9,13 @@ nav_order: 4
 ## Command Injection in Java 
 
 ###  Introduction 
-
+<br/>
 Any time user input is used to build a system command, the possibilities for abuse are real but widely misunderstood. 
 In other languages, this is a high impact flaw without much further consideration. In Java, the picture is a little less clear. 
 
 
 ###  How To Fix in Java
-
+<br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk:
 
 
@@ -47,7 +47,7 @@ cmd[1] = statementId;
 Runtime.getRuntime().exec(cmd);
 ```
 
-{{#paragraph}}{{#badConfig}}WARNING!{{/badConfig}} Sometimes, an attacker can "do bad stuff", even if they can't directly inject into the command the application executes. Let's look at an example using /usr/bin/mail on a Linux machine. Even though direct injection isn't possible, the attacker can still attack the /usr/bin/mail program through the parameters.
+**Warning:** Sometimes, an attacker can "do bad stuff", even if they can't directly inject into the command the application executes. Let's look at an example using /usr/bin/mail on a Linux machine. Even though direct injection isn't possible, the attacker can still attack the /usr/bin/mail program through the parameters.
 
 ```
 String body = request.getParameter("body");
@@ -68,7 +68,9 @@ Now consider the user sends in this value for the body parameter:
 ```
  
 
-When processed, /usr/bin/mail interprets the {{#code}}~!{{/code}} to execute the command that follows. The contents of /etc/passwd will end up in the mail that is sent. The point of this is to emphasize the understanding of the interpretive capabilities that exist in the command you are executing, and not just those of the command shell itself. 
+When processed, /usr/bin/mail interprets the {{#code}}~!{{/code}} to execute the command that follows. The contents of /etc/passwd will end up in the mail that is sent.
+<br/>
+The point of this is to emphasize the understanding of the interpretive capabilities that exist in the command you are executing, and not just those of the command shell itself. 
 
 
-It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function. This may help reduce the impact of a successful command injection attack.
+It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function, this may help reduce the impact of a successful command injection attack.

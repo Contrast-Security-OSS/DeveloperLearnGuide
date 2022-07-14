@@ -7,7 +7,7 @@ nav_order: 7
 ---
 
 ## Path Traversal in PHP 
-
+<br/>
 
 Let's walkthrough an example of Path Traversal in PHP and how to fix this.
 

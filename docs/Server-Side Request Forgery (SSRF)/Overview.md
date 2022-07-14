@@ -8,8 +8,8 @@ nav_order: 1
 
 ## Server-Side Request Forgery (SSRF)
 
-## What Is It?
-
+### What Is It?
+<br/>
 SSRF vulnerabilities enable an attacker to trick the targeted application or application programming interface (API) into sending a crafted request to an unexpected destination—turning a vulnerable application into a sort of attack relay that gives an attacker access to internal systems. 
 
 SSRF requires two conditions: 
@@ -18,8 +18,8 @@ SSRF requires two conditions:
 - The attacker controls the server or localhost through the external app/user input 
 
 
-## Impact
-
+### Impact
+<br/>
 
 Since the attacker controls the URL, they can trick the application into invoking internal URLs. 
 This may lead to internal resource enumeration, abuse of internal-only APIs, or the exfiltration of local system resources using the ```file://``` protocol. 
@@ -34,8 +34,8 @@ Attackers could also use this vulnerability to enumerate and interact with inter
 Additionally, attackers could use this vulnerability to make a server reach out to an attacker-controlled server to reveal any data or secrets contained within the HTTP request that is not intended to be seen by the attacke. 
 
 
-## How To Fix 
-
+### How To Fix 
+<br/>
 
 Where possible, do not accept user input to have full control of a URL that is requested by a server. Applications could provide users a list of options to select from, rather than a free-form text field. 
 

@@ -9,8 +9,6 @@ nav_order: 1
 ## Log4Shell
 
 ### Log4j
-<br/>
-
 First, let's talk about the affected package. Log4j is a programming library (ie. pre-written code) that appears in millions of computer applications globally. 
 It is free, open-source, and has been widely-used since 2001.
 
@@ -18,7 +16,6 @@ Applications use Log4j to write short amounts of information into files/database
 
 ### What is Log4Shell? 
 <br/>
-
 Log4Shell is the nickname provided to the Remote Code Execution (RCE) vulnerability that was disclosed in the Log4J utility managed by the Apache Foundation. 
 Specifically, Log4Shell refers to [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) and associated vulnerabilities. 
 

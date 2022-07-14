@@ -9,7 +9,7 @@ nav_order: 4
 
 
 ## SQL Injection in Dotnet 
-
+<br/>
 
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) like [Entity Framework](https://docs.microsoft.com/en-us/ef/) that safely handles database interaction. 
 
@@ -26,7 +26,7 @@ misinterpreted as SQL code.
 
 
 ### Using Parameterization 
-
+<br/>
 
 **C# Example** 
 
@@ -96,6 +96,7 @@ End Try
 
 
 ### Using Stored Procedures
+<br/>
 
 Now, let's see the same query in C# and VB made ```safe``` using Stored Procedures. 
 First, create the stored procedure:
@@ -149,7 +150,7 @@ End Try
 ### Recommendations for .NET Core 
 
 ### Using Parameterization 
-
+<br/>
 
 **C# Example** 
 
@@ -183,7 +184,7 @@ try {
 ``` 
 
 ### Using Stored Procedures 
-
+<br/>
 Now, let's see the same query made ```safe``` using Stored Procedures. 
 First, create the stored procedure: 
 
@@ -219,4 +220,5 @@ There are some scenarios, like dynamic search, that make it difficult to use par
 of variables is not predetermined. 
 
 If you are unable to avoid building such a SQL call on the fly, then validation and escaping all user data is necessary. 
+<br/>
 Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed.

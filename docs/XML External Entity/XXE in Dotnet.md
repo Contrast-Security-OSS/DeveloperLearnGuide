@@ -7,12 +7,12 @@ nav_order: 4
 ---
 
 ## XXE in Dotnet 
-
+<br/>
 Preventing a `XmlReader` from being susceptible to XXE is easy. 
 In some cases, this interpretation is done by a middleware framework and resolving the issue may require updating your dependency or patching the parsing code yourself. 
 
 ### Example 
-
+<br/>
 Here's an example of using `XmlReader`
 
 - **Unsafe example** 

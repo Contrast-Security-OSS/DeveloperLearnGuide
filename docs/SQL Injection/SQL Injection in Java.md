@@ -7,9 +7,10 @@ nav_order: 5
 ---
 
 ## SQL Injection in Java 
-
+<br/>
 
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) like [Hibernate](https://hibernate.org/orm/) that safely handles database interaction. 
+<br/>
 If you must execute queries manually, use [Callable Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for stored procedures and [Prepared Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for normal queries. 
 
 Both of these APIs utilize bind variables. Both techniques completely stop the injection of code if used properly. 
@@ -44,9 +45,9 @@ try {
 
 There are some scenarios, like dynamic search, that make it difficult to use parameterized queries because the order and quantity 
 of variables is not predetermined. If you are unable to avoid building such a SQL call on the fly, then validation and escaping all 
-user data is necessary. 
-Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
-
+user data is necessary.
+<br/>
+Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed.  
 This is difficult to do by hand, but luckily the [ESAPI](https://owasp.org/www-project-enterprise-security-api/) library offers such functionality. 
 
 Here's an example of safely encoding a dynamically built statement for an Oracle database using untrusted data: 
@@ -62,6 +63,7 @@ String query = "SELECT user_id FROM user_data WHERE user_name = '" +
 
 
 ### MyBatis Framework 
+<br/>
 
 MyBatis doesn't modify or escape the string when the ```${}``` syntax is used in dynamic SQL queries.  
 This causes the mapped value to be directly inserted into the query, which can lead to SQL injection attacks. 

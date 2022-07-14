@@ -6,8 +6,8 @@ parent: SQL Injection
 nav_order: 1
 ---
 
-### SQL Injection 
-
+## SQL Injection 
+<br/>
 
 A SQL injection attack consists of an insertion or injection of a SQL query via the input data from the client to the application. SQL commands are injected into data-plane input that affect the execution of predefined SQL commands. 
 
@@ -17,21 +17,22 @@ Hackers use SQL injection attacks to access sensitive business or personally ide
 SQL injection attacks are one of the most prevalent among OWASP Top 10 vulnerabilities, and one of the oldest application vulnerabilities. One recent report lists it as the third most common serious vulnerability.
 
 
-## Impact
-
+### Impact
+<br/>
 
 A successful SQL injection exploit can read sensitive data from the database, modify database data (insert, update, or delete), execute administrative operations on the database, recover the content of a file present in the database management system, and even issue commands to the operating system in some instances.
 
 One example is an attacker could use SQL Injection on a vulnerable application in order to query the database for customer credit card numbers and other data, even if it wasn't part of the query the developer created. 
 
-## When Can It Affect My Application?
+### When Can It Affect My Application?
+<br/>
 
 
 If a web application or website uses SQL databases like Oracle, SQL Server, or MySQL, it is vulnerable to an SQL injection attack. 
 
 
 ## How Do People Attack Using This Flaw?
-
+<br/>
 
 To perform an SQL injection attack, an attacker must locate a vulnerable input in a web application or webpage. When an application or webpage contains a SQL injection vulnerability, it uses user input in the form of an SQL query directly. 
 The hacker can execute a specifically crafted SQL command as a malicious cyber intrusion. 
@@ -41,12 +42,12 @@ Then, leveraging malicious code, a hacker can acquire a response that provides a
 
 An attacker may perform SQL injection with the following approaches: 
 
-### SQL statement that is always true
+- **SQL statement that is always true**
 A hacker executes an SQL injection with an SQL statement that is always true. For instance, 1=1; instead of just entering the “wrong” input, the hacker uses a statement that will always be true. 
 
 Entering “100 OR 1=1” in the query input box will return a response with the details of a table.
 
-### "OR ""="
+- **"OR ""="**
 
 This SQL injection approach is similar to the above. A bad actor needs to enter "OR ""=" into the query input box. These two signs serve as the malicious code to break into the application. Consider the following example. 
 

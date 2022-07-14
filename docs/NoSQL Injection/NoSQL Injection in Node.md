@@ -8,10 +8,8 @@ nav_order: 5
 
 ## NoSQL Injection in Node 
 
-### Prevention 
-
-## MongoDB  
-
+### Prevention in MongoDB
+<br/>
 The best way to remediate or avoid this type of attack is to simply not use the following $query string-based operators
 or database methods since they have the ability to execute JavaScript: 
 
@@ -143,8 +141,8 @@ See the following example using the [validation library](https://www.npmjs.com/p
 ``` 
 <br/>
 
-## RethinkDB  
-
+## Prevention in RethinkDB  
+<br/>
 - [RethinkDB Docs](https://rethinkdb.com/api/javascript) 
 - [RethinkDB .js method](https://rethinkdb.com/api/javascript/js) 
 You must still avoid concatenating user supplied input to queries and instead use the binding pattern to keep user input from being misinterpreted as NoSQL commands.  It is strongly advised to not include any user supplied data to `rethinkdb.js`. 
@@ -170,8 +168,8 @@ Deciding which characters to escape depends on the database in use and the conte
 
 
 
-### DynamoDB  
-
+### Prevention in DynamoDB  
+<br/>
 Firstly, ensure to also comply with the official DynamoDB Security Best Practices from AWS: [DynamoDB Preventative Security Best Practices](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices-security-preventative.html) 
 
 DynamoDB APIs utilize bind variables. You must still avoid concatenating user supplied input to queries to keep user input from being misinterpreted as NoSQL injections. If you are using aws-sdk v2.x, consider querying attribute values as a name-value pair where the data type is specified as a name.

@@ -10,7 +10,7 @@ nav_order: 1
 
 
 ### What Is It? 
-
+<br/>
 
 Path traversal (also known as directory traversal) is an attack that uses an affected application to gain unauthorized access to server file system folders that are higher in the hierarchy than the web root folder. 
 
@@ -20,12 +20,14 @@ Path traversal vulnerabilities can exist in a variety of programming languages, 
 
 
 ### When Can It Affect My Application? 
+<br/>
 
 Path Traversal occurs when remote input is sent to file APIs that select which file to open for read or write.
 
 
 
 ### Impact 
+<br/>
 
 If an application is vulnerable to to Path Traversal, this can enable an attacker to obtain and read senitive files, for example database credentials, source code, and private encyrption keys. 
 

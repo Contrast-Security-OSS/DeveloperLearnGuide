@@ -10,20 +10,20 @@ nav_order: 4
 
 ### Prevention
 <br/>
-
 The most effective method of stopping NoSQL injection attacks is to only use a library like [Hibernate OGM](http://hibernate.org/ogm/) that safely handles database interaction. 
 
 If you must execute queries manually, use:
 
 
-- For MongoDB: 
-(normal queries) 
+**For MongoDB**
+<br/>
+for normal queries: 
 
 - [com.mongodb.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.4/javadoc/?com/mongodb/client/MongoDatabase.html) 
 - [com.mongodb.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.6/javadoc/?com/mongodb/client/MongoCollection.html)
 
 
-(asynchronous queries)
+for asynchronous queries:
 
 - [com.mongodb.async.client.MongoDatabase](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoDatabase.html) 
 - [com.mongodb.async.client.MongoCollection](https://mongodb.github.io/mongo-java-driver/3.8/javadoc/com/mongodb/async/client/MongoCollection.html) 
@@ -87,7 +87,7 @@ This is difficult to do by hand, but luckily the ESAPI library offers such funct
 ```
 <br/>
 
-- For DynamoDB: 
+**For DynamoDB**
 
 The following [APIs](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html) utilize bind variables. You must still avoid concatenating or using user supplied input to queries to keep user input from being misinterpreted as NoSQL injections.
 
@@ -121,7 +121,6 @@ ScanRequest queryReq = ScanRequest.builder()
 ScanResponse response = client.scan(queryReq);
 ```
 <br/>
-
 We recommend the validation and escaping of all user data prior to a database query execution. 
 Creation of a validator depends on the database in use and the context into which the untrusted data is being placed. Custom validators can be created under Security Controls in the Contrast UI.
 <br/>

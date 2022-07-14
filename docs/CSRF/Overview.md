@@ -7,7 +7,7 @@ nav_order: 1
 ---
 
 ### Cross Site Request Forgery 
-
+<br/>
 Application attacks are on the rise and becoming more advanced. On average, applications have more than 10 vulnerabilities when they release into production, leaving significant opportunities for attackers to exploit. 
 
 As developers are pushed to speed release cycles for improved and complex applications, they must quickly and effectively prioritize vulnerability remediation. Too often, cross-site request forgery (CSRF) vulnerabilities are neglected and do not get fixed before code is released into production.
@@ -17,7 +17,7 @@ Though a user's personal data is left unharmed, their personally identifiable in
 
 
 ### What Is It?
-
+<br/>
 
 CSRF application attacks manipulate a user’s web application into executing unwanted commands. 
 
@@ -36,7 +36,7 @@ The most notable difference between the two is authentication, where CSRF attack
 
 
 ### When Can It Affect My Application?
-
+<br/>
 
 CSRF attacks work by targeting vulnerabilities in web applications, which makes them incapable of distinguishing between valid and malicious commands. Web applications are designed to automatically include cookies and session cookies once authentication is successful. 
 
@@ -54,7 +54,7 @@ When a logged in user at your side can submit actions by navigating on other sit
 
 
 ### Impact
-
+<br/>
 The impact of such an attack depends highly on the target application, and privileges of the victim. 
 A successful attack can result in a change to password or email address. For a user with administrator privileges, it could lead to an entire system compromise.  
 
@@ -63,7 +63,7 @@ In the example below we can see how it can be leveraged to transfer funds to the
 The image HTML could be placed in a malicious page by an attacker.
 
 
-(insert image-TBC)
+------->>(insert image-TBC)
 
 
 

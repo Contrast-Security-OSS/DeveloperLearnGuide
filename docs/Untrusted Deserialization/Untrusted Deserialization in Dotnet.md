@@ -6,8 +6,8 @@ parent: Untrusted Deserialization
 nav_order: 5
 ---
 
-# Untrusted Deserialization in Dotnet  
-
+## Untrusted Deserialization in Dotnet  
+<br/>
 As the object being deserialized is originating from an untrusted source, the application must consider that the constructed object may not 
 be the expected type and that some objects may have dangerous side-effects when constructed. An attacker could force the deserializer 
 to construct an object that can be repurposed towards malicious ends - for example, to execute arbitrary commands.
@@ -18,6 +18,7 @@ least one type that can be used as an attack vector.
 
 
 ### BinaryFormatter 
+<br/>
 
 The [BinaryFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter) type is vulnerable to untrusted data by default. We recommend not deserializing user data using the BinaryFormatter when possible. If BinaryFormatter deserialization is required, then a custom [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder) must be implemented to verify all types that BinaryFormatter attempts to materialize. See [BinaryFormatter.Binder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter.binder) and [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder), for implementation details.
 
@@ -33,6 +34,7 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 
 ### SoapFormatter 
+<br/>
 
 The [SoapFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.soap.soapformatter) type is vulnerable to untrusted data by default. The SoapFormatter API was marked as obsolete as of .NET Framework 2.0, Microsoft recommends using the [BinaryFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter).
 
@@ -48,6 +50,7 @@ new SoapFormatter()
 For additional security considerations see [WCF Data Security Considerations](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/security-considerations-for-data).
 
 ### ObjectStateFormatter 
+<br/>
 
 The [ObjectStateFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.objectstateformatter) type is vulnerable to untrusted data when message authentication code (MAC) verification has been not been enabled. This is default when the ObjectStateFormatter is constructed using the parameterless constructor. The ObjectStateFormatter is also used internally by ASP.Net components, and is by default safe, unless MAC verification is disabled.
 
@@ -72,6 +75,7 @@ System.Web.UI.Page.EnableViewStateMac = false;
 For additional security considerations see Microsoft's [Insecure ObjectStateFormatter Code Quality Rule](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca2300-do-not-use-insecure-deserializer-binaryformatter).
 
 ### LosFormatter 
+<br/>
 
 The [LosFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.losformatter) type is vulnerable to untrusted data when message authentication code (MAC) verification has been not been enabled. This is the default when the LosFormatter type is constructed using the parameterless constructor.
 
@@ -91,6 +95,7 @@ For additional security considerations see Microsoft's [Insecure LosFormatter Co
 
 
 ### JavaScriptSerializer
+<br/>
 
 The [JavaScriptSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.web.script.serialization.javascriptserializer) type is vulnerable to untrusted data when the [SimpleTypeResolver](https://docs.microsoft.com/en-us/dotnet/api/system.web.script.serialization.simpletyperesolver) type is used to resolve types during deserialization.
 
@@ -107,7 +112,7 @@ new JavaScriptSerializer(new CustomTypeResolver()); // Safe
 For additional security considerations see Microsoft's [Insecure JavaScriptSerializer Code Quality Rule](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca2321).
 
 ### NetDataContractSerializer 
-
+<br/>
 
 The [NetDataContractSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.netdatacontractserializer) type is vulnerable to untrusted data by default. We recommend not deserializing user data using the NetDataContractSerializer when possible. If NetDataContractSerializer deserialization is required, then a custom [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder) must be implemented to verify all types that NetDataContractSerializer attempts to materialize. See [NetDataContractSerializer.Binder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.netdatacontractserializer.binder) and [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder), for implementation details.
 
@@ -121,6 +126,7 @@ new NetDataContractSerializer()
 For additional security considerations see [WCF Data Security Considerations](https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/security-considerations-for-data#datacontractserializer) or Microsoft's [Insecure NetDataContractSerializer Code Quality Rule](https://docs.microsoft.com/en-us/visualstudio/code-quality/ca2310-do-not-use-insecure-deserializer-netdatacontractserializer).
 
 ### DataContractSerializer 
+<br/>
 
 The [DataContractSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datacontractserializer) type is vulnerable to untrusted data when type information can be supplied with user data. For example:
 
@@ -139,7 +145,7 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 
 ### JsonSerializer (Json.NET) 
-
+<br/>
 
 The Newtonsoft [JsonSerializer](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializer.htm) type is vulnerable to untrusted data when type name handling is enabled - i.e the [TypeNameHandling enum](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_TypeNameHandling.htm) is specified with any value other than `TypeNameHandling.None`. By default, `TypeNameHandling.None` is used.
 

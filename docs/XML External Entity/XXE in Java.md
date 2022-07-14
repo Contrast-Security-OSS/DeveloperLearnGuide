@@ -7,7 +7,7 @@ nav_order: 5
 ---
 
 ## XXE in Java 
-
+<br/>
 Sometimes, fixing XXE issues can be tricky. In some cases, the XML parsing is done by a middleware framework, so your code is never
 observed in the data flow. 
 
@@ -22,7 +22,7 @@ Preventing a `DocumentBuilderFactory` from being susceptible to XXE is easy.
 
 
 ### Example 
-
+<br/>
 Here's an example of using DocumentBuilderFactory: 
 
 - **Unsafe example**
@@ -51,12 +51,12 @@ It turns off the resolution of external entities and disallows the document supp
 
 
 ### XXE Cheat Sheet 
-
+<br/>
 There are other popular Java libraries that require similar steps to be protected. 
 
 These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html)
 
-- SAXParser 
+- SAXParser: 
 ```
     SAXParserFactory factory = SAXParserFactory.newInstance();
     factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
@@ -66,7 +66,7 @@ These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](h
     XMLReader xmlReader = saxParser.getXMLReader(); // This XMLReader is safe to use!
 ``` 
 
-- XOM 
+- XOM: 
 ```
     SAXParserFactory factory = SAXParserFactory.newInstance();
     factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
@@ -79,13 +79,13 @@ These code snippets are all provided by the [OWASP XXE Prevention Cheat Sheet](h
     Document document = parser.build(targetFile);
 ``` 
 
-- XMLInputFactory  
+- XMLInputFactory:  
 ```
     xmlInputFactory.setProperty(XMLInputFactory.SUPPORT_DTD, false); // This disables DTDs entirely for that factory
     xmlInputFactory.setProperty("javax.xml.stream.isSupportingExternalEntities", false); // disable external entities
 ``` 
 
-- Unmarshaller / JAXBContext 
+- Unmarshaller / JAXBContext: 
 ```
     SAXParserFactory spf = SAXParserFactory.newInstance();
     spf.setFeature("http://xml.org/sax/features/external-general-entities", false);

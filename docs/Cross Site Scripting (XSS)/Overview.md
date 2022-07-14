@@ -10,7 +10,7 @@ nav_order: 1
 
 
 ### What Is It?
-
+<br/>
 
 Cross Site Scripting scripting (XSS) describes a web security vulnerability that allows attackers to compromise user interactions by inserting malicious scripts designed to hijack vulnerable applications.  
 
@@ -44,7 +44,7 @@ JavaScript sources are functions or DOM properties that can be influenced by the
 
 
 ### How Does It Work? 
-
+<br/>
 By injecting a malicious client-side script into an otherwise trusted website, scripting XSS cross-site tricks an application into sending malicious code through the browser, which believes the script is coming from the trusted source.  
 It then deceives users by manipulating scripts so that they execute in the manner desired by the attacker.
 
@@ -57,7 +57,7 @@ If the victim user has privileged access within the application, the attacker mi
 
 
 ### Impact 
-
+<br/>
 
 XSS vulnerabilities are especially dangerous because an attacker exploiting an HTML or JavaScript vulnerability can gain the ability to do whatever the user can do, and to see whatever the user can see – including passwords, payments, sensitive financial information, and more. 
 
@@ -71,7 +71,8 @@ The compromised user has elevated privileges within the application, allowing th
 
 
 
-### Prevention
+### Prevention 
+<br/>
 
 OWASP has published a cheat sheet that can be used to prevent XSS attacks. 
 These guidelines focus on three prevention strategies – escaping, validating input, and sanitizing.

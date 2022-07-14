@@ -10,6 +10,7 @@ nav_order: 1
 ## Expression Language Injection 
 
 ### What Is It? 
+<br/>
 
 Expression Language Injection (aka EL Injection) enables an attacker to view server-side data and other configuration details and variables, including sensitive code and data (passwords, database queries, etc.) 
 
@@ -22,13 +23,15 @@ When user data is evaluated by an Expression Language interpreter, it is likely 
 
 
 ### Impact 
+<br/>
 
 Expression Language Injections are very serious server-side vulnerabilities, as they can lead to complete compromise of the application's data and functionality, as well as the server that is hosting the application. 
 
 Expression Language Injection attacks can also use the server as a platform for further attacks against other systems.
 
 
-### Prevention 
+### Prevention
+<br/> 
 
 Ensure to perform data validation best practice against untruste input and to confirm 
 that output encoding is applied when data arrives on the EL layer, so that

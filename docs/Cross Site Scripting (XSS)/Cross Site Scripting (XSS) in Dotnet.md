@@ -10,7 +10,7 @@ nav_order: 2
 ### How To Fix 
 
 ### Recommendations for .NET 
-
+<br/>
 Using Microsoft's AntiXSSLibrary's `AntiXSSEncoder.HtmlEncode()` method:
 
 ```
@@ -25,7 +25,9 @@ Using `AntiXSSEncoder.JavaScriptStringEncode`:
 Response.Write(AntiXSSEncoder.JavaScriptStringEncode(user_supplied_value));
 ```
 
-Our recommendation is to use Microsoft's AntiXSS Library's encoders rather than the built-in .NET ```HttpEncoder``` functions, as ```HttpEncoder``` is known to be weak.  Microsoft's AntiXSS Library significantly improves upon HttpEncoder. We strongly recommend using [AntiXssEncoder](http://msdn.microsoft.com/en-us/library/system.web.security.antixss.antixssencoder%28v=vs.110%29.aspx) over ```HttpEncoder```, including any of the classes that depend on ```HttpEncoder``` such as ```HttpUtility```, ```HttpServerUtility```, and ```HttpResponseHeader```. 
+Our recommendation is to use Microsoft's AntiXSS Library's encoders rather than the built-in .NET ```HttpEncoder``` functions, as ```HttpEncoder``` is known to be weak. 
+<br/>
+Microsoft's AntiXSS Library significantly improves upon HttpEncoder. We strongly recommend using [AntiXssEncoder](http://msdn.microsoft.com/en-us/library/system.web.security.antixss.antixssencoder%28v=vs.110%29.aspx) over ```HttpEncoder```, including any of the classes that depend on ```HttpEncoder``` such as ```HttpUtility```, ```HttpServerUtility```, and ```HttpResponseHeader```. 
 
 For versions of .NET prior to 4.5, the AntiXssEncoder class can be used by installing the [AntiXSS](https://www.nuget.org/packages/AntiXSS/) NuGet package.
 
@@ -36,6 +38,7 @@ If using .NET 4.0 or greater, we also recommend making AntiXSS your default enco
 ```
 
 In addition to proper output encoding, you can also use the built-in XSS global validation feature called ASP.NET Request Validation to help provide a site-wide secondary line of defense against XSS. 
+<br/>
 ASP.NET Request Validation examines each HTTP request and determines whether it contains potentially dangerous content. In this context, potentially dangerous content is any HTML markup or JavaScript code in the body, header, query string, or cookies of the request.
 
 By default, request validation is enabled in the `machine.config`. Verify that request validation is currently enabled in the server's `machine.config` and that the application does not override this setting in its `web.config`. Check that `validateRequest` is set to `true` as shown in the following example:
@@ -46,13 +49,15 @@ By default, request validation is enabled in the `machine.config`. Verify that r
 </system.web>
 ```
 
-**Note:** ASP.NET Request Validation performs negative validation, which is frequently bypassable. 
+**Note:** 
+<br/>
+ASP.NET Request Validation performs negative validation, which is frequently bypassable. 
 As such, we recommend that you explicitly defend against cross-site scripting with proper output encoding wherever user input is included in a response, and only consider this global XSS defense mechanism as a secondary defense-in-depth mechanism.
 
 
 
 ### Recommendations for .NET Core
-
+<br/>
 The Razor view engine used in ASP.NET Core automatically encodes output from variables:
 
 ```

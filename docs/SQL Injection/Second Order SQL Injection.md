@@ -6,7 +6,8 @@ parent: SQL Injection
 nav_order: 
 ---
 
-## Second Order SQL Injection 
+## Second Order SQL Injection
+<br/> 
 
 With a maliciously crafted input, an end user could change the structure of the SQL query and perform a Second order SQL Injection attack, despite not executed **directly** at runtime. 
 
@@ -18,20 +19,20 @@ This would then be stored in the User table, and executed at a later date to ret
 
 
 ### Attack Scenario
-
+<br/>
 TODO.
 
 
 
 ### Impact
-
+<br/>
 
 A successful Second Order SQL injection exploit can read sensitive data from the database. 
 Aditioally it can also extend to privilege escalation, account hijacking, and in some cases, it may be possible for an attacker to gain shell access to the database server.
 
 
 ### Prevention
-
+<br/>
 The most effective method of stopping Second Order SQL injection attacks is to only use [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) like [Hibernate](https://hibernate.org/orm/) that safely handles database interaction. 
 If you must execute queries manually, use [Callable Statements](https://docs.oracle.com/javase/6/docs/api/index.html)for stored procedures and [Prepared Statements](https://docs.oracle.com/javase/6/docs/api/index.html) for normal queries. 
 
@@ -68,8 +69,9 @@ pstmt.execute(); // Safe!
 There are some scenarios, like dynamic search, that make it difficult to use parameterized queries because the order and quantity of variables 
 is not predetermined. 
 
-If you are unable to avoid building such a SQL call on the fly, then validation and escaping all user data is necessary. Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
-
+If you are unable to avoid building such a SQL call on the fly, then validation and escaping all user data is necessary. 
+<br/>
+Deciding which characters to escape depends on the database in use and the context into which the untrusted data is being placed. 
 This is difficult to do by hand, but luckily the[ESAPI](https://owasp.org/www-project-enterprise-security-api/)library offers such functionality. 
 
 Here's an example of safely encoding a dynamically built statement for an Oracle database using untrusted data: 

@@ -41,10 +41,11 @@ If the map has no corresponding value for the key given, then throw an error.
 
 - **Strongly validate the file value** 
 
-Validate the file using an allowlist or regular expression. 
+Validate the file using an allowlist or regular expression.
+<br/>
 
 
-Example Path Traversal validator:
+- Example Path Traversal validator
 
 ```
 namespace Contrast;

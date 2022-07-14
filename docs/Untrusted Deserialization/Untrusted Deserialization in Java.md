@@ -7,7 +7,7 @@ nav_order: 4
 ---
 
 ### Untrusted Deserialization in Java  
-
+<br/>
 
 The application deserializes Java objects from an untrusted source. Because the source is untrusted, the application must consider that 
 it may not be the expected type. An attacker could submit an object whose type is any Java class on the application's classpath.
@@ -17,7 +17,7 @@ here have been several commonly available classes can be used to effect remote c
 
 
 ### Prevention  
-
+<br/>
 
 
 If serialization must occur on user data, the ObjectInputStream must be hardened to ensure only the expected classes are being deserialized. 

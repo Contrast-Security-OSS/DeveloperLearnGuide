@@ -9,7 +9,7 @@ nav_order: 3
 ## Cross Site Scripting (XSS) in Java
 
 ### How To Fix 
-
+<br/>
 
 If the input or output of the parameter can be removed, it should. 
 Otherwise, encode the parameter using the appropriate technique, based on where the parameter is rendered on the page:
@@ -39,7 +39,7 @@ ${fn:escapeXml(userControlledValue)}
 
 
 ### Recommendations for Spring tag 
-
+<br/>
 Here's how you can output text safely with the Spring tag library:
 
 ```

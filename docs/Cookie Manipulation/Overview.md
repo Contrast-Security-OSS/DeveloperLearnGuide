@@ -9,7 +9,7 @@ nav_order: 37
 ## Cookie Manipulation
 
 ### What Is It?
-
+<br/>
 
 The most effective method of preventing Cookie Manipulation is to restrict data from untrusted sources dynamically writing to cookies, and apply appropriate sanitization to all incoming data.
 
@@ -22,7 +22,7 @@ This attack works by using a valid token within the cookie parameter, and hijack
 
 
 ### Prevention  
-
+<br/>
 Ensure you restrict data from untrusted sources dynamically writing to cookies.
 
 Always apply appropriate sanitization to all incoming data to protect your application.

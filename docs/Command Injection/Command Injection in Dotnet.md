@@ -8,8 +8,8 @@ nav_order: 3
 
 ### Command Injection in .NET
 
-## How To Fix
-
+### How To Fix
+<br/>
 Any time user input is used to build a system command, the possibilities for abuse are real. Passing arbitrary command arguments to a process can lead to code execution or similar dangers. Here are a few best practices that may help reduce your risk:
 
 	- Refactor the command line call out. There are many who believe that native OS calls represent an inherently bad software design. In .NET, this is done by using the `System.Diagnostics.Process` class as illustrated in the example below. If possible, use existing .NET APIs, libraries, or external systems to accomplish the functionality without needing a dangerous, platform-dependent .NET-to-OS bridge.
@@ -24,8 +24,7 @@ Let's take a more detailed look at the issue to understand what steps we should 
     p.StartInfo.Arguments = "/c c:\\del_statement.exe " + statementId;
     p.Start();
 
-This is trivially exploitable. For instance, passing the `statementId` a value of `foo & calc`, as shown in the following URL for the code above will cause the calculator to run on the target host:
-http://yoursite.com/app/deleteStatement?statementId=foo+%26+calc
+This is trivially exploitable. For instance, passing the `statementId` a value of `foo & calc`, as shown in the following URL for the code above will cause the calculator to run on the target host: `http://yoursite.com/app/deleteStatement?statementId=foo+%26+calc`
 
 The following version of the same functionality does not exhibit the same risk. In this version, the attacker can only possibly inject additional arguments to the executable, and not actually issue new commands:
 
@@ -36,6 +35,6 @@ The following version of the same functionality does not exhibit the same risk. 
     p.StartInfo.UseShellExecute = false;
     p.Start();
 
-WARNING! Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
+**Warning:** Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
 
-It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function. This may help reduce the impact of a successful command injection attack.
+It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function, this may help reduce the impact of a successful command injection attack.
