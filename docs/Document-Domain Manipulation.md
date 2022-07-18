@@ -1,21 +1,31 @@
 ---
-layout: page
-title: Overview
-permalink: /io/Document-Domain Manipulation/Overview
-parent: Document-Domain Manipulation
-nav_order: 1
+layout: default
+title: Document-Domain Manipulation
+nav_order: 11
 ---
 
-## Document-domain Manipulation
+# Document-Domain Manipulation
+{: .no_toc }
 
+{: .fs-6 .fw-300 }
 
-### What Is It?
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+## Document-Domain Manipulation
+
+## What Is It?
 
 The now [deprecated](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) Document.domain property sets or returns the domain name of the server from which the document originated. 
 
 This results in the property defaulting to the domain name of the server where the document was retrieved, but can be changed to a suffix of this domain name. 
 
-### Scenario
+## Scenario
 
 Uing this property opens up the application to a range of potential security issues. 
 
@@ -28,7 +38,7 @@ Uing this property opens up the application to a range of potential security iss
 As the target page is now compromised, the chain of attacks can potentially lead to Cross Site Scripting (XSS) vulnerabilities.
 
 
-### Prevention
+## Prevention
 
 The most effective method of preventing Document Domain Manipulation is to restrict data from untrusted sources dynamically setting the document.domain property.
 
