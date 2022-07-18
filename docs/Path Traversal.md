@@ -13,8 +13,6 @@
 
 ## Path Traversal 
 
-
-## What Is It? 
 <br/>
 
 Path traversal (also known as directory traversal) is an attack that uses an affected application to gain unauthorized access to server file system folders that are higher in the hierarchy than the web root folder. 
@@ -56,7 +54,7 @@ In some cases, bad actors may also be able to write data to arbitrary files, ena
 
 
 
-## Expression Language Injection by Language
+## Path Traversal by Language
 
 ### Path Traversal in Dotnet 
 

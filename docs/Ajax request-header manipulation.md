@@ -1,13 +1,15 @@
----
-layout: page
-title: Overview
-permalink: /io/Ajax request-header manipulation/Overview
-parent: Ajax request-header manipulation
-nav_order: 1
----
+# Ajax Request Header Manipulation 
+{: .no_toc }
 
+{: .fs-6 .fw-300 }
 
-## Ajax Request Header Manipulation 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ### What Is It?
 
@@ -31,8 +33,6 @@ The most effective method of preventing Ajax Header Manipulation is to restrict 
 ### How can Contrast help?
 
 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 
-
-
-
-
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack. 
