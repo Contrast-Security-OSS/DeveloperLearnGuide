@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Path Traversal
-nav_order: 4
+nav_order: 1
 has_children: true
-permalink: docs/utilities
+permalink: Path Traversal/Path Traversal
 ---
 
 # Path Traversal
