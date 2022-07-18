@@ -41,7 +41,6 @@ In .NET or .NET Core, ensure you **enable header checking** in ASP.NET, as follo
 <br/>
 
 ### Examples
-<br/>
 
 **Java** 
 <br/>
@@ -70,6 +69,8 @@ response.setHeader("Content-Disposition", "attachment; filename=hardcoded.dat");
 <br/>
 
 **.NET/.NET Core** 
+<br/>
+
 Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
 
 ```
