@@ -1,6 +1,8 @@
 # Documentation
 
 Welcome to Contrast Security's Developer Learning Guide.
+Temp placeholder site: https://sara-kathryn.github.io/DeveloperLearnGuide/
+
 
 TODO.
 
