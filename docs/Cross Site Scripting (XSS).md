@@ -210,11 +210,12 @@ Otherwise, encode the parameter using the appropriate technique, based on where 
 | URL Parameter          | ```<a href="/?name={untrusted}">```      | non alpha-numeric   | ```%HH```       |       |
 | CSS           | ```	p { color : {untrusted} };``` | on alpha-numeric  | ```\HH```       | This is not safe for complex properties like ```url``` , ```behavior``` , and ```-moz-binding``` . Strong allowlist validation must be performed to avoid JavaScript URLs and CSS expressions.      |
 | JavaScript        | ```var name = ‘{untrusted}’;``` | non alpha-numeric | ```\xHH;```       | Some JavaScript functions can never safely use untrusted data as input without allowlist validation.      |
+
+<br/>
 <br/>
 
 
-
-#### Using JSP
+**Using JSP**
 <br/>
 
 ```
@@ -225,8 +226,8 @@ Otherwise, encode the parameter using the appropriate technique, based on where 
 ${fn:escapeXml(userControlledValue)}
 ```
 <br/>
-
-#### Recommendations for Spring tag 
+<br/>
+**Recommendations for Spring tag**
 <br/>
 Here's how you can output text safely with the Spring tag library:
 
