@@ -22,23 +22,23 @@ nav_order: 1
 TODO
 
 ### What Is It?
-
+TODO
 
 
 
 
 ### When Can It Affect My Application?
-
+TODO
 
 
 
 
 ### Impact
-
+TODO
 
 
 ### How can Contrast help?
-
+TODO
 
 ## Command Injection by Language 
 
