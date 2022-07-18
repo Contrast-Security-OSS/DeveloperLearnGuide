@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Client Side JSON- Injection
-nav_order: 2
+title: Client Side JSON-Injection
+nav_order: 4
 ---
 
 # Client Side JSON- Injection
@@ -82,3 +82,9 @@ Vulnerabilities like this can also lead to other dangerous attacks, such as Cros
 The most effective method of preventing JSON injection is to avoid allowing strings containing data from any untrusted source to be parsed as JSON.
 
 Additionally, ensure to not use the ```eval()``` function to evaluate JSON data, instead use ```JSON.parse()``` to safely parse JSON response data. 
+
+
+### How can Contrast help? 
+
+
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
