@@ -24,7 +24,9 @@ nav_order: 5
 This attack targets the HTTP header of the application, by injecting malicious input.
 If the user provides a vulnerable input containing newline characters, they could effectively spoof new headers to the browser or intermediate proxies reading the response. 
 <br/>
-If the attacker can trick another end user into submitting a dangerous value  in a malicious link, they may be able to use the resulting corrupted headers to perform XSS, phishing, and other attacks.
+<br/>
+If the attacker can trick another end user into submitting a dangerous value  in a malicious link, they may be able to use the resulting corrupted headers to perform XSS, phishing, and other attacks. 
+<br/>
 <br/>
 Without any victim involvement, this vulnerability may be used to perform an advanced attack called HTTP cache poisoning. This 
 could be used to alter the site's HTML content for other users when they try and view the page, and affect defacement attacks,
@@ -47,13 +49,13 @@ Remove all `\r` and `\n` characters. At a minimum, this prevents attackers from 
 It may be easier to just refactor the user input out of the header. For instance, if the vulnerability is in a `Content-Disposition` header, just deliver a hardcoded file name with the response instead of allowing the user to supply one.
 <br/>
 
-In .NET or .NET Core, ensure you **enable header checking** in ASP.NET, as follows`&lt;httpRuntime enableHeaderChecking="true"/&gt;`
+In .NET or .NET Core, ensure you **enable header checking** in ASP.NET, as follows `&lt;httpRuntime enableHeaderChecking="true"/&gt;`
 <br/>
 <br/>
 
 ### Java Example
 
-**Java** 
+
 <br/>
 
 Here's an `unsafe` example of including user input in a header:
@@ -77,7 +79,7 @@ response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 
 response.setHeader("Content-Disposition", "attachment; filename=hardcoded.dat");
 ```
-<br/>
+
 
 ### .NET/.NET Core Example
 
@@ -97,10 +99,10 @@ Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
 
 ### Node Example 
 
-[name,value](https://nodejs.org/api/http.html#http_response_setheader_name_value) should be used in place of [statusMessage, headers](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers) whenever possible.
+Class [name,value](https://nodejs.org/api/http.html#http_response_setheader_name_value) should be used in place of [statusMessage, headers](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers) whenever possible.
 <br/>
 
-If[name,value](https://nodejs.org/api/http.html#http_response_setheader_name_value) must be used, avoid putting user controlled data into the `statusMessage` argument, as this is not properly sanitized in older versions of Node. 
+If [name,value](https://nodejs.org/api/http.html#http_response_setheader_name_value) must be used, avoid putting user controlled data into the `statusMessage` argument, as this is not properly sanitized in older versions of Node. 
 See the following [commit](https://github.com/nodejs/node/commit/c0f13e56a2) for details.
 <br/>
 

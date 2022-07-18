@@ -22,7 +22,10 @@ nav_order: 7
 ### What Is It? 
 <br/>
 
-In Progress 
+The process of tampering with cookies with the goal of bypassing security measures or sending false information to the server, is called cookie manipulation.
+
+A successful exploit can allow unauthorized access to the victim's account, either by poisioning the original cookie value, or tricking the server into accepting a new version of the initial cookie with modified values.
+
 
 ### Impact
 
@@ -34,10 +37,10 @@ This attack works by using a valid token within the cookie parameter, and hijack
 
 ### Prevention  
 <br/>
-Ensure you restrict data from untrusted sources dynamically writing to cookies.
 
-Always apply appropriate sanitization to all incoming data to protect your application.
+- Ensure you restrict data from untrusted sources dynamically writing to cookies.
 
+- Always apply appropriate sanitization to all incoming data to protect your application.
 
 
 

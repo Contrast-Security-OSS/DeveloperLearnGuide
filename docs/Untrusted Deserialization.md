@@ -53,7 +53,6 @@ least one type that can be used as an attack vector.
 
 ### BinaryFormatter 
 <br/>
-
 The [BinaryFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter) type is vulnerable to untrusted data by default. We recommend not deserializing user data using the BinaryFormatter when possible. If BinaryFormatter deserialization is required, then a custom [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder) must be implemented to verify all types that BinaryFormatter attempts to materialize. See [BinaryFormatter.Binder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter.binder) and [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder), for implementation details.
 
 ```
@@ -69,7 +68,6 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 ### SoapFormatter 
 <br/>
-
 The [SoapFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.soap.soapformatter) type is vulnerable to untrusted data by default. The SoapFormatter API was marked as obsolete as of .NET Framework 2.0, Microsoft recommends using the [BinaryFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter).
 
 We recommend not deserializing user data using the SoapFormatter when possible. If SoapFormatter deserialization is required, then a custom [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder) must be implemented to verify all types that SoapFormatter attempts to materialize. See [SoapFormatter.Binder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.soap.soapformatter.binder) and [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder), for implementation details.
@@ -85,7 +83,6 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 ### ObjectStateFormatter 
 <br/>
-
 The [ObjectStateFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.objectstateformatter) type is vulnerable to untrusted data when message authentication code (MAC) verification has been not been enabled. This is default when the ObjectStateFormatter is constructed using the parameterless constructor. The ObjectStateFormatter is also used internally by ASP.Net components, and is by default safe, unless MAC verification is disabled.
 
 If either .NET Framework 4.5.2 (or greater) or the out-of-band Windows Server update KB2905247 is installed, MAC verification is enforced in ASP.Net Framework components. For more information, refer to [Microsoft Security Advisory 2905247](https://docs.microsoft.com/en-us/security-updates/SecurityAdvisories/2013/2905247).
@@ -110,7 +107,6 @@ For additional security considerations see Microsoft's [Insecure ObjectStateForm
 
 ### LosFormatter 
 <br/>
-
 The [LosFormatter](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.losformatter) type is vulnerable to untrusted data when message authentication code (MAC) verification has been not been enabled. This is the default when the LosFormatter type is constructed using the parameterless constructor.
 
 We recommend not deserializing user data using the LosFormatter when possible. If LosFormatter deserialization is required, then MAC verification must be enabled. This can be done in one of two ways:
@@ -130,7 +126,6 @@ For additional security considerations see Microsoft's [Insecure LosFormatter Co
 
 ### JavaScriptSerializer
 <br/>
-
 The [JavaScriptSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.web.script.serialization.javascriptserializer) type is vulnerable to untrusted data when the [SimpleTypeResolver](https://docs.microsoft.com/en-us/dotnet/api/system.web.script.serialization.simpletyperesolver) type is used to resolve types during deserialization.
 
 ```
@@ -147,7 +142,6 @@ For additional security considerations see Microsoft's [Insecure JavaScriptSeria
 
 ### NetDataContractSerializer 
 <br/>
-
 The [NetDataContractSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.netdatacontractserializer) type is vulnerable to untrusted data by default. We recommend not deserializing user data using the NetDataContractSerializer when possible. If NetDataContractSerializer deserialization is required, then a custom [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder) must be implemented to verify all types that NetDataContractSerializer attempts to materialize. See [NetDataContractSerializer.Binder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.netdatacontractserializer.binder) and [SerializationBinder](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.serializationbinder), for implementation details.
 
 ```
@@ -161,7 +155,6 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 ### DataContractSerializer 
 <br/>
-
 The [DataContractSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datacontractserializer) type is vulnerable to untrusted data when type information can be supplied with user data. For example:
 
 ```
@@ -180,7 +173,6 @@ For additional security considerations see [WCF Data Security Considerations](ht
 
 ### JsonSerializer (Json.NET) 
 <br/>
-
 The Newtonsoft [JsonSerializer](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonSerializer.htm) type is vulnerable to untrusted data when type name handling is enabled - i.e the [TypeNameHandling enum](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_TypeNameHandling.htm) is specified with any value other than `TypeNameHandling.None`. By default, `TypeNameHandling.None` is used.
 
 ```
@@ -249,8 +241,6 @@ here have been several commonly available classes can be used to effect remote c
 
 ### Prevention  
 <br/>
-
-
 If serialization must occur on user data, the ObjectInputStream must be hardened to ensure only the expected classes are being deserialized. 
 Here is an example of **vulnerable** code:
 
@@ -286,19 +276,11 @@ Acme acmeObject = (Acme)in.readObject();
 ``` 
  
 
-
-
-
-
-
-
-
-
 ### Kyro  
+<br/>
 
 The only definite way to protect yourself against side-effects is to allow the types that Kryo is allowed to deserialize. 
 This can be done by requiring registration, which is accomplished by adding one line of code: 
-
 
 ```
 Kryo kryo = new Kryo();
@@ -306,6 +288,7 @@ kryo.setRegistrationRequired(true);
 ``` 
 
 ### XStream 
+<br/>
 
 The only definite way to protect yourself against unwanted side-effects is to [specify](https://x-stream.github.io/security.html) the types 
 that XStream is allowed to deserialize. This can be done by modifying the permissions. Here is an example from XStream's own documentation:
