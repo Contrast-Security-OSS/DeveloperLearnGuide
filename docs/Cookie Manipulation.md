@@ -1,17 +1,28 @@
 ---
-layout: page
-title: Overview
-permalink: /io/Cookie Manipulation/Overview
-parent: Cookie Manipulation
-nav_order: 37
+layout: default
+title: Cookie Manipulation
+nav_order: 7
+---
+
+# Cookie Manipulation
+{: .no_toc }
+
+{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ---
 
 ## Cookie Manipulation
 
-### What Is It?
+### What Is It? 
 <br/>
 
-The most effective method of preventing Cookie Manipulation is to restrict data from untrusted sources dynamically writing to cookies, and apply appropriate sanitization to all incoming data.
+In Progress 
 
 ### Impact
 

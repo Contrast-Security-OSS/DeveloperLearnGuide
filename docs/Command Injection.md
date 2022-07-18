@@ -41,7 +41,6 @@ TODO
 
 
 ## Command Injection by Language 
-<br/>
 
 ### In .NET 
 
@@ -70,7 +69,8 @@ The following version of the same functionality does not exhibit the same risk. 
     p.StartInfo.UseShellExecute = false;
     p.Start();
 
-**Warning:** Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
+**Warning:** 
+Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
 
 It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function, this may help reduce the impact of a successful command injection attack.
 
@@ -78,7 +78,8 @@ It's also always helpful to ensure that the application user is granted only the
 <br/>
 Any time user input is used to build a system command, the possibilities for abuse are real but widely misunderstood. 
 In other languages, this is a high impact flaw without much further consideration. In Java, the picture is a little less clear. 
-
+<br/>
+<br/>
 
 ### In Java
 <br/>
@@ -98,9 +99,10 @@ String cmd = "cmd.exe /c C:/del_statement.exe " + statementId;
 Runtime.getRuntime().exec(cmd);
 ```
 <br/>
+<br/>
 
 ### In Node 
-
+<br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk:
@@ -118,9 +120,10 @@ If the shell (like bash or cmd.exe) is used, malicious input can redirect comman
 <br/>
 If you must allow for user controlled options, use methods such as [child_process.spawn(command[, args][, options])](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options) and [child_process.exec(command[, options][, callback])](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback). 
 <br/>
+<br/>
 
 ### In Python 
-
+<br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk: 
@@ -134,9 +137,11 @@ There are many who believe that calls like `os.system` or `subprocess.Popen` rep
 
 `/bin/sh -` or `cmd.exe /c` commands allow any user input to be processed by the command shell instead of as parameters to a pure native `subprocess.Popen`. 
 For the same reason, when using `subprocess.Popen` or related functions, do not set `shell=True`. If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
+<br/>
+<br/>
 
 ### In Ruby 
-
+<br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk: 
@@ -154,9 +159,10 @@ If the shell (like bash or cmd.exe) is used, malicious input can redirect comman
 <br/>
 If you must allow for user controlled options, use methods such as [exec(cmdname, arg1, ...)](https://ruby-doc.org/core-2.5.1/Kernel.html#method-i-exec:~:text=exec(cmdname%2C%20arg1%2C%20...)), which cleanly separate the arguments from the command itself (which should never be set from user-supplied data), and may help prevent a successful injection attack. 
 <br/>
+<br/>
 
 ### In PHP 
-
+<br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk: 

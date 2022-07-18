@@ -1,9 +1,20 @@
 ---
-layout: page
-title: Overview
-permalink: /io/Cross Domain Policy/Overview
-parent: Cross Domain Policy
-nav_order: 1
+layout: default
+title: Cross Domain Policy
+nav_order: 10
+---
+
+# Cross Domain Policy
+{: .no_toc }
+
+{: .fs-6 .fw-300 }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ---
 
 ## Overly Permissive Cross Domain Policy
@@ -35,7 +46,5 @@ For example, if publicly available APIs and the crossdomain.xml are hosted at ht
 
 
 ### How can Contrast help?
-
-
 
 
