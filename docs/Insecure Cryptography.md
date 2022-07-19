@@ -58,10 +58,8 @@ Not all are made equal, in terms of both complexity and ability to protect data.
 
 Many, still in use, have degraded over time, and are no longer suitable for use.
 Let's take a look at some unsafe examples using a DES cipher:  
-
-
-## Insecure Encryption Algorithms by Language
-
+<br/> 
+<br/> 
 Switching encryption algorithms in the code is very easy; data migration is a much bigger problem. 
 Here's code that uses a DES cipher, which is considered **very weak** by today's standards because of its small key size of 56 bits: 
 
@@ -189,8 +187,6 @@ very easy; data migration is a much bigger problem.
 
 Below are code examples that uses a MD5 digester, which is considered **broken** by today's standards because it's not nearly as collision-resistant as
 once thought: 
-
-## Insecure Encryption Algorithms by Language 
 
 ### Java 
 
