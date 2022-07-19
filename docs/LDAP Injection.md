@@ -40,6 +40,6 @@ Alternatively, user input should be **thoroughly** validated before being used t
 
 ## How can Contrast help?
 
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect LDAP Injection vulnerabilities as they are tested. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

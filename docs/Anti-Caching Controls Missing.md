@@ -192,13 +192,12 @@ response.setDateHeader("Expires", -1); //Prevents caching on proxy servers
 ### Node  
 
 
-
-
-
 The [http module](https://nodejs.org/api/http.html#http_class_http_serverresponse) class exposes a 
+
 ```
 setHeader(name, value)
 ```
+
 function which can be used to add these response headers to control caching:
 
 
@@ -209,6 +208,7 @@ response.header('Expires', '-1'); // prevents caching on proxy servers
 
 
 If using the Express framework, the [helmet](https://www.npmjs.com/package/helmet) middleware can be used to set an app's response headers:
+
 ```
 var express = require('express');
 var helmet = require('helmet');
@@ -233,6 +233,7 @@ The easiest way to prevent this issue from occurring in Rails applications is to
 ```
 
 The approach for Sinatra is similar. Include the [rack protection](https://github.com/sinatra/sinatra/tree/master/rack-protection) gem and add the following to the application configuration extending ```Sinatra::Base```:
+
 ```cache_control :no_cache, :no_store, :must_revalidate
 expires -1
 ```
