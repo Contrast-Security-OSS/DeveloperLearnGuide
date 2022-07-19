@@ -141,7 +141,7 @@ Additionally, SAST generates significant false positives that consume valuable t
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block CSRF vulnerabilities.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block CSRF attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 
 
 

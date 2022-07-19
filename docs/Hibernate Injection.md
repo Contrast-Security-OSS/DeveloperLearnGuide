@@ -157,7 +157,10 @@ iterate (3 versions)
 
 you should replace their use with the replacement method recommended in the [documentation](https://docs.jboss.org/hibernate/orm/3.5/javadoc/org/hibernate/classic/Session.html) for this deprecated interface{{/link}}, and then make sure your use of the replacement method is safe from Hibernate injection.
 
-### How can Contrast help?
-TODO 
+### How can Contrast help? 
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as they are tested by watching HTML output and encoding.
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 
 

@@ -311,4 +311,13 @@ Blog.class.getPackage().getName()+".*"
 To prevent this issue from being reported again, please make sure the ```NoTypePermission.NONE``` permission is added to your XStream 
 instance before it deserializes objects from untrusted sources.
 
+## How can Contrast help?
+
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Untrusted Deserialization vulnerabilities as they are tested by watching HTML output and encoding.
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Untrusted Deserialization attacks at runtime. 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Untrusted Deserialization vulnerabilities in many applications by scanning code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+
+
 

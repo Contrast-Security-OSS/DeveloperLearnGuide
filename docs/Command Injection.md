@@ -18,8 +18,8 @@ nav_order: 1
 ---
 
 ## Command Injection
-
-**In Progresss Image/Video demo?**
+<br/>
+**In Progresss- Do we have any Contrast Branded Diagrams/Video demos of this?** 
 
 With a command injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
 <br/>
@@ -37,7 +37,7 @@ Under this attack, functionality on the application server can be modified and i
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Command Injection attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Command Injection vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack. 
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 
 
 ## Command Injection by Language 
