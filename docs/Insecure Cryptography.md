@@ -22,220 +22,293 @@ nav_order: 5
 The use of outdated and insecure authentication protocols puts your application and sensitive data at serious risk.
 
 
-### Impact
+### How It Works
 
-- The **Basic Authentication** protocol simply hides the plaintext username and password inside of Base64 encoding, and issues it as an Authorization header. To any attacker sniffing network traffic, the credentials may as well be in plaintext. 
+- **Basic Authentication** 
+<br/> 
+This protocol simply hides the plaintext username and password inside of Base64 encoding, and issues it as an Authorization header. To any attacker sniffing network traffic, the credentials may as well be in plaintext. 
 <br/> 
 Base64 offers zero cryptographic functionality. It is a keyless, deterministic algorithm, and most attack tools decode such credentials automatically.
 
-- The **Digest Authentication** protocol is superior to Basic Authentication in that it doesn't offer a user's password in plaintext. Instead, it offers a method of authentication that proves knowledge of a secret (a password) without passing the password directly. 
-<br/>
-Since RFC2617, the optional security features of Digest Authentication have been improved, but not enforced. The disadvantages of the protocol, including the changes in RFC2617, are subtle.
-
-Digest authentication is easily attacked by a man-in-the-middle (MITM) scenario.
-Use of digest authentication precludes the usage of recommended password digests like bcrypt.
-<br/>
+- **Digest Authentication** 
+<br/> 
+This protocol is superior to Basic Authentication in that it doesn't offer a user's password in plaintext. Instead, it offers a method of authentication that proves knowledge of a secret (a password) without passing the password directly. 
+<br/>  
+Since RFC2617, the optional security features of Digest Authentication have been improved, but not enforced. The disadvantages of the protocol, including the changes in RFC2617, are subtle. 
+<br/> 
+Digest authentication is also easily attacked in a man-in-the-middle (MITM) scenario. Use of digest authentication precludes the usage of recommended password digests like bcrypt.
+<br/>  
 Passwords, or some digested combination of the password and other metadata must be available to the server in plaintext in order to use this protocol.
 
 ### How To Fix
 
-In Progress 
+
+Moving authentication protocols is not easy. That being said, there are serious, fundamental weaknesses in the 
+protocols chosen. The best, long term recommendation is to move towards a form-based authentication. 
+
+It is extremely unlikely that specification-driven HTTP authentication protocols will ever meet the security 
+requirements of your organization. It's also unlikely that improvements to these protocols will be integrated into 
+browsers and server frameworks in any reasonable amount of time. 
 
 
 ## Insecure Encryption Algorithms
 
-### What Is It? 
+We use these these types of algorithms in order to transform data into an encrytped state, with the goal of facilitating secure communication. 
+Not all are made equal, in terms of both complexity and ability to protect data. 
 
-In Progress 
+Many, still in use, have degraded over time, and are no longer suitable for use.
+Let's take a look at some unsafe examples using a DES cipher:  
 
-### Unsafe Example
+
+## Insecure Encryption Algorithms by Language
 
 Switching encryption algorithms in the code is very easy; data migration is a much bigger problem. 
 Here's code that uses a DES cipher, which is considered **very weak** by today's standards because of its small key size of 56 bits: 
 
-- Java 
+### Java 
+
+- Unsafe Example
 
 ```
 final Cipher weakCipher = Cipher.getInstance("DES"); // Unsafe!
 ```
 
-- .NET/.NET Core
-```
-DESCryptoServiceProvider weakCipher = new DESCryptoServiceProvider();    // Unsafe!
-``` 
-
-- VB.NET 
-
-```
-Dim weakCipher As New DESCryptoServiceProvider()    ' Unsafe!
-``` 
-
-- Node 
-
-```
-var cipher = crypto.createCipher('DES'); // Unsafe!
-``` 
-
-- Ruby 
-
-```
-cipher = crypto.createCipher('des') // Unsafe!
-``` 
-
-- Python 
-
-```
-cipher = Crypto.Cipher.DES.new(key)
-``` 
-
-
-### How To Fix 
+- Safe Example 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits: 
-
-- Java 
 
 ```
 final Cipher strongCipher = Cipher.getInstance("AES/CTR/NoPadding"); // Safer!
 ``` 
 
-- .NET/.NET Core 
+ ### .NET/.NET Core
+
+- Unsafe Example
 
 ```
+// C#:
+DESCryptoServiceProvider weakCipher = new DESCryptoServiceProvider();    // Unsafe!
+``` 
+
+- Safe Example
+
+The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits: 
+
+```
+// C#:
 Aes strongCipher = Aes.Create();    // Safer!
 ``` 
 
-- VB.NET 
+
+ ### VB.NET
+
+- Unsafe Example
+
+```
+Dim weakCipher As New DESCryptoServiceProvider()    ' Unsafe!
+``` 
+
+- Safe Example
+
+The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
+
 
 ```
 Dim strongCipher As Aes = Aes.Create()    ' Safer!
 ``` 
 
+### Node
+
+
 - Node 
+
+- Unsafe Example
+
+```
+var cipher = crypto.createCipher('DES'); // Unsafe!
+``` 
+
+- Safe Example
+
+The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
 ```
 var cipher = crypto.createCipher('AES'); // Safer!
 ``` 
 
-- Ruby 
+
+### Ruby 
+
+- Unsafe Example
+
+```
+cipher = crypto.createCipher('des') // Unsafe!
+``` 
+
+- Safe Example
+
+The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
 ```
 cipher = OpenSSL::Cipher::AES.new(128, :CTR) // Safer!
 ``` 
 
+
 - Python 
+
+- Unsafe Example
+
+```
+cipher = Crypto.Cipher.DES.new(key)
+``` 
+
+- Safe Example
+
+The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
 ```
 cipher = Crypto.Cipher.AES.new(key, mode=Crypto.Cipher.AES.MODE_CTR)
 ``` 
 
-Although in the past, ECB (electronic codebook) and CBC (cipher block chaining) modes were popular, they both exhibit weaknesses that can be practically exploited. This is why our snippet utilizes the `CTR/NoPadding` mode and transformation. CTR (Counter) mode turns AES into a stream cipher, making the encrypted traffic much more difficult to attack. This allows the code to resist Padding Oracle attacks, which have been used to break numerous systems, including Java Server Faces (JSF), ASP.NET/IIS, and Ruby on Rails.
+## Summary 
+
+Although in the past, ECB (electronic codebook) and CBC (cipher block chaining) modes were popular, they both exhibit weaknesses that can be practically exploited. This is why our snippet utilizes the `CTR/NoPadding` mode and transformation. 
+<br/> 
+CTR (Counter) mode turns AES into a stream cipher, making the encrypted traffic much more difficult to attack. This allows the code to resist Padding Oracle attacks, which have been used to break numerous systems, including Java Server Faces (JSF), ASP.NET/IIS, and Ruby on Rails.
 <br/> 
 You should also always use integrity checking with HMACs, if possible. HMACs usually involve signing the hash of the encrypted blob with the private part of an asymmetric keypair. Without this protection, the code may also be vulnerable to bit flipping and other attacks that result from not guaranteeing the sender generated the ciphertext. Using an HMAC allows you to safely use CBC mode as well.  
 
 
 
-## Insecure Hash Algorithms
-
-### Unsafe Example
+## Insecure Hash Algorithms 
 
 There are lots of times when a hashing algorithm like MD5 or SHA-1 is used in a way that _doesn't_ represent realistic
 risk to your organization. However, if you find yourself needing to switch hashing algorithms, doing it in the code is
 very easy; data migration is a much bigger problem. 
 <br/>  
 
-Here's code that gets a MD5 digester, which is considered **broken** by today's standards because it's not nearly as collision-resistant as
-once thought:  
+Below are code examples that uses a MD5 digester, which is considered **broken** by today's standards because it's not nearly as collision-resistant as
+once thought: 
 
-- Java 
+## Insecure Encryption Algorithms by Language 
+
+### Java 
+
+- Unsafe 
+
 
 ```
 MessageDigest badDigester = MessageDigest.getInstance("MD5"); // Unsafe
 ``` 
 
-- .NET/.NET Core 
-
-```
-MD5 badDigester = MD5.Create();  // Unsafe!
-``` 
-
-- VB.NET 
-
-```
-Dim badDigester As MD5 = MD5.Create()  ' Unsafe!
-``` 
-
-- Node 
-
-```
-var unsafeHash = crypto.createHash('md5'); // Unsafe!
-``` 
-
-- Ruby 
-
-```
-unsafeHash = Digest::MD5.digest('some string value') # Unsafe!
-``` 
-
-- Python 
-
-```
-unsafeHash = Crypto.Hash.MD5.new(b'value to hash') # Unsafe!
-```
-
-
-### How To Fix 
+- Safe  
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):
-
-
-- Java 
 
 ```
 MessageDigest safeDigester = MessageDigest.getInstance("SHA-256"); // Safe!
 ``` 
 
-- .NET/.NET Core 
+
+
+
+### .NET/.NET Core  
+
+- Unsafe 
 
 ```
+// C#:
+MD5 badDigester = MD5.Create();  // Unsafe!
+``` 
+
+- Safe  
+
+The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack): 
+
+```
+// C#:
 SHA256 safeDigester = SHA256Managed.Create();  // Safe!
 ``` 
 
-- VB.NET 
+
+### VB.NET
+
+- Unsafe 
+
+```
+Dim badDigester As MD5 = MD5.Create()  ' Unsafe!
+``` 
+- Safe  
+
+The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
 ```
 Dim safeDigester As SHA256 = SHA256Managed.Create()  ' Safe!
 ``` 
 
-- Node 
+
+### Node 
+
+- Unsafe 
+
+```
+var unsafeHash = crypto.createHash('md5'); // Unsafe!
+``` 
+
+- Safe  
+
+The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
 ```
 var saferHash = crypto.createHash('sha256'); // Safe!
 ``` 
 
-- Ruby 
+### Ruby 
+
+- Unsafe 
+
+```
+unsafeHash = Digest::MD5.digest('some string value') # Unsafe!
+``` 
+
+- Safe  
+
+The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
 ```
 saferHash = Digest::SHA256.digest('some string value') # Safe!
 ``` 
 
-- Python 
+### Python 
+
+- Unsafe 
+
+```
+unsafeHash = Crypto.Hash.MD5.new(b'value to hash') # Unsafe!
+```
+
+- Safe  
+
+The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
 ```
 saferHash = Crypto.Hash.SHA256.new(b'value to hash') # Safe!
 ``` 
 
+## Summary 
 
 Attacks against unsafe digests are more than theoretical; undirected collisions can be found on an average laptop in a few
 seconds. Directed collisions can be generated with relatively modest resources. That being said, all practical attacks would seem
-to require cryptographers of rare quality and the resources of a mid-large sized organization. Therefore, you should carefully
-decide how likely you are to face such an attack when estimating the severity of this issue.
+to require cryptographers of rare quality and the resources of a mid-large sized organization.  
+<br/> 
+Therefore, you should carefully decide how likely you are to face such an attack when estimating the severity of this issue.
 
 ## Weak Number Generation 
 
 It's hard to tell what purpose that the PRNG is used for, but if it's being used to generate secrets, like authentication tokens, remember me codes, or temporary passwords, its contents may be guessable. 
 
 ### Java 
+<br/>  
 
 Weak PRNGs like [Random](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/random/package-summary.html){{#link}} have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
@@ -286,6 +359,7 @@ Using `SecureRandom` more than you have to can lead to performance problems as t
 
 
 ### .NET/.NET Core 
+<br/>  
 
 Weak PRNGs like .NET's `Math.Random` have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be.
 
@@ -319,6 +393,7 @@ double d = (double) BitConverter.ToUInt64(double_bytes,0); // Convert them to a 
 
 
 ### Node 
+<br/>  
 
 Weak PRNGs like javascript's `Math.random` have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
@@ -345,6 +420,7 @@ Care must be taken when encoding these values to your desired character set so t
 
 
 ### Ruby 
+<br/>  
 
 Weak PRNGs like [Random](https://ruby-doc.org/core-2.1.3/Random.html) have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be.
 
@@ -366,6 +442,7 @@ The `Random.rand` function returns a number between 0 and the given integer. How
 Care must be taken when encoding these values to your desired character set so that the length of your character set does not bias the distribution of characters in your output.
 
 ### Python 
+<br/>  
 
 Weak PRNGs like [random.random()](https://docs.python.org/3/library/random.html#random.random) have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
@@ -397,7 +474,7 @@ Care must be taken when encoding these values to your desired character
 set so that the length of your character set does not bias the distribution of
 characters in your output. 
 
-## How can Contrast hekp?
+## How can Contrast help?
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
