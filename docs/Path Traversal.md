@@ -37,23 +37,6 @@ If an application is vulnerable to to Path Traversal, this can enable an attacke
 In some cases, bad actors may also be able to write data to arbitrary files, enabling them to upload malicious files that will automatically run, etc.
 
 
-
-
-
-### How can Contrast help? 
-
-
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block Path Traversal vulnerabilities.
-
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Path Traversal attacks at runtime. 
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
-
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-
-
-
 ## Path Traversal by Language
 
 ### Path Traversal in Dotnet 
@@ -368,7 +351,16 @@ if statement =~ regexp
 ```
 
 
+## How can Contrast help? 
 
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block Path Traversal vulnerabilities.
+
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Path Traversal attacks at runtime. 
+
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
+
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 
 
 

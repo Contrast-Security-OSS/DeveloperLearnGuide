@@ -70,7 +70,7 @@ In the case of Ruby,if you are generating your forms with **Rails**, add the fol
 
 ```html: { autocomplete: "off" }``` 
 
-### How can Contrast help? 
+## How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as you code.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 

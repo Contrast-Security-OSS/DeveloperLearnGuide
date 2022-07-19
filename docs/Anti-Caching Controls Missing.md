@@ -26,14 +26,6 @@ When an application doesnt effectively inform the browsers to not save this cont
 This flaw may be leveraged too expose sensitive information previously displayed to the user, such as passwords and bank details.
 
 
-### How can Contrast help?
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
-
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage. 
-
-
-
 ## Anti-Caching Controls by Language
 
 There are a couple ways in the HTTP response to tell the browser and any intervening proxies to not cache this data. 
@@ -246,7 +238,13 @@ If setting headers is difficult in your infrastructure, you can also simulate th
 <meta http-equiv="Expires" content="-1">
 ```
 
-At a minimum, Contrast expects to see a ```Cache-Control``` setting that contains ```no-store``` and ```no-cache```. This will alleviate client-side browser caching concerns in modern browsers. This control can be delivered with a ```setHeader()``` call or a ```&lt;meta&gt;``` tag.
+At a minimum, Contrast expects to see a ```Cache-Control``` setting that contains ```no-store``` and ```no-cache```. This will alleviate client-side browser caching concerns in modern browsers. This control can be delivered with a ```setHeader()``` call or a ```&lt;meta&gt;``` tag. 
+
+## How can Contrast help?
+
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
+
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.  
 
 
 

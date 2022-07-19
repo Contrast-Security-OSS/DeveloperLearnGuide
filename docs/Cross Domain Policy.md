@@ -45,7 +45,7 @@ For example, if publicly available APIs and the crossdomain.xml are hosted at ht
 
 
 
-### How can Contrast help?
+## How can Contrast help?
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Cross Domain Policy vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Cross Domain Policy n attacks at runtime. 

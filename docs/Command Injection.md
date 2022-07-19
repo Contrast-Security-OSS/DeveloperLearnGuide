@@ -31,15 +31,6 @@ Command injection vulnerabilities are most often found in older, legacy code, su
 Under this attack, functionality on the application server can be modified and invoked. With unauthorized access to data, an account can add additional commands and potentially take complete control of the web server’s host operating system.
 
 
-
-### How can Contrast help?
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Command Injection attacks at runtime. 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Command Injection vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-
-
 ## Command Injection by Language 
 
 ### In .NET 
@@ -177,7 +168,16 @@ If possible, use existing PHP APIs, modules, or external batch systems to accomp
 `/bin/sh -` or `cmd.exe /c` commands allow any user input to be processed by the command shell instead of as parameters to a pure native `system`. 
 
 For the same reason, when using `shell_exec` or related functions, do not set the first parameter as user-supplied input. 
-If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible.
+If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
+
+
+## How can Contrast help?
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
+- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Command Injection attacks at runtime. 
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Command Injection vulnerabilities in many applications by scanning code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+
 
 
 

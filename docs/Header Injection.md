@@ -109,11 +109,11 @@ See the following [commit](https://github.com/nodejs/node/commit/c0f13e56a2) for
 Additionally, ensure that `response.statusMessage` is never set with user controlled data. 
 
 
-### How can Contrast help?
+## How can Contrast help?
 
 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Headeer Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Header Injection attacks at runtime. 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect xpression Header Injection vulnerabilities in many applications by scanning code.
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Header Injection vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

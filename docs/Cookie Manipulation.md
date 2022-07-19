@@ -44,7 +44,7 @@ This attack works by using a valid token within the cookie parameter, and hijack
 
 
 
-### How can Contrast help?
+## How can Contrast help?
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Cookie Manipulation vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Cookie Manipulation attacks at runtime. 

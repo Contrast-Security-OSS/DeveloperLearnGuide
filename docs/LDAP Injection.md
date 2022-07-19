@@ -26,6 +26,8 @@ LDAP Injection occurs when remote attacker input can reach LDAP queries, changin
 This attack occurs in applications that directly query LDAP systems, most often for user lookup or authentication. 
 Attackers often look for signs of an LDAP query on input and add attitional characters to change records. 
 <br/>
+<br/> 
+
 By crafting malicious inputs to this query, an attacker can enumerate the attributes of the available object classes. This may lead to the attacker obtaining, manipulating, or deleting information they are not authorized to access. It may also amount to a complete authentication bypass.
 
 

@@ -30,7 +30,7 @@ This vulnerability may enable the attacker to perform actions on behalf of a use
 The most effective method of preventing Ajax Header Manipulation is to restrict data from untrusted sources dynamically setting Ajax request headers. Ensure to apply all standard security measures such as proper authentication and authorization, as well as validation of input, and appropriate escaping of output.
 
 
-### How can Contrast help?
+## How can Contrast help?
 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
