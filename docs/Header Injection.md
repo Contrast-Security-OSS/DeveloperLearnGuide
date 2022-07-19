@@ -53,7 +53,7 @@ In .NET or .NET Core, ensure you **enable header checking** in ASP.NET, as follo
 <br/>
 <br/>
 
-### Java Example
+### Java 
 
 
 <br/>
@@ -81,7 +81,7 @@ response.setHeader("Content-Disposition", "attachment; filename=hardcoded.dat");
 ```
 
 
-### .NET/.NET Core Example
+### .NET/.NET 
 
 <br/>
 
@@ -97,7 +97,9 @@ Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
 ```
 <br/>
 
-### Node Example 
+### Node 
+
+Let's walkthrough steps to remediate this issue when using Node. 
 
 Class [name,value](https://nodejs.org/api/http.html#http_response_setheader_name_value) should be used in place of [statusMessage, headers](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers) whenever possible.
 <br/>
@@ -109,9 +111,7 @@ See the following [commit](https://github.com/nodejs/node/commit/c0f13e56a2) for
 Additionally, ensure that `response.statusMessage` is never set with user controlled data. 
 
 
-## How can Contrast help?
-
-
+## How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Headeer Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Header Injection attacks at runtime. 

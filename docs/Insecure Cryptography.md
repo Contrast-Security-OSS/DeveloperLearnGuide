@@ -22,7 +22,7 @@ nav_order: 5
 The use of outdated and insecure authentication protocols puts your application and sensitive data at serious risk.
 
 
-### How It Works
+### How It Works 
 
 - **Basic Authentication** 
 <br/> 
@@ -37,11 +37,9 @@ This protocol is superior to Basic Authentication in that it doesn't offer a use
 Since RFC2617, the optional security features of Digest Authentication have been improved, but not enforced. The disadvantages of the protocol, including the changes in RFC2617, are subtle. 
 <br/> 
 Digest authentication is also easily attacked in a man-in-the-middle (MITM) scenario. Use of digest authentication precludes the usage of recommended password digests like bcrypt.
-<br/>  
 Passwords, or some digested combination of the password and other metadata must be available to the server in plaintext in order to use this protocol.
 
-### How To Fix
-
+### How To Fix 
 
 Moving authentication protocols is not easy. That being said, there are serious, fundamental weaknesses in the 
 protocols chosen. The best, long term recommendation is to move towards a form-based authentication. 
@@ -51,7 +49,7 @@ requirements of your organization. It's also unlikely that improvements to these
 browsers and server frameworks in any reasonable amount of time. 
 
 
-## Insecure Encryption Algorithms
+## Insecure Encryption Algorithms 
 
 We use these these types of algorithms in order to transform data into an encrytped state, with the goal of facilitating secure communication. 
 Not all are made equal, in terms of both complexity and ability to protect data. 
@@ -59,11 +57,10 @@ Not all are made equal, in terms of both complexity and ability to protect data.
 Many, still in use, have degraded over time, and are no longer suitable for use.
 Let's take a look at some unsafe examples using a DES cipher:  
 <br/> 
-<br/> 
 Switching encryption algorithms in the code is very easy; data migration is a much bigger problem. 
 Here's code that uses a DES cipher, which is considered **very weak** by today's standards because of its small key size of 56 bits: 
 
-### Java 
+### Java  
 
 - Unsafe Example
 
@@ -75,9 +72,11 @@ final Cipher weakCipher = Cipher.getInstance("DES"); // Unsafe!
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits: 
 
+
 ```
 final Cipher strongCipher = Cipher.getInstance("AES/CTR/NoPadding"); // Safer!
-``` 
+```
+
 
  ### .NET/.NET Core
 
@@ -95,18 +94,17 @@ The following code uses an AES cipher, which is considered much stronger for man
 ```
 // C#:
 Aes strongCipher = Aes.Create();    // Safer!
-``` 
+```
 
+ ### VB.NET 
 
- ### VB.NET
-
-- Unsafe Example
+- Unsafe Example 
 
 ```
 Dim weakCipher As New DESCryptoServiceProvider()    ' Unsafe!
 ``` 
 
-- Safe Example
+- Safe Example 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
@@ -115,18 +113,16 @@ The following code uses an AES cipher, which is considered much stronger for man
 Dim strongCipher As Aes = Aes.Create()    ' Safer!
 ``` 
 
-### Node
+### Node 
 
 
-- Node 
-
-- Unsafe Example
+- Unsafe Example 
 
 ```
 var cipher = crypto.createCipher('DES'); // Unsafe!
 ``` 
 
-- Safe Example
+- Safe Example 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
@@ -152,15 +148,15 @@ cipher = OpenSSL::Cipher::AES.new(128, :CTR) // Safer!
 ``` 
 
 
-- Python 
+### Python  
 
-- Unsafe Example
+- Unsafe Example 
 
 ```
 cipher = Crypto.Cipher.DES.new(key)
 ``` 
 
-- Safe Example
+- Safe Example 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
@@ -171,14 +167,14 @@ cipher = Crypto.Cipher.AES.new(key, mode=Crypto.Cipher.AES.MODE_CTR)
 ## Summary 
 
 Although in the past, ECB (electronic codebook) and CBC (cipher block chaining) modes were popular, they both exhibit weaknesses that can be practically exploited. This is why our snippet utilizes the `CTR/NoPadding` mode and transformation. 
-<br/> 
+<br/><br/> 
 CTR (Counter) mode turns AES into a stream cipher, making the encrypted traffic much more difficult to attack. This allows the code to resist Padding Oracle attacks, which have been used to break numerous systems, including Java Server Faces (JSF), ASP.NET/IIS, and Ruby on Rails.
-<br/> 
+<br/><br/> 
 You should also always use integrity checking with HMACs, if possible. HMACs usually involve signing the hash of the encrypted blob with the private part of an asymmetric keypair. Without this protection, the code may also be vulnerable to bit flipping and other attacks that result from not guaranteeing the sender generated the ciphertext. Using an HMAC allows you to safely use CBC mode as well.  
 
 
 
-## Insecure Hash Algorithms 
+## Insecure Hash Algorithms  
 
 There are lots of times when a hashing algorithm like MD5 or SHA-1 is used in a way that _doesn't_ represent realistic
 risk to your organization. However, if you find yourself needing to switch hashing algorithms, doing it in the code is
@@ -192,7 +188,6 @@ once thought:
 
 - Unsafe 
 
-
 ```
 MessageDigest badDigester = MessageDigest.getInstance("MD5"); // Unsafe
 ``` 
@@ -205,10 +200,7 @@ The following code retrieves a SHA-2 cipher, which is considered **much** strong
 MessageDigest safeDigester = MessageDigest.getInstance("SHA-256"); // Safe!
 ``` 
 
-
-
-
-### .NET/.NET Core  
+### .NET/.NET Core 
 
 - Unsafe 
 
@@ -227,14 +219,14 @@ SHA256 safeDigester = SHA256Managed.Create();  // Safe!
 ``` 
 
 
-### VB.NET
+### VB.NET 
 
 - Unsafe 
 
 ```
 Dim badDigester As MD5 = MD5.Create()  ' Unsafe!
 ``` 
-- Safe  
+- Safe 
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
@@ -243,7 +235,7 @@ Dim safeDigester As SHA256 = SHA256Managed.Create()  ' Safe!
 ``` 
 
 
-### Node 
+### Node  
 
 - Unsafe 
 
@@ -259,9 +251,9 @@ The following code retrieves a SHA-2 cipher, which is considered **much** strong
 var saferHash = crypto.createHash('sha256'); // Safe!
 ``` 
 
-### Ruby 
+### Ruby  
 
-- Unsafe 
+- Unsafe  
 
 ```
 unsafeHash = Digest::MD5.digest('some string value') # Unsafe!
@@ -275,15 +267,15 @@ The following code retrieves a SHA-2 cipher, which is considered **much** strong
 saferHash = Digest::SHA256.digest('some string value') # Safe!
 ``` 
 
-### Python 
+### Python  
 
-- Unsafe 
+- Unsafe  
 
 ```
 unsafeHash = Crypto.Hash.MD5.new(b'value to hash') # Unsafe!
 ```
 
-- Safe  
+- Safe   
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
@@ -291,7 +283,7 @@ The following code retrieves a SHA-2 cipher, which is considered **much** strong
 saferHash = Crypto.Hash.SHA256.new(b'value to hash') # Safe!
 ``` 
 
-## Summary 
+## Summary  
 
 Attacks against unsafe digests are more than theoretical; undirected collisions can be found on an average laptop in a few
 seconds. Directed collisions can be generated with relatively modest resources. That being said, all practical attacks would seem
@@ -299,7 +291,7 @@ to require cryptographers of rare quality and the resources of a mid-large sized
 <br/> 
 Therefore, you should carefully decide how likely you are to face such an attack when estimating the severity of this issue.
 
-## Weak Number Generation 
+## Weak Number Generation  
 
 It's hard to tell what purpose that the PRNG is used for, but if it's being used to generate secrets, like authentication tokens, remember me codes, or temporary passwords, its contents may be guessable. 
 
@@ -309,7 +301,7 @@ It's hard to tell what purpose that the PRNG is used for, but if it's being used
 Weak PRNGs like [Random](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/random/package-summary.html){{#link}} have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
 
-Switching from an insecure pseudo-random number uuidGen (PRNG) to a secure one is easy. Usually, `}unsafe` random numbers are generated one of two ways:
+Switching from an insecure pseudo-random number uuidGen (PRNG) to a secure one is easy. Usually, `unsafe` random numbers are generated one of two ways: 
 
 ```
 Random r = new Random();
@@ -470,7 +462,7 @@ Care must be taken when encoding these values to your desired character
 set so that the length of your character set does not bias the distribution of
 characters in your output. 
 
-## How can Contrast help?
+## How can Contrast help? 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

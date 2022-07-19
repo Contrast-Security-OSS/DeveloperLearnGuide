@@ -56,24 +56,6 @@ Log4Shell is a critical vulnerability, and can allow attackers to execute malici
 If exploited, impact can range from theft of data, installation of malware, and full takeover of system. 
 
 
-
-
-
-### How can Contrast help?
-<br/>
-
-
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 
-This means, Contrast was protecting you against the log4j vulnerability long before it was disclosed as a CVE.
-
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) & [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can identify that the application uses the vulnerable version of Log4j. 
-Our runtime context also allows you to identify which applications use JMSAppender, the specific class that can be exploited using this CVE.
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) application security detects the underlying vulnerability in applications. 
-This means, Contrast will find the next application vulnerability like this one, before it becomes a disclosed CVE or major incident. 
-
-- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can not only detect Lambda functions with vulnerable versions of this library but can also verify whether these functions are vulnerable to Log4Shell.
-
 ## How To Fix
 <br/>
 Teams should leverage the [SBOM](https://www.contrastsecurity.com/security-influencers/securing-the-software-supply-chain-starts-with-a-software-bill-of-materials-sbom) (Software Bill of Materials) that tools like Contrast produce, to locate Log4J and other vulnerable libraries. 
@@ -118,7 +100,7 @@ zip -d log4j-1.x.x.jar org/apache/log4j/net/JMSAppender.class
 zip -d log4j-1.x.x.jar org/apache/log4j/net/SocketServer.class
 ```
 
-### How can Contrast help?
+## How can Contrast help?
 <br/>
 
 
