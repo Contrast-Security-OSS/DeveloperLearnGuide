@@ -14,12 +14,9 @@ To Do:
 
 ## How to contribute
 
-We'd love to hear from you! If you would like to contribute to the Developer Guide, please raise a Pull Request with your changes.
-Any description unclear, please raise a New Issue, and we'll get back to you. 
+We'd love to hear from you! If you would like to contribute to the Developer Guide, please raise a Pull Request with your changes. 
 
-#### Built with:
+Any descriptions unclear? Raise a New Issue, and we'll get back to you. 
 
-- [Jekyll](https://jekyllrb.com/)
-- - [Just-The-Docs Jekyll Theme](https://pmarsceill.github.io/just-the-docs/)
 
 

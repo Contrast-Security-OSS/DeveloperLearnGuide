@@ -16,5 +16,61 @@ nav_order: 16
 {:toc}
 
 ---
+## Overview 
 
-## What Is It?
+Attackers can manipulate the HTTP method to attempt to bypass security controls. 
+The full list of HTTP methods is: 
+
+- HEAD
+- GET
+- POST
+- PUT
+- DELETE
+- TRACE
+- OPTIONS
+- CONNECT
+
+The use of the HEAD method, for example, to access anything in the /admin/* space is the easiest attack. The PUT method can also be used to upload malicious scripts to the server. Often, like in the case of making requests directly to JSPs, one can send an arbitrary string such as "NONSENSE" for the method, and the JSP will render correctly.
+
+
+## How To Fix   
+
+The most complete fix for this issue is simple: remove any `<http-method>` entries from your `<security-constraint>`. 
+
+If you want to selectively enable constraints per individual HTTP methods, you can setup multiple, overlapping constraints to make sure that if a method "falls through" a constraint, it is still handled by a more general constraint that puts some blanket protections across the entire authenticated portion of the site. 
+
+Here's an example of an **unsafe** version: 
+
+```xml
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>/admin/*</url-pattern>
+        <!-- Unsafe! -->
+        <http-method>GET</http-method>
+        <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>admin</role-name>
+    </auth-constraint>
+</security-constraint>
+```
+
+Let's fix this to make it **safer** by removing the HTTP Methods:
+
+```xml
+<security-constraint>
+    <web-resource-collection>
+        <url-pattern>/admin/*</url-pattern>
+        <!-- Safe! No <http-method> entries! -->
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>admin</role-name>
+    </auth-constraint>
+</security-constraint>
+```
+
+
+## How can Contrast help? 
+
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
