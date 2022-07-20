@@ -10,15 +10,12 @@
 {:toc}
 
 ---
-
-
-### What Is It?  
+### Overview 
 
 
 By default, web browsers and proxies aggressively cache web content, including pages as well as their static content, often for performance reasons.
 
 When an application doesnt effectively inform the browsers to not save this content on the client side, it is left vulnerable.
-
 
 
 ### Impact 
@@ -46,7 +43,7 @@ Per [Microsoft's remarks](https://docs.microsoft.com/en-us/dotnet/api/system.web
 
 
 
-```
+```csharp
 Response.AppendHeader("Pragma","no-cache"); // HTTP 1.0 controls
 Response.AppendHeader("Cache-Control","no-store, no-cache, must-revalidate"); // HTTP 1.1 controls
 Response.AppendHeader("Expires", "-1"); //Prevents caching on proxy servers
@@ -55,10 +52,7 @@ Response.AppendHeader("Expires", "-1"); //Prevents caching on proxy servers
 Under ASP.NET Web API 2, where [HttpResponse](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse?view=netframework-4.8) is not accessible, [ActionFilterAttribute](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionfilterattribute?view=aspnet-mvc-5.2) may be used. For example:
 
 
-
-
-
-```
+```csharp
 public class DisableCacheControlAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuted(HttpActionExecutedContext context)
@@ -86,7 +80,7 @@ public class DisableCacheControlAttribute : ActionFilterAttribute
 
 
 
-```
+```csharp
 [DisableCacheControl]
 public class ValuesController : ApiController
 {
@@ -105,24 +99,20 @@ public class ValuesController : ApiController
 ### .NET Core  
 
 
-
-
 ASP.NET Core provides several [mechanisms](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/response?view=aspnetcore-6.0) to set cache control headers. The easiest way to prevent this issue is to specify a cache profile in ```Startup.ConfigureServices```
 
 
 The ResponseCacheAttribute can be added to the actions of each controller to specify caching behavior:
 
-```
+```csharp
 [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 ```
-
-
 
 
 A cache profile can be created, which can be referenced in a ```ResponseCacheAttribute```. Note, that the method called on the ```IServiceCollection``` has changed between ASP.NET 2.X and 3.X:
 
 
-```
+```csharp
 // ASP.NET Core 2.X
 public void ConfigureServices(IServiceCollection services)
 {
@@ -150,19 +140,18 @@ public void ConfigureServices(IServiceCollection services)
             });
     });
 }
-
 ```
 
 Then the cache profile can be used with the ```ResponseCacheAttribute```:
 
-```
+```csharp
 [ResponseCache(CacheProfileName = "NoCache")]
 ```
 
 
 The final way to use cache control is to set the cache headers in the Response object:
 
-```
+```csharp
 Response.Headers.Add("Pragma","no-cache"); // HTTP 1.0 controls
 Response.Headers.Add("Cache-Control","no-store, no-cache, must-revalidate"); // HTTP 1.1 controls
 Response.Headers.Add("Expires", "-1"); //Prevents caching on proxy servers
@@ -174,7 +163,7 @@ Response.Headers.Add("Expires", "-1"); //Prevents caching on proxy servers
 
 The easiest way to prevent this issue from occurring in Java EE applications is to add these ```setHeader()``` calls to a servlet filter for all sensitive content:
 
-```
+```java
 response.setHeader("Cache-Control","no-store, no-cache, must-revalidate"); //HTTP 1.1 controls
 response.setHeader("Pragma","no-cache"); //HTTP 1.0 controls
 response.setDateHeader("Expires", -1); //Prevents caching on proxy servers 
@@ -186,13 +175,14 @@ response.setDateHeader("Expires", -1); //Prevents caching on proxy servers
 
 The [http module](https://nodejs.org/api/http.html#http_class_http_serverresponse) class exposes a 
 
-```
+```js
 setHeader(name, value)
 ```
 
 function which can be used to add these response headers to control caching:
 
-```response.header('Cache-Control', 'private, no-store, no-cache, must-revalidate'); // HTTP 1.1 controls
+```js
+response.header('Cache-Control', 'private, no-store, no-cache, must-revalidate'); // HTTP 1.1 controls
 response.header('Pragma', '-1'); // HTTP 1.0 controls
 response.header('Expires', '-1'); // prevents caching on proxy servers
 ```
@@ -200,7 +190,7 @@ response.header('Expires', '-1'); // prevents caching on proxy servers
 If using the Express framework, the [helmet](https://www.npmjs.com/package/helmet) middleware can be used to set an app's response headers:
 
 
-```
+```js
 var express = require('express');
 var helmet = require('helmet');
 
@@ -213,7 +203,7 @@ app.use(helmet.noCache());
 The easiest way to prevent this issue from occurring in Rails applications is to add these
 **default_headers** calls to the application configuration:
 
-```
+```ruby
 config.action_dispatch.default_headers = {
   'Cache-Control' => 'no-store, no-cache, must-revalidate',
   'Pragma' => 'no-cache',
@@ -223,7 +213,7 @@ config.action_dispatch.default_headers = {
 
 The approach for Sinatra is similar. Include the [rack protection](https://github.com/sinatra/sinatra/tree/master/rack-protection) gem and add the following to the application configuration extending ```Sinatra::Base```:
 
-```
+```ruby
 cache_control :no_cache, :no_store, :must_revalidate
 expires -1
 ```
@@ -231,7 +221,7 @@ expires -1
 
 If setting headers is difficult in your infrastructure, you can also simulate them via ```meta``` tags in the HTML sent to the browser
 
-```
+```xml
 <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -239,7 +229,7 @@ If setting headers is difficult in your infrastructure, you can also simulate th
 
 At a minimum, Contrast expects to see a ```Cache-Control``` setting that contains ```no-store``` and ```no-cache```. This will alleviate client-side browser caching concerns in modern browsers. This control can be delivered with a ```setHeader()``` call or a ```&lt;meta&gt;``` tag. 
 
-## How can Contrast help?
+## How can Contrast help? 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 

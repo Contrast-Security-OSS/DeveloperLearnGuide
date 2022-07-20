@@ -16,7 +16,6 @@ nav_order: 8
 {:toc}
 
 ---
-
 ## Javascript Injection
 
 In Progress 
@@ -43,7 +42,6 @@ This vulnerability may enable the attacker to perform actions on behalf of a use
 The most effective method of preventing JavaScript injection is to restrict data from untrusted sources being executed as JavaScript. 
 <br/> 
 Ensure to apply all standard security measures such as validation of input, and appropriate escaping of output.
-
 
 
 

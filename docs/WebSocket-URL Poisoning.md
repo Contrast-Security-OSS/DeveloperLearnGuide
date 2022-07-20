@@ -16,8 +16,7 @@ nav_order: 16
 {:toc}
 
 ---
-
-## What Is It? 
+## Overview 
 
 
 An attacker may be able to use this vulnerability to create a specific URL. If this is then visited by different user, the browser will open a WebSocket connection to a URL that is under the attacker's control.
