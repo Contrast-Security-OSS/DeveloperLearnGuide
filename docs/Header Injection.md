@@ -16,15 +16,14 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Header Injection
 
-### What Is It?
+### Overview
 <br/>
 This attack targets the HTTP header of the application, by injecting malicious input.
 If the user provides a vulnerable input containing newline characters, they could effectively spoof new headers to the browser or intermediate proxies reading the response. 
 <br/>
-<br/>
+
 If the attacker can trick another end user into submitting a dangerous value  in a malicious link, they may be able to use the resulting corrupted headers to perform XSS, phishing, and other attacks. 
 <br/>
 <br/>
@@ -49,28 +48,23 @@ Remove all `\r` and `\n` characters. At a minimum, this prevents attackers from 
 It may be easier to just refactor the user input out of the header. For instance, if the vulnerability is in a `Content-Disposition` header, just deliver a hardcoded file name with the response instead of allowing the user to supply one.
 <br/>
 
-In .NET or .NET Core, ensure you **enable header checking** in ASP.NET, as follows `&lt;httpRuntime enableHeaderChecking="true"/&gt;`
-<br/>
-<br/>
-
 ### Java 
 
-
 <br/>
 
-Here's an `unsafe` example of including user input in a header:
+Here's an **unsafe** example of including user input in a header:
 
-```
+```java
 // FileDownloadServlet.java
 String fileName = request.getParameter("fileName");
 response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 ```
 <br/>
 
-Now let's fix this query to make it `safe`: 
-```
-Here's a few {{#goodConfig}}safe{{/goodConfig}} variations of the same functionality:{{/paragraph}}
-{{#javaBlock}}// FileDownloadServlet.java
+Now let's fix this query to make it **safe**:
+
+```java
+// FileDownloadServlet.java
 String fileName = request.getParameter("fileName");
 fileName = fileName.replace("\r","").replace("\n","");
 response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
@@ -80,14 +74,13 @@ response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 response.setHeader("Content-Disposition", "attachment; filename=hardcoded.dat");
 ```
 
+### .NET
 
-### .NET/.NET 
-
-<br/>
+First ensure you **enable header checking** in ASP.NET, as follows `&lt;httpRuntime enableHeaderChecking="true"/&gt;`
 
 Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.web>
@@ -95,7 +88,7 @@ Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
   </system.web>
 </configuration>
 ```
-<br/>
+<br/> 
 
 ### Node 
 

@@ -19,46 +19,49 @@ nav_order: 1
 
 ## Command Injection
 <br/>
+
+### Overview 
 **In Progresss- Do we have any Contrast Branded Diagrams/Video demos of this?** 
 
 With a command injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
-<br/>
-
-Command injection vulnerabilities are most often found in older, legacy code, such as CGI scripts. By identifying a critical vulnerability, attackers can insert malicious code in an application, gaining functionality and ultimately executing specific commands that infect the targeted user and system networks. 
-
-### Impact
-
+<br/> 
+Command injection vulnerabilities are most often found in older, legacy code, such as CGI scripts. By identifying a critical vulnerability, attackers can insert malicious code in an application, gaining functionality and ultimately executing specific commands that infect the targeted user and system networks.
+<br/> 
 Under this attack, functionality on the application server can be modified and invoked. With unauthorized access to data, an account can add additional commands and potentially take complete control of the web server’s host operating system.
 
 
 ## Command Injection by Language 
 
-### In .NET 
+### .NET 
 
 Any time user input is used to build a system command, the possibilities for abuse are real. Passing arbitrary command arguments to a process can lead to code execution or similar dangers. Here are a few best practices that may help reduce your risk:
 
-	- Refactor the command line call out. There are many who believe that native OS calls represent an inherently bad software design. In .NET, this is done by using the `System.Diagnostics.Process` class as illustrated in the example below. If possible, use existing .NET APIs, libraries, or external systems to accomplish the functionality without needing a dangerous, platform-dependent .NET-to-OS bridge.
-	- Avoid starting your command with the shell. Starting a command with the shell (e.g. `cmd.exe /c` on Windows or `/bin/sh -c` on Linux) allows any user input in the command to be processed by the command shell instead of as parameters to a native program.  If the shell is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. Instead, calls to `System.Diagnostics.Process.Start` should directly invoke the program you want to execute. Don't pass the program name as a parameter to a shell.
+- Refactor the command line call out. There are many who believe that native OS calls represent an inherently bad software design. In .NET, this is done by using the `System.Diagnostics.Process` class as illustrated in the example below. If possible, use existing .NET APIs, libraries, or external systems to accomplish the functionality without needing a dangerous, platform-dependent .NET-to-OS bridge.
+- Avoid starting your command with the shell. Starting a command with the shell (e.g. `cmd.exe /c` on Windows or `/bin/sh -c` on Linux) allows any user input in the command to be processed by the command shell instead of as parameters to a native program.  If the shell is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. Instead, calls to `System.Diagnostics.Process.Start` should directly invoke the program you want to execute. Don't pass the program name as a parameter to a shell.
 
 
 Let's take a more detailed look at the issue to understand what steps we should take. Here's an example of an unsafe command execution in C#:
 
+```csharp
     String statementId = request.getParameter("statementId");
     Process p = new Process();
     p.StartInfo.Filename = "cmd.exe";
     p.StartInfo.Arguments = "/c c:\\del_statement.exe " + statementId;
     p.Start();
+```
 
 This is trivially exploitable. For instance, passing the `statementId` a value of `foo & calc`, as shown in the following URL for the code above will cause the calculator to run on the target host: `http://yoursite.com/app/deleteStatement?statementId=foo+%26+calc`
 
 The following version of the same functionality does not exhibit the same risk. In this version, the attacker can only possibly inject additional arguments to the executable, and not actually issue new commands:
 
-    String statementId = Request.QueryString("statementId");
+```csharp
+String statementId = Request.QueryString("statementId");
     Process p = new Process();
     p.StartInfo.Filename = "c:\\del_statement.exe";
     p.StartInfo.Arguments = statementId;
     p.StartInfo.UseShellExecute = false;
     p.Start();
+``` 
 
 **Warning:** 
 Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
@@ -72,7 +75,7 @@ In other languages, this is a high impact flaw without much further consideratio
 <br/>
 <br/>
 
-### In Java
+### Java
 <br/>
 Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk:
 
@@ -82,7 +85,8 @@ Most of the time, arbitrary command execution isn't possible, but passing arbitr
 - **Avoid starting your command with /bin/sh -c or cmd.exe /c** These allow any user input in the command to be processed by the command shell instead of as parameters to a pure native CreateProcess(), execve() or similar. If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
 
 Let's take a more detailed look at the issue to understand what steps we should take. Here's an example of an unsafe command execution:
-```
+
+```java
 // DeleteStatementController.java
 
 String statementId = request.getParameter("statementId");
@@ -90,9 +94,8 @@ String cmd = "cmd.exe /c C:/del_statement.exe " + statementId;
 Runtime.getRuntime().exec(cmd);
 ```
 <br/>
-<br/>
 
-### In Node 
+### Node 
 <br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
@@ -104,6 +107,7 @@ There are many who believe that calls like `eval` or `child_process.exec` repres
 
 - **Avoid starting with specific commands* 
 <br/> 
+
 `/bin/sh -` or `cmd.exe /c` commands allow any user input to be processed by the command shell instead of as parameters to a pure native `child_process.spawn`. 
 If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
 
@@ -113,7 +117,7 @@ If you must allow for user controlled options, use methods such as [child_proces
 <br/>
 <br/>
 
-### In Python 
+### Python 
 <br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
@@ -131,7 +135,7 @@ For the same reason, when using `subprocess.Popen` or related functions, do not 
 <br/>
 <br/>
 
-### In Ruby 
+### Ruby 
 <br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>
@@ -152,7 +156,7 @@ If you must allow for user controlled options, use methods such as [exec(cmdname
 <br/>
 <br/>
 
-### In PHP 
+### PHP 
 <br/>
 Any time user input is used to build a system command, this is a high impact flaw.
 <br/>

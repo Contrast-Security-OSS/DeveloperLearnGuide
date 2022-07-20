@@ -16,7 +16,6 @@ nav_order: 4
 {:toc}
 
 ---
-
 ## Log4Shell
 
 ### Log4j
@@ -64,28 +63,20 @@ These inventories provide immediate guidance on which applications are affected 
 We recommend looking at other applications where you have not yet created an inventory. 
 You can use a tool such as SafeLog4J to evaluate these applications. 
 
-Alternatively, check out how we can help to detect and protect your application 
-
-
-
-### Once You have located your Log4j, what should you do?
-<br/>
+Alternatively, check out how we can help to detect and protect your application.  
 
 **Log4j2**
 
 For users of log4j2, please upgrade log4j-core to version 2.17.1. In versions that cannot be upgraded, remove the JNDI Lookup class from the class path via the following: 
 
-```
+```java
 zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class. 
-```
-
+``` 
 
 For custom applications, we recommend that you update the library, rebuild, and redeploy the application
 
 For vendor applications, obtain updated software from the vendor. 
-If they do not have an update or you do not apply the update, your systems and their data are at high risk or remote exploitation.
-
-
+If they do not have an update or you do not apply the update, your systems and their data are at high risk or remote exploitation. 
 
 **Log4j1**
 
@@ -95,14 +86,11 @@ Teams that locate Log4j1 should follow recommendations to either upgrade to log4
 zip -d log4j-1.x.x.jar org/apache/log4j/net/JMSAppender.class
 ```
 
-
 ```
 zip -d log4j-1.x.x.jar org/apache/log4j/net/SocketServer.class
 ```
 
-## How can Contrast help?
-<br/>
-
+## How can Contrast help? 
 
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 
 This means, Contrast was protecting you against the log4j vulnerability long before it was disclosed as a CVE.

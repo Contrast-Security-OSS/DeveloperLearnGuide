@@ -16,12 +16,10 @@ nav_order: 12
 {:toc}
 
 ---
-
-
 ## SMTP Injection
 
 
-### What Is It?
+### Overview 
 
 SMTP Injection is an attack that can be used to control part of the outgoing email or inject attachments.
 When email or contact form headers are set and interpreted, these are turned into SMTP commands, and subsequently proocessed by the SMTP server. 
@@ -39,18 +37,18 @@ As is shown, the user controls a piece of the outgoing SMTP message. Depending o
 - By controlling headers directly, they can create malicious attachments, re-route the message, or other undesirable behavior.
 
 
-## Prevention 
+## Prevention  
 
 Use indirect references, or static/trusted data to supply all the fields and headers of an SMTP message. 
 As always, sanitize all user input. 
 
-### Java
+### Java 
 
 Let's walkthrough preventing this vulnerability when using Java in your application.
 
 Here's an **unsafe** example of letting the user control the e-mail user input in a SMTP header:
 
-```
+```java
 String subject = request.getParameter("subject");
 Message msg = new MimeMessage(session);
 msg.setSubject(subject);
@@ -58,7 +56,7 @@ msg.setSubject(subject);
 
 By using an indirect reference, we can allow the user to control the subject, without allowing them to supply an arbitrary value: 
 
-```
+```java
 String subject = null;
 String subjectId = request.getParameter("subject");
 Message msg = new MimeMessage(session);
@@ -78,7 +76,7 @@ Next, let's look at prevention of SMTP Injection when using .NET.
 
 Here's an **unsafe** example of letting the user control the e-mail user input in a SMTP header:
 
-```
+```csharp
 string subject = Request.QueryString["subject"];
 
 var mailMessage = new MailMessage();
@@ -87,7 +85,7 @@ mailMessage.Subject = subject;
 
 By using an indirect reference, we can allow the user to control the subject, without allowing them to supply an arbitrary value:
 
-```
+```csharp
 string subject;
 switch (Request.QueryString["subject"])
 {
@@ -100,9 +98,7 @@ var mailMessage = new MailMessage();
 mailMessage.Subject = subject;
 ```
 
-
-
-## How can Contrast help? 
+## How can Contrast help?  
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect CMTP Injection vulnerabilities as you code.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SMTP Injection attacks at runtime. 

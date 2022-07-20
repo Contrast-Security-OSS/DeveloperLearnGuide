@@ -46,7 +46,7 @@ The malicious user may elevate this to other, more serious, attacks such as Cros
 
 ## Arbitrary Server Side Forwards by Langugage
 
-### Arbitrary Server Side Forwards in Java 
+### Java 
 
 For applications running in Java, the application takes input from the user, and uses it to build a file path to which the user is forwarded. 
 If a user controls a part of that path, they may be able to direct themselves to sensitive files, like ```/WEB-INF/web.xml```, application code, or configuration files, which may contain passwords. 
@@ -54,7 +54,7 @@ If a user controls a part of that path, they may be able to direct themselves to
 
 There's probably some code in your application that looks like this:
 
-```
+```java
 String target = request.getParameter("target");
 request.getRequestDispatcher(target).forward(request, response);
 ``` 
@@ -71,7 +71,7 @@ If the functionality can't be abstracted away from the ```RequestDispatcher```, 
 supplied should be thoroughly validated. For instance, if the user is only allowed to access XML files in ```/data/```, your code 
 could look like this:
 
-```
+```java
 Pattern p = Pattern.compile("^/data/[A-Za-z0-9]+\\.xml$");
 String target = request.getParameter("target");
 if( p.matcher(target).matches() ) {
@@ -80,18 +80,15 @@ if( p.matcher(target).matches() ) {
     response.sendError(404);
 }
 ```
-<br/>
 
-### Arbitrary Server Side Forwards in .NET 
+### .NET 
 
 For applications running in **.NET**, the application takes input from the user, and uses it to build a path to another page to which execution is transferred. Users can bypass IIS and ASP.NET's authentication and authorization checks if a user controls a part of that path. 
 IIS and ASP.NET do not perform authorization checks for the target page of the Transfer() and Execute() methods. That is, authorization modules (such as ```FileAuthorizationModule``` or ```UrlAuthorizationModule```) that occur earlier in the ASP.NET pipeline are executed for the initial page but the ```Transfer()``` and ```Execute()``` methods pass execution to a new handler without re-executing steps earlier in the pipeline. 
 
-
-
 For example, consider the following code: 
 
-```
+```csharp
 String target = Request.QueryString("target");
 Server.Transfer(target);
 ``` 
@@ -107,7 +104,7 @@ Ideally the target of Response.Redirect should not include user data (in order t
 - If the application functionality must use ```Transfer()``` or ```Execute()```, the user-supplied value should be thoroughly validated. 
 For instance, if the user is only allowed to access aspx files in ```/data/```, your code could look like this:
 
-```
+```csharp
 // C#:
 Regex p = new Regex("^/data/[A-Za-z0-9]+\\.aspx$");
 String target = Request.QueryString("target");
@@ -116,7 +113,8 @@ Server.Transfer(target);
 } else {
 // process error
 }
-
+```
+```vb
 ' VB.NET:
 Dim p As New Regex("^/data/[A-Za-z0-9]+\\.aspx$")
 Dim target As String = Request.QueryString("target")
@@ -127,8 +125,7 @@ Else
 End
 ``` 
 
-
-## How can Contrast help?
+## How can Contrast help? 
 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Arbitrary Server Side Forward vulnerabilities as they are tested by watching HTML output and encoding.

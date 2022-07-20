@@ -16,13 +16,11 @@ nav_order: 8
 {:toc}
 
 ---
-
 ## Log Injection
 
 ### What Is It? 
-<br/>
 
-In Progress
+**In Progress**
 
 In a log injection, a malicious user could provide newline characters in this input and spoof new log entries. 
  
@@ -33,8 +31,6 @@ It's unlikely that this could cause real harm to any of the application stakehol
 ### How To Fix 
 
 Sanitize or validate all input that is going to be logged. Make sure users can't provide newline characters that get into log messages.
-
-
 
 
 ## How can Contrast help? 

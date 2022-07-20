@@ -16,16 +16,15 @@ nav_order: 11
 {:toc}
 
 ---
-
 ## Document-Domain Manipulation
 
-## What Is It?
+## Overview 
 
 The now [deprecated](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) Document.domain property sets or returns the domain name of the server from which the document originated. 
 
 This results in the property defaulting to the domain name of the server where the document was retrieved, but can be changed to a suffix of this domain name. 
 
-## Scenario
+## Scenario 
 
 Uing this property opens up the application to a range of potential security issues. 
 
@@ -38,13 +37,13 @@ Uing this property opens up the application to a range of potential security iss
 As the target page is now compromised, the chain of attacks can potentially lead to Cross Site Scripting (XSS) vulnerabilities.
 
 
-## Prevention
+## Prevention 
 
 The most effective method of preventing Document Domain Manipulation is to restrict data from untrusted sources dynamically setting the document.domain property.
 
 
 
-## How can Contrast help? 
+## How can Contrast help?  
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect this vulnerability in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

@@ -16,11 +16,9 @@ nav_order: 10
 {:toc}
 
 ---
-
 ## Overly Permissive Cross Domain Policy
 
-### What Is It?
-
+### Overview 
 
 A Cross Domain Policy defines the list of permissions that a web client uses to access data across domains.
 When your application has an **overly permissive cross domain policy**, it is open to attack.
@@ -31,10 +29,7 @@ Allowing any domain to have access to this site essentially turns off the browse
 
 This means that if a malicious actor can trick someone into visiting their page on attacker-website-here, they can make requests on that user's behalf to your site and steal data or perform any other operation
 
-
-
-
-### Prevention
+### Prevention 
 
 Remove any leading wildcards from domain attributes of allow-access-from elements in your crossdomain.xml. 
 
@@ -45,7 +40,7 @@ For example, if publicly available APIs and the crossdomain.xml are hosted at ht
 
 
 
-## How can Contrast help?
+## How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Cross Domain Policy vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Cross Domain Policy n attacks at runtime. 

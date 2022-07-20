@@ -17,22 +17,19 @@ nav_order: 10
 {:toc}
 
 ---
-
-
 ## XPath Injection
 
-
-### What Is It? 
+### Overview 
 
 When an XPath query is built dynamically with data from the user without validation or encoding, attackers can change the behavior of the query to retrieve other, possibly sensitive, information. 
 
 The solution to this problem is to validate or encode the untrusted user data so that it can't change the underlying structure of the XPath query.
 
-### Java 
+### Java  
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
-```
+```java
 String username = request.getParameter("user");
 String password = request.getParameter("pass");
 String expression = "/employees/employee[loginID/text()='" + username + "' and passwd/text()='" + password + "']"; // Unsafe!
@@ -40,9 +37,9 @@ NodeList matchingEmployees = (NodeList) xPath.evaluate(expression, inputSource, 
 ``` 
 
 
-Here's an example of `safely` parameterizing an XPath query, which was adapted from the following [questio](https://stackoverflow.com/questions/6749448/is-it-possible-parameterize-a-compiled-java-xpath-expression-ala-preparedstatement):
+Here's an example of `safely` parameterizing an XPath query, which was adapted from the following [question](https://stackoverflow.com/questions/6749448/is-it-possible-parameterize-a-compiled-java-xpath-expression-ala-preparedstatement):
 
-```
+```java
 // XPathParameterizingResolver.java
 public class XPathParameterizingResolver implements XPathVariableResolver {
 
@@ -72,13 +69,11 @@ NodeList matchingEmployees = (NodeList) expr.evaluate(doc, XPathConstants.NODESE
 
 The [library](https://owasp.org/www-project-enterprise-security-api/) offers a [function](https://github.com/esapi/esapi-java-legacy) to remove the need for parameter binding. This function allows some characters (like commas, periods, and others) and HTML encodes all other known entities. This might offer a lower-touch solution for addressing injection concerns.
 
-
-
-### .NET/.NET Core 
+### .NET 
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
-```
+```csharp
 String username = Request.QueryString("username");
 String password = Request.QueryString("password");
 
@@ -95,7 +90,7 @@ The .NET XPath library provides a parameterized interface when using the XPathNa
 Note that this example requires an implementation of the abstract class XsltContext and interface IXsltContextVariable. These are named `CustomContext` and `XPathExtensionVariable` in the following examples, respectively. Documentation on how to properly implement these types can be found [here](https://docs.microsoft.com/en-us/dotnet/standard/data/xml/user-defined-functions-and-variables) 
 
 
-```
+```csharp
 String username = Request.QueryString("username");
 String password = Request.QueryString("password");
 
@@ -120,7 +115,7 @@ XPathNodeIterator matchingEmployees = navigator.Select(xpath);
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
-```
+```csharp
 // [FromQuery] string username
 // [FromQuery] string password
 
@@ -137,7 +132,7 @@ The .NET XPath library provides a parameterized interface when using the XPathNa
 Note that this example requires an implementation of the abstract class XsltContext and interface IXsltContextVariable. These are named `CustomContext` and `XPathExtensionVariable` in the following examples, respectively. Documentation on how to properly implement these types can be found [here](https://docs.microsoft.com/en-us/dotnet/standard/data/xml/user-defined-functions-and-variables). 
 
 
-```
+```csharp
 // [FromQuery] string username
 // [FromQuery] string password
 
@@ -160,7 +155,7 @@ XPathNodeIterator matchingEmployees = navigator.Select(xpath);
 This method of performing the XPath query will be sufficient in most cases. Considerations should be made to correctly implement `CustomContext` and `XPathExtensionVariable` as these types can override default behaviors. The following is a basic example of these types: 
 
 
-```
+```csharp
 public class CustomContext : XsltContext
 {
     public override bool Whitespace => true;
@@ -180,6 +175,8 @@ public class CustomContext : XsltContext
         return new XPathExtensionVariable(prefix, name);
     }
 }
+
+// and 
 
 public class XPathExtensionVariable : IXsltContextVariable
 {
@@ -208,7 +205,7 @@ public class XPathExtensionVariable : IXsltContextVariable
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
-```
+```ruby
 username = params['username']
 password = params['password']
 find_user_xpath = "//Customer[UserName/text()='" + username + "' And Password/text()='" + password + "']" // Unsafe!
@@ -217,7 +214,7 @@ result = XPath.evaluate(find_user_xpath)
 
 Be sure to avoid using string interpolation to pass parameters containing user input. Pass them as hash parameter values, or as parameterized statements instead. Depending on your web framework, text may automatically be properly escaped. For instance, as of Rails 3, html and javascript text is automatically properly escaped so it renders as plain text on the page instead of being interpreted as a language. In case input is not automatically escaped, here's an example of {{#goodConfig}}safely{{/goodConfig}} parameterizing an XPath query:
 
-```
+```ruby
 username = params['username']
 password = params['password']
 find_user_xpath = "//Customer[UserName/text()='" + username.replace("'", "&apos;") + "' And Password/text()='" + password.replace("'", "&apos;") + "']"
@@ -231,7 +228,7 @@ You can also mitigate the risk of XPath Injection attacks by using an ORM.
 
 Untrusted user input should not be used to build an XPath query. For example, the following is not safe since user input is used to build the query string without sanitization: 
 
-```
+```python
 name = request.GET.get("name")
 query = ".//*[@name = '{}']".format(name)
 result = lxml_node.xpath(query)
@@ -254,7 +251,7 @@ Untrusted user input should not be used to build an XPath query. For example, th
 without sanitization:
 
 
-```
+```php
 $unsafeQuery = sprintf(".//*[@name = '%s']", $nameFromRequest);
 $xpath = new \DOMXPath($xmlDocument);
 $result = $xpath->query($unsafeQuery);
@@ -267,7 +264,7 @@ untrusted data when generating queries.
 
 Untrusted user input should not be used to build an XPath query. For example, the following is not safe since user input is used to build the query string without sanitization. The user could potentially provide special characters or string sequences that change the meaning of the XPath expression to search for different values.: 
 
-```
+```js
 const express = require('express');
 const xpath = require('xpath');
 const app = express();
@@ -285,7 +282,7 @@ node: root
 
 Instead, embed the user input using the variable replacement mechanism offered by xpath: 
 
-```
+```js
 const express = require('express');
 const xpath = require('xpath');
 const app = express();

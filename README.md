@@ -1,6 +1,7 @@
-# Documentation
+# Developer Security by Contrast Security
 
-Welcome to Contrast Security's Developer Learning Guide.
+Welcome to Contrast Security's Developer Security Guide.
+
 Temp placeholder site: https://sara-kathryn.github.io/DeveloperLearnGuide/
 
 To Do:
@@ -13,8 +14,8 @@ To Do:
 
 ## How to contribute
 
-If you would like to add to the Developer Guide, please raise a Pull Request with your changes.
-
+We'd love to hear from you! If you would like to contribute to the Developer Guide, please raise a Pull Request with your changes.
+Any description unclear, please raise a New Issue, and we'll get back to you. 
 
 #### Built with:
 

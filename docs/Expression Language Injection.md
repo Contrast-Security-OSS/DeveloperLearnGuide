@@ -16,10 +16,9 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Expression Language Injection
 
-### What Is It? 
+### Overview 
 
 Expression Language Injection (aka EL Injection) enables an attacker to view server-side data and other configuration details and variables, including sensitive code and data (passwords, database queries, etc.) 
 
@@ -48,9 +47,7 @@ The most obvious patterns to detect include ```${``` and ```#{```, but it may be
 this data.
 
 
-## How can Contrast help?
-
-
+## How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Expression Language Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Expression Language Injection attacks at runtime. 

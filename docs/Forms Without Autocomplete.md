@@ -16,15 +16,12 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Forms Without Autocomplete 
 
-### What Is It? 
+### Overview
 
 Many applications have the ability to store information entered into HTML forms, for easier user experience.
 When this setting is enabled, the data entered by the user can be stored locally on the user's device, or retrieved by the browser.  
-
-
 
 
 ### When Can It Affect My Application? 
@@ -44,29 +41,28 @@ Disabling `autocomplete` on form values is easy.
 All you have to do is add an ```autocomplete attribute
 with a setting of `off`, as is shown in the password field of this example: 
 
-```
+```html
 <form action="/login" method="POST">
     <input type="text" name="username">
     <input type="password" name="userpass" autocomplete="off">
 </form>
 ```
 
-
-However, to prevent Contrast from flagging the form, you should disable `autocomplete` on the entire
+For full protection, you should disable `autocomplete` on the entire
 `<form>`, as shown here:
 
-```
+```html
 <form action="/login" method="POST" autocomplete="off">
     <input type="text" name="username">
     <input type="password" name="userpass">
 </form>
 ```
 
-
-
 In the case of Ruby,if you are generating your forms with **Rails**, add the following section to your `form_for`:
 
-```html: { autocomplete: "off" }``` 
+```ruby
+html: { autocomplete: "off" }
+``` 
 
 ## How can Contrast help? 
 

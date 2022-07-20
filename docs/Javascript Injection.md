@@ -22,8 +22,8 @@ nav_order: 8
 In Progress 
 
 
-### What Is It? 
-<br/>
+### Overview 
+
 Any time your website or application accepts and displays user input, you are at risk for ccode injectio. 
 Thes can occur any time when poor data handling is exploited, and malicious code is accepted and executed.
 Javascript injections occur in the following ways:
@@ -40,9 +40,8 @@ This vulnerability may enable the attacker to perform actions on behalf of a use
 
 ## How To Fix 
 
-
 The most effective method of preventing JavaScript injection is to restrict data from untrusted sources being executed as JavaScript. 
-<br/>
+<br/> 
 Ensure to apply all standard security measures such as validation of input, and appropriate escaping of output.
 
 

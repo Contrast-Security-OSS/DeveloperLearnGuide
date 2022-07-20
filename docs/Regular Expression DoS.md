@@ -16,11 +16,9 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Regular Expression DoS
 
-### What Is It?
-<br/>
+### Overview 
 
 Regular expressions can reside in every layer of the web. The Regular expression Denial of Service (ReDoS) produces one or more regular expressions or regex(s) that “run on and on” by design. 
 
@@ -45,7 +43,7 @@ Unfortunately, there is no generic solution for altering an "evil regex" to not 
 - Avoid using unbounded quantifiers -- i.e., use `a{15}` rather than `a+` 
 
 
-### How can Contrast help?
+### How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect ReDoS vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block ReDoS attacks at runtime. 

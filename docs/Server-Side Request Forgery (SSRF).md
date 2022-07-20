@@ -16,11 +16,10 @@ nav_order: 6
 {:toc}
 
 ---
-
 ## Server-Side Request Forgery (SSRF)
 
-### What Is It?
-<br/>
+### Overview 
+
 SSRF vulnerabilities enable an attacker to trick the targeted application or application programming interface (API) into sending a crafted request to an unexpected destination—turning a vulnerable application into a sort of attack relay that gives an attacker access to internal systems. 
 
 SSRF requires two conditions: 
@@ -29,8 +28,7 @@ SSRF requires two conditions:
 - The attacker controls the server or localhost through the external app/user input 
 
 
-### Impact
-<br/>
+### Impact 
 
 Since the attacker controls the URL, they can trick the application into invoking internal URLs. 
 This may lead to internal resource enumeration, abuse of internal-only APIs, or the exfiltration of local system resources using the ```file://``` protocol. 
@@ -46,14 +44,13 @@ Additionally, attackers could use this vulnerability to make a server reach out 
 
 
 ### How To Fix 
-<br/>
 
 Where possible, do not accept user input to have full control of a URL that is requested by a server. Applications could provide users a list of options to select from, rather than a free-form text field. 
 
 If user control of URL is required, verify the URL to-be-requested is acceptable. For example, use an allow-list to limit what domains, IPs, methods, or paths can be requested. Additionally, a deny-list could be used to exclude localhost, private network ranges, or etc.
 
 
-### How can Contrast help?
+### How can Contrast help? 
 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SSRF vulnerabilities as they are tested by watching HTML output and encoding.

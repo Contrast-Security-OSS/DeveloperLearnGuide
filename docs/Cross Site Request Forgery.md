@@ -16,7 +16,6 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Cross Site Request Forgery
 <br/>
 Application attacks are on the rise and becoming more advanced. On average, applications have more than 10 vulnerabilities when they release into production, leaving significant opportunities for attackers to exploit. 
@@ -27,7 +26,7 @@ The above is true because CSRF application attacks result only in state changes 
 Though a user's personal data is left unharmed, their personally identifiable information (PII), passwords, and even money are at risk. Developers and application security teams focus on more advanced attacks that could lead to sensitive data exposure; as a result, CSRF vulnerabilities are not remediated, leaving cyber criminals with more opportunities for successful execution
 
 
-### What Is It?
+### Overview
 <br/>
 
 CSRF application attacks manipulate a user’s web application into executing unwanted commands. 
@@ -46,7 +45,7 @@ In XSS attacks, cyber criminals interfere with a browser-side script, injecting 
 The most notable difference between the two is authentication, where CSRF attacks require a successful login of the user, whereas XSS attacks do not.
 
 
-### When Can It Affect My Application?
+### How Is This Flaw Exploited?
 <br/>
 
 CSRF attacks work by targeting vulnerabilities in web applications, which makes them incapable of distinguishing between valid and malicious commands. Web applications are designed to automatically include cookies and session cookies once authentication is successful. 
@@ -136,7 +135,7 @@ Additionally, SAST generates significant false positives that consume valuable t
 
 
 
-## How can Contrast Security secure your application against CSRF attacks?
+## How can Contrast Security secure your application against CSRF attacks? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block CSRF vulnerabilities.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block CSRF attacks at runtime. 

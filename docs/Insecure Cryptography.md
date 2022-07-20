@@ -16,13 +16,11 @@ nav_order: 5
 {:toc}
 
 ---
-
 ## Insecure Authentication Protocol
 <br/>
 The use of outdated and insecure authentication protocols puts your application and sensitive data at serious risk.
 
-
-### How It Works 
+### Overview 
 
 - **Basic Authentication** 
 <br/> 
@@ -49,7 +47,9 @@ requirements of your organization. It's also unlikely that improvements to these
 browsers and server frameworks in any reasonable amount of time. 
 
 
-## Insecure Encryption Algorithms 
+## Insecure Encryption Algorithms
+
+### Overview 
 
 We use these these types of algorithms in order to transform data into an encrytped state, with the goal of facilitating secure communication. 
 Not all are made equal, in terms of both complexity and ability to protect data. 
@@ -62,105 +62,105 @@ Here's code that uses a DES cipher, which is considered **very weak** by today's
 
 ### Java  
 
-- Unsafe Example
+**Unsafe Example** 
 
-```
+```java
 final Cipher weakCipher = Cipher.getInstance("DES"); // Unsafe!
 ```
 
-- Safe Example 
+**Safe Example** 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits: 
 
 
-```
+```java
 final Cipher strongCipher = Cipher.getInstance("AES/CTR/NoPadding"); // Safer!
 ```
 
 
- ### .NET/.NET Core
+### .NET/.NET Core
 
-- Unsafe Example
+**Unsafe Example** 
 
-```
+```csharp
 // C#:
 DESCryptoServiceProvider weakCipher = new DESCryptoServiceProvider();    // Unsafe!
 ``` 
 
-- Safe Example
+**Safe Example** 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits: 
 
-```
+```csharp
 // C#:
 Aes strongCipher = Aes.Create();    // Safer!
 ```
 
- ### VB.NET 
+### VB.NET 
 
-- Unsafe Example 
+**Unsafe Example** 
 
-```
+```vb
 Dim weakCipher As New DESCryptoServiceProvider()    ' Unsafe!
 ``` 
 
-- Safe Example 
+**Safe Example**  
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
 
-```
+```vb
 Dim strongCipher As Aes = Aes.Create()    ' Safer!
 ``` 
 
 ### Node 
 
 
-- Unsafe Example 
+**Unsafe Example** 
 
-```
+```js
 var cipher = crypto.createCipher('DES'); // Unsafe!
 ``` 
 
-- Safe Example 
+**Safe Example** 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
-```
+```js
 var cipher = crypto.createCipher('AES'); // Safer!
 ``` 
 
 
 ### Ruby 
 
-- Unsafe Example
+**Unsafe Example** 
 
-```
+```ruby
 cipher = crypto.createCipher('des') // Unsafe!
 ``` 
 
-- Safe Example
+**Safe Example** 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
-```
+```ruby
 cipher = OpenSSL::Cipher::AES.new(128, :CTR) // Safer!
 ``` 
 
 
 ### Python  
 
-- Unsafe Example 
+**Unsafe Example** 
 
-```
+```python
 cipher = Crypto.Cipher.DES.new(key)
 ``` 
 
-- Safe Example 
+**Safe Example** 
 
 The following code uses an AES cipher, which is considered much stronger for many reasons, including a key length of at least 128 bits:  
 
-```
+```python
 cipher = Crypto.Cipher.AES.new(key, mode=Crypto.Cipher.AES.MODE_CTR)
 ``` 
 
@@ -174,7 +174,9 @@ You should also always use integrity checking with HMACs, if possible. HMACs usu
 
 
 
-## Insecure Hash Algorithms  
+## Insecure Hash Algorithms 
+
+### Overview 
 
 There are lots of times when a hashing algorithm like MD5 or SHA-1 is used in a way that _doesn't_ represent realistic
 risk to your organization. However, if you find yourself needing to switch hashing algorithms, doing it in the code is
@@ -186,25 +188,25 @@ once thought:
 
 ### Java 
 
-- Unsafe 
+**Unsafe Example** 
 
-```
+```java
 MessageDigest badDigester = MessageDigest.getInstance("MD5"); // Unsafe
 ``` 
 
-- Safe  
+**Safe Example**  
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):
 
-```
+```java
 MessageDigest safeDigester = MessageDigest.getInstance("SHA-256"); // Safe!
 ``` 
 
 ### .NET/.NET Core 
 
-- Unsafe 
+**Unsafe Example** 
 
-```
+```csharp
 // C#:
 MD5 badDigester = MD5.Create();  // Unsafe!
 ``` 
@@ -213,7 +215,7 @@ MD5 badDigester = MD5.Create();  // Unsafe!
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack): 
 
-```
+```csharp
 // C#:
 SHA256 safeDigester = SHA256Managed.Create();  // Safe!
 ``` 
@@ -221,65 +223,66 @@ SHA256 safeDigester = SHA256Managed.Create();  // Safe!
 
 ### VB.NET 
 
-- Unsafe 
+**Unsafe Example** 
 
-```
+```vb
 Dim badDigester As MD5 = MD5.Create()  ' Unsafe!
 ``` 
-- Safe 
+
+**Safe Example** 
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
-```
+```vb
 Dim safeDigester As SHA256 = SHA256Managed.Create()  ' Safe!
 ``` 
 
 
 ### Node  
 
-- Unsafe 
+**Unsafe Example** 
 
-```
+```js
 var unsafeHash = crypto.createHash('md5'); // Unsafe!
 ``` 
 
-- Safe  
+**Safe Example**  
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
-```
+```js
 var saferHash = crypto.createHash('sha256'); // Safe!
 ``` 
 
 ### Ruby  
 
-- Unsafe  
+**Unsafe Example**  
 
-```
+```ruby
 unsafeHash = Digest::MD5.digest('some string value') # Unsafe!
 ``` 
 
-- Safe  
+**Safe Example**  
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
-```
+```ruby
 saferHash = Digest::SHA256.digest('some string value') # Safe!
 ``` 
 
 ### Python  
 
-- Unsafe  
+**Unsafe Example** 
 
-```
+```python
 unsafeHash = Crypto.Hash.MD5.new(b'value to hash') # Unsafe!
 ```
 
-- Safe   
+**Safe Example**  
 
 The following code retrieves a SHA-2 cipher, which is considered **much** stronger for many reasons (including a 256-bit hash, which is less likely to fall victim to a [birthday attack](https://en.wikipedia.org/wiki/Birthday_attack):  
 
-```
+```python
 saferHash = Crypto.Hash.SHA256.new(b'value to hash') # Safe!
 ``` 
 
@@ -296,14 +299,13 @@ Therefore, you should carefully decide how likely you are to face such an attack
 It's hard to tell what purpose that the PRNG is used for, but if it's being used to generate secrets, like authentication tokens, remember me codes, or temporary passwords, its contents may be guessable. 
 
 ### Java 
-<br/>  
 
 Weak PRNGs like [Random](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/random/package-summary.html){{#link}} have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
 
 Switching from an insecure pseudo-random number uuidGen (PRNG) to a secure one is easy. Usually, `unsafe` random numbers are generated one of two ways: 
 
-```
+```java
 Random r = new Random();
 int num = r.nextInt(); // insecure!
 
@@ -314,7 +316,7 @@ double d = Math.random(); // insecure!
 
 Substituting [SecureRandom](https://docs.oracle.com/javase/6/docs/api/index.html)instead of `Random` makes the first way `safe`: 
 
-```
+```java
 SecureRandom r = SecureRandom.getInstance("SHA1PRNG");
 r.nextBytes(new byte[4]); // ask the SHA1PRNG to seed safely - only needed once per creation
 int num = r.nextInt(); // secure!
@@ -322,7 +324,7 @@ int num = r.nextInt(); // secure!
 
 Unfortunately there is no direct, secure substitution for `Math.random()`. You can get a securely random `double` with similar code:
 
-```
+```java
 SecureRandom r = SecureRandom.getInstance("SHA1PRNG");
 r.nextBytes(new byte[4]); // ask the SHA1PRNG to seed safely - only needed once per creation
 double d = r.nextDouble();
@@ -347,13 +349,12 @@ Using `SecureRandom` more than you have to can lead to performance problems as t
 
 
 ### .NET/.NET Core 
-<br/>  
 
 Weak PRNGs like .NET's `Math.Random` have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be.
 
 Switching from an insecure pseudo-random number uuidGen (PRNG) to a secure one is easy. Usually, `unsafe` random numbers are generated one of two ways:
 
-```
+```csharp
 // C#:
 Random r = new Random();
 int num = r.Next;          // Insecure! While trying to get a random number from 0 to Int32.MaxValue
@@ -364,7 +365,7 @@ In .NET, the `Random.Next` function returns a number between 0 and Int32.MaxValu
 
 Substituting `RandomNumberGenerator` instead of `Random` makes the random number generation safe:
 
-```
+```csharp
 // C#:
 RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 byte[] int_bytes = new byte[4];
@@ -376,19 +377,16 @@ byte[] double_bytes = new byte[8];
 rng.GetBytes(double_bytes);
 double d = (double) BitConverter.ToUInt64(double_bytes,0); // Convert them to a double
 // ToUInt64 cannot return a negative double so we don't need to bother getting the absolute value
-
 ```
 
-
 ### Node 
-<br/>  
 
 Weak PRNGs like javascript's `Math.random` have a relatively small amount of predetermined, random numbers to draw from. An attacker can usually gather lots of samples and determine where in the set of numbers their data comes from, and start predicting what the next secrets generated by the application will be. 
 
 
 Switching from an insecure pseudo-random number uuidGen (PRNG) to a secure one is easy. Usually, `unsafe` random numbers are generated like so: 
 
-```
+```js
 function random(floor, ceiling) {
     return Math.random() * (ceiling - floor) + floor;
 }
@@ -399,7 +397,7 @@ The `Math.random` function returns a number between 0 and 1, so we multiply the 
 
 `crypto.randomBytes` should be substituted for `Math.random`. This function uses your system's Entropy to yield random values which are considered cryptographically `safe`: 
 
-```
+```js
 var crypto = require('crypto');
 var random = crypto.createRandom(10); // array of values between 0 and 255, e.g: [80 32 f0 a4 25 e3 88 e6 6c b2]
 ``` 
@@ -415,7 +413,7 @@ Weak PRNGs like [Random](https://ruby-doc.org/core-2.1.3/Random.html) have a rel
 
 Switching from an insecure pseudo-random number to a secure one is easy. Usually, unsafe random numbers are generated like so:
 
-```
+```ruby
 	Random.rand(integer)
 ``` 
 
@@ -423,7 +421,7 @@ The `Random.rand` function returns a number between 0 and the given integer. How
 
 `SecureRandom.random_bytes` should be substituted for `Random.rand` for any instance in which cryptography is required. This function uses `OpenSSL::Random` to yield random values which are considered cryptographically safe: 
 
-```
+```ruby
 	SecureRandom.random_bytes # array of bytes x00 - xff; default length being 16
 ``` 
 
@@ -438,7 +436,7 @@ Weak PRNGs like [random.random()](https://docs.python.org/3/library/random.html#
 Switching from an insecure pseudo-random number generator to a secure one
 is easy. Usually, unsafe random numbers are generated like so: 
 
-```
+```python
 import random
 result = random.randint(a, b)
 ``` 
@@ -453,7 +451,7 @@ determined.
 This function uses the most secure random generator available on your platform to yield
 random bit streams which are considered cryptographically safe: 
 
-```
+```python
 import secrets
 result = secrets.randbits(num_bits)
 ``` 

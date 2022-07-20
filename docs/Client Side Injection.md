@@ -31,7 +31,7 @@ The profile lists the travel tier of the selected user, but data user input is p
 
 Upon visiting the profile data: https://airlinecarrier.com/api/users/update/profiledata.json, we receive the following response:
 
-```
+```js
 {
 "Benefits": "Tier",
 
@@ -46,7 +46,7 @@ document.getElementById("#Level").innerText = data.Level;
 
 ```
 
-Data is read (parsed) and inserted using the Json eval () function.
+Data is read (parsed) and inserted using the Json `eval ()` function.
 
 
 Using this flaw, the attacker can create a Client Side Injection attack by injecting the following code:
@@ -82,7 +82,7 @@ The most effective method of preventing JSON injection is to avoid allowing stri
 Additionally, ensure to not use the ```eval()``` function to evaluate JSON data, instead use ```JSON.parse()``` to safely parse JSON response data. 
 
 
-## How can Contrast help? 
+## How can Contrast help?  
 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
