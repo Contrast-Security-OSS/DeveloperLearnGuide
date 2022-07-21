@@ -1,6 +1,6 @@
 ---
 layout: default
-title: v
+title: Cookie Weakness
 nav_order: 7
 ---
 
