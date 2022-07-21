@@ -92,6 +92,8 @@ The best defense against a CSRF attack is to equip applications with a way to di
 Most of today's applications have built-in CSRF token defenses that help avert the risk of an application attack. However, as they are built-in, these defenses must be constantly configured to provide the strongest line of defense.
 <br/>
 
+As a prerequisite **always** ensure CSRF Protection is enabled as follows: `http.csrf();`.
+
 ### The Use of CSRF Tokens
 <br/>
 When configuring CSRF tokens to effectively prevent CSRF attacks, two things should take place. First, CSRF tokens should be configured to be generated on the server side. Second, the option for token generation should renew per request and not per session. With these two configurations, applications are more secure but lack efficiency. 

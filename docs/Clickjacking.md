@@ -1,3 +1,9 @@
+---
+layout: default
+title: Clickjacking
+nav_order: 17
+---
+
 # Clickjacking
 {: .no_toc }
 

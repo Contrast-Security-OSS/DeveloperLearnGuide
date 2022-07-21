@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Arbitrary Server Side Forwards
-nav_order: 6
+nav_order: 18
 ---
 
 # Arbitrary Server Side Forwards
@@ -19,17 +19,9 @@ nav_order: 6
 
 ## Arbitrary Server Side Forwards 
 
-### What Is It?
+## Overview
 
 * In progress
-
-
-
-### How Does It Work?
-
-* In progress
-
-
 
 ### Example
 
