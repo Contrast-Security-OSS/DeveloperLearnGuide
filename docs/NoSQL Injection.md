@@ -1,7 +1,7 @@
 ---
 layout: default
 title: NoSQL Injection
-nav_order: 10
+nav_order: 5
 ---
 
 # NoSQL Injection

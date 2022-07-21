@@ -4,7 +4,7 @@ title: Client Side JSON-Injection
 nav_order: 4
 ---
 
-# Client Side JSON- Injection
+# Client Side JSON-Injection
 {: .no_toc }
 
 {: .fs-6 .fw-300 }
@@ -51,13 +51,13 @@ Data is read (parsed) and inserted using the Json `eval ()` function.
 
 Using this flaw, the attacker can create a Client Side Injection attack by injecting the following code:
 
-```
+```js
 Platinum."});alert(1);({"Benefits":"Tier","Level":"Platinumn”.
 ```
 
 When this argument is executed by the ```eval()``` function, the new output is as follows:
 
-```
+```js
 {
 "Benefits": "Tier",
 

@@ -17,32 +17,32 @@ nav_order: 14
 
 ---
 
-## What Is It?
+## Overview 
+
+Storage manipulation occurs when the localStorage or SessionStorage of a web application is compromised by attacker-controllable script. 
+One simple method of exploiting a weakness in this area is: 
+- Attacker creates malicious URL and sends to victim
+- Victim clicks on URL
+- Victim's browser now has data in storage that enables the attacker to control behaviour  
 
 
-
-
-
-## When Can It Affect My Application?
-
-
-
-
+This behavior does not in itself constitute a security vulnerability. However, if the application later reads data back from storage and processes it in an unsafe way, an attacker may be able to leverage the storage mechanism to deliver other DOM-based attacks, such as cross-site scripting and JavaScript injection.
 
 ### Impact
 
+This vulnerability is often used in a sequence of attacks, so risk can range from low to severe. 
 
 An attacker may be able to use this flaw in order to exploit the storage vulnerability further by performing DOM-based attacks, such as Cross Site Scripting (XSS), and JavaScript Injection.
 
 
 ### Prevention
 
-The most effective method of preventing HTML5-Storage manipulation is to verify the origin of the sender, and perform input validation on the data attribute to confirm it is in the desired format.  
+The most effective method of preventing storage manipulation is to verify the origin of the sender, and perform input validation on the data attribute to confirm it is in the desired format. 
 
-Most importantly always restrict data from untrusted sources being placed in HTML5 storage.
+Most importantly always restrict data from untrusted sources being placed in storage.
 
-## How can Contrast help?
 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
+## How can Contrast help? 
 
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.  
+- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
+- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

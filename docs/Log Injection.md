@@ -18,19 +18,20 @@ nav_order: 8
 ---
 ## Log Injection
 
-### What Is It? 
+### Overview
 
-**In Progress**
 
-In a log injection, a malicious user could provide newline characters in this input and spoof new log entries. 
- 
-It's unlikely that this could cause real harm to any of the application stakeholders, but some regulations require log file integrity to be controlled.
+Log injection involves the tampering of application or system log files via untrusted input. 
+As logs provide an audit trail of events, it can be utilized following a more severe attack, in order to obfuscate its traces. 
 
+In a log injection, a malicious user could provide newline characters in input in order to spoof new log entries. 
+
+It's unlikely that this could cause real harm to any of the application stakeholders on its own, but some regulations require log file integrity to be controlled.
 
 
 ### How To Fix 
 
-Sanitize or validate all input that is going to be logged. Make sure users can't provide newline characters that get into log messages.
+Sanitize or validate all input that is going to be logged. Ensure users cannot provide newline characters that are written into log messages.
 
 
 ## How can Contrast help? 

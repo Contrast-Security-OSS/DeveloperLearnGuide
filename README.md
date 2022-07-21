@@ -14,7 +14,9 @@ To Do:
 
 ## How to contribute
 
-We'd love to hear from you! If you would like to contribute to the Developer Guide, please raise a Pull Request with your changes. 
+We'd love to hear from you!  
+
+If you would like to contribute to the Developer Guide, please raise a Pull Request with your changes. 
 
 Any descriptions unclear? Raise a New Issue, and we'll get back to you. 
 
