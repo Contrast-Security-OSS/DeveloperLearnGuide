@@ -1,4 +1,4 @@
-# Anti-Caching Controls Missing
+# Cache Control Weakness
 {: .no_toc }
 
 {: .fs-6 .fw-300 }
@@ -10,6 +10,8 @@
 {:toc}
 
 ---
+## Anti-Caching Controls Missing 
+
 ### Overview 
 
 
@@ -228,6 +230,22 @@ If setting headers is difficult in your infrastructure, you can also simulate th
 ```
 
 At a minimum, Contrast expects to see a ```Cache-Control``` setting that contains ```no-store``` and ```no-cache```. This will alleviate client-side browser caching concerns in modern browsers. This control can be delivered with a ```setHeader()``` call or a ```&lt;meta&gt;``` tag. 
+
+
+## Anti-Caching Controls Disabled 
+
+
+### Overview 
+Without proper cache controls, an attacker could learn any sensitive information contained in the victim's client-side browser cache. This sensitive information may include PII, authentication information such as usernames, or financial data such as account numbers. An attacker may gain access to a victim's browser cache through a number of different means such as: shared machine access, host OS exploits, browser exploits, browser plugin exploits, etc.
+
+### How To Fix 
+
+The cache control header can be enabled by changing the `sendCacheControlHeader` value to `true`, as is shown in this example: 
+	    
+```xml
+<httpRuntime sendCacheControlHeader="true" />
+```
+
 
 ## How can Contrast help? 
 

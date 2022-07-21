@@ -2,7 +2,26 @@
 
 Welcome to Contrast Security's Developer Security Guide.
 
-Temp placeholder site: https://sara-kathryn.github.io/DeveloperLearnGuide/
+Temp placeholder site: https://sara-kathryn.github.io/DeveloperLearnGuide/ 
+
+
+Internal use:
+
+
+
+
+| RuleId | Page | Done |   |   |
+|--------|------|------|---|---|
+| authorization-missing-deny       | Authorization Weakness     |  To be Reviewed    |   |   |
+| authorization-rules-misordered      | Authorization Weakness     | To be Reviewed     |   |   |
+| autocomplete-missing       | Forms without Autocomplete      | To be Reviewed      |   |   |
+| cache-control-disabled       | Cache Control Weakness     | To be Reviewed      |   |   |
+| cache-controls-missing       | FCache Control Weakness     | To be Reviewed      |   |   |
+|        |       | To be Reviewed      |   |   |
+|       |       | To be Reviewed      |   |   |
+|        |       | To be Reviewed      |   |   |
+|        |       | To be Reviewed      |   |   |
+|        |      | To be Reviewed      |   |   |
 
 To Do:
 
