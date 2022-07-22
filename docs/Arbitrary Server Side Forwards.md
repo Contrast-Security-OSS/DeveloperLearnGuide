@@ -21,14 +21,7 @@ nav_order: 18
 
 ## Overview
 
-* In progress
-
-### Example
-
-* In progress
-
-
-### Impact 
+We categorize Arbritrary SSRF as a class of vulnerabilities that allow a web application to accept a modified input that could cause the web application to forward the request to as untrusted URL.
 
 These type of attacks can act as a precursor, and as such, may be part of a chain attack.
 Depending on the targeted user, the impact of this vulnerability can range from mild to severe. 
