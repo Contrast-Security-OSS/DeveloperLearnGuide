@@ -20,12 +20,14 @@ nav_order: 10
 ## XPath Injection
 
 ### Overview 
+<br/>
 
 When an XPath query is built dynamically with data from the user without validation or encoding, attackers can change the behavior of the query to retrieve other, possibly sensitive, information. 
 
 The solution to this problem is to validate or encode the untrusted user data so that it can't change the underlying structure of the XPath query.
 
 ### Java  
+<br/>
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
@@ -70,6 +72,7 @@ NodeList matchingEmployees = (NodeList) expr.evaluate(doc, XPathConstants.NODESE
 The [library](https://owasp.org/www-project-enterprise-security-api/) offers a [function](https://github.com/esapi/esapi-java-legacy) to remove the need for parameter binding. This function allows some characters (like commas, periods, and others) and HTML encodes all other known entities. This might offer a lower-touch solution for addressing injection concerns.
 
 ### .NET 
+<br/>
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
@@ -112,6 +115,7 @@ XPathNodeIterator matchingEmployees = navigator.Select(xpath);
 
 
 ### .NET Core 
+<br/>
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
@@ -202,6 +206,7 @@ public class XPathExtensionVariable : IXsltContextVariable
 ``` 
  
 ### Ruby 
+<br/>
 
 Here's an example of an `unsafe` query adapted from the OWASP WebGoat Project: 
 
@@ -225,6 +230,7 @@ You can also mitigate the risk of XPath Injection attacks by using an ORM.
 
 
 ### Python  
+<br/>
 
 Untrusted user input should not be used to build an XPath query. For example, the following is not safe since user input is used to build the query string without sanitization: 
 
@@ -246,6 +252,7 @@ The use of the standard `xml.etree` module is not recommended for XPath queries 
 You can also mitigate the risk of XPath Injection attacks by using an ORM. 
 
 ### PHP   
+<br/>
 
 Untrusted user input should not be used to build an XPath query. For example, the following is not safe since user input is used to build the query string
 without sanitization:
@@ -261,6 +268,7 @@ The standard XML libraries in PHP do not provide a way to safely pass parameters
 untrusted data when generating queries. 
 
 ### Node  
+<br/>
 
 Untrusted user input should not be used to build an XPath query. For example, the following is not safe since user input is used to build the query string without sanitization. The user could potentially provide special characters or string sequences that change the meaning of the XPath expression to search for different values.: 
 
@@ -300,8 +308,8 @@ variables: { userName: userName }
 ``` 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect XPath vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block XPath Injection attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect XPath vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

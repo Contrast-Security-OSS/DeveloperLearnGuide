@@ -17,6 +17,7 @@ nav_order: 15
 
 ---
 ## Overview 
+<br/> 
 
 Simply put, a Trust Boundary violation occurs when the application takes untrusted data that comes from the user and places it in trusted storage: for example within `HttpSession`. 
 Developers are likely to assume that data stored in the session came from the application itself, and not the user, and may use the data 
@@ -29,6 +30,7 @@ malicious user change a stored data value arbitrarily.
 
 
 ## How To Fix   
+<br/> 
 
 There are a few key ways to avoid running into session puzzling vulnerabilities or session race conditions as a result of this flaw:
 
@@ -40,6 +42,7 @@ There are a few key ways to avoid running into session puzzling vulnerabilities 
 Let's go through a fictional example of an **unsafe** usage of the same session variable under different conditions: 
 
 ### Java 
+<br/> 
 
 ```java
 // Login.java
@@ -93,6 +96,7 @@ CreditCard[] userCreditCards = CCUtil.getCreditCards(session.getAttribute("authe
 ```
 
 ### .NET  
+<br/> 
 
 ```csharp
 // Login.cs
@@ -133,6 +137,7 @@ CreditCard[] UserCreditCards = CCUtil.GetCreditCards(Session["authenticated.user
 
 
 ### Ruby 
+<br/> 
 
 
 ```ruby
@@ -170,6 +175,7 @@ userCreditCards = CCUtil.getCreditCards(request.session[:authenticated_user])
 ```
 
 ### Python  
+<br/> 
 
 ```python
 # login.py
@@ -206,6 +212,7 @@ userCreditCards = CCUtil.getCreditCards(request.session["authenticated_user"])
 ```
 
 ## How can Contrast help? 
+<br/> 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

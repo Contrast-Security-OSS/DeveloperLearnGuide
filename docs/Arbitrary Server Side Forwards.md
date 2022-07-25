@@ -19,8 +19,8 @@ nav_order: 18
 
 ## Arbitrary Server Side Forwards 
 
-## Overview
-
+### Overview
+<br/>
 We categorize Arbritrary SSRF as a class of vulnerabilities that allow a web application to accept a modified input that could cause the web application to forward the request to as untrusted URL.
 
 These type of attacks can act as a precursor, and as such, may be part of a chain attack.
@@ -32,7 +32,7 @@ The malicious user may elevate this to other, more serious, attacks such as Cros
 ## Arbitrary Server Side Forwards by Langugage
 
 ### Java 
-
+<br/>
 For applications running in Java, the application takes input from the user, and uses it to build a file path to which the user is forwarded. 
 If a user controls a part of that path, they may be able to direct themselves to sensitive files, like ```/WEB-INF/web.xml```, application code, or configuration files, which may contain passwords. 
 
@@ -67,6 +67,7 @@ if( p.matcher(target).matches() ) {
 ```
 
 ### .NET 
+<br/>
 
 For applications running in **.NET**, the application takes input from the user, and uses it to build a path to another page to which execution is transferred. Users can bypass IIS and ASP.NET's authentication and authorization checks if a user controls a part of that path. 
 IIS and ASP.NET do not perform authorization checks for the target page of the Transfer() and Execute() methods. That is, authorization modules (such as ```FileAuthorizationModule``` or ```UrlAuthorizationModule```) that occur earlier in the ASP.NET pipeline are executed for the initial page but the ```Transfer()``` and ```Execute()``` methods pass execution to a new handler without re-executing steps earlier in the pipeline. 
@@ -99,6 +100,9 @@ Server.Transfer(target);
 // process error
 }
 ```
+<br/> 
+
+
 ```vb
 ' VB.NET:
 Dim p As New Regex("^/data/[A-Za-z0-9]+\\.aspx$")
@@ -111,9 +115,8 @@ End
 ``` 
 
 ## How can Contrast help? 
-
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Arbitrary Server Side Forward vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Arbitrary Server Side Forward attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Arbitrary Server Side Forward vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

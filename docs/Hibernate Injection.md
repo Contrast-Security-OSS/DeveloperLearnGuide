@@ -17,7 +17,7 @@ nav_order: 13
 
 ---
 ### Overview
-
+<br/>
 
 If data is not validated or encoded, it's possible that an attacker can craft a malicious piece of input that can allow Hibernate Query Language injection. 
 
@@ -31,7 +31,7 @@ When developing HQL queries, developers can introduce Hibernate Injection flaws,
 You can also create native SQL queries in Hibernate using Hibernate's ```createSQLQuery()``` method. 
 
 ### When Can It Affect My Application?
-
+<br/>
 
 Here is an example of an **unsafe** HQL Statement:
  
@@ -40,11 +40,8 @@ Query unsafeHQLQuery = session.createQuery("from Inventory inv where inv.product
 ```
 
 
-
-### Impact
-TODO
-
 ## How To Fix
+<br/> 
 
 There are several primary techniques for making the use of Hibernate safe from Hibernate Injection: 
 1. Avoid the construction of dynamic HQL, and:
@@ -53,12 +50,14 @@ There are several primary techniques for making the use of Hibernate safe from H
 
 
 ### Approach #1: Avoid Dynamic HQL
+<br/>
 
 One of the beauties of Hibernate is that you usually don't have to write custom SQL code. If you need to remediate a Hibernate injection flaw, we recommend that you examine the query first to see if you can rewrite the code to eliminate the custom query entirely. 
 
 If you can instead simply access the Java objects mapped to the database with Hibernate, this will eliminate the custom Hibernate query entirely. Hibernate ensures that the queries it generates when mapped Java objects are accessed are safe from SQL injection through the use of Prepared Statements
 
 ### Approach #2: Use Bind Variables 
+<br/>
 
 If you can't eliminate the custom HQL, then modifying the query to use bind variables in place of doing direct string concatenations of dangerous input will also fix the problem. Consider the example unsafe query:
 
@@ -137,7 +136,8 @@ Query query = session.getNamedQuery("ByNameAndMaximumWeight");
      List animals = query.list();
 ```
 
-### Approach #3: Avoid Use of Old Deprecated Dangerous Hibernate Methods ###  
+### Approach #3: Avoid Use of Old Deprecated Dangerous Hibernate Methods ### 
+<br/>
 
 The Hibernate Session class originally implemented 5 different methods with various signatures for each (total of 14 method signatures) that were all subject to HQL injection. These methods are now deprecated but still available in the [Session class](https://docs.jboss.org/hibernate/orm/3.5/javadoc/org/hibernate/Session.html) through an alternate version of the [interface](https://docs.jboss.org/hibernate/orm/3.5/javadoc/org/hibernate/classic/Session.html), which extends the Session interface. 
 If you are still using any code that calls the following methods in this interface:
@@ -155,8 +155,9 @@ iterate (3 versions)
 you should replace their use with the replacement method recommended in the [documentation](https://docs.jboss.org/hibernate/orm/3.5/javadoc/org/hibernate/classic/Session.html) for this deprecated interface, and then make sure your use of the replacement method is safe from Hibernate injection.
 
 ## How can Contrast help? 
+<br/>
+
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 

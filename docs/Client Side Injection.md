@@ -20,7 +20,7 @@ nav_order: 4
 ## Client Side Injection 
 
 
-### What Is It?
+### Overview
 <br/>
 This attack occurs when data from an untrusted source is not sanitized sufficiently, and then parsed directly using the Javascript ```eval()``` function.
 
@@ -29,7 +29,9 @@ Here we have a web application that displays the user profile of airline passeng
 
 The profile lists the travel tier of the selected user, but data user input is poorly sanitized. 
 
-Upon visiting the profile data: https://airlinecarrier.com/api/users/update/profiledata.json, we receive the following response:
+Upon visiting the profile data: 
+
+https://airlinecarrier.com/api/users/update/profiledata.json, we receive the following response:
 
 ```js
 {
@@ -43,8 +45,8 @@ var data = eval("(" + resp + ")");
 document.getElementById("#Benefits").innerText = data.Benefits;
 
 document.getElementById("#Level").innerText = data.Level;
-
 ```
+
 
 Data is read (parsed) and inserted using the Json `eval ()` function.
 
@@ -83,7 +85,7 @@ Additionally, ensure to not use the ```eval()``` function to evaluate JSON data,
 
 
 ## How can Contrast help?  
-
+<br/>
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

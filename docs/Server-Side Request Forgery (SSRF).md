@@ -19,6 +19,7 @@ nav_order: 6
 ## Server-Side Request Forgery (SSRF)
 
 ### Overview 
+<br/> 
 
 SSRF vulnerabilities enable an attacker to trick the targeted application or application programming interface (API) into sending a crafted request to an unexpected destination—turning a vulnerable application into a sort of attack relay that gives an attacker access to internal systems. 
 
@@ -29,6 +30,7 @@ SSRF requires two conditions:
 
 
 ### Impact 
+<br/> 
 
 Since the attacker controls the URL, they can trick the application into invoking internal URLs. 
 This may lead to internal resource enumeration, abuse of internal-only APIs, or the exfiltration of local system resources using the ```file://``` protocol. 
@@ -44,6 +46,7 @@ Additionally, attackers could use this vulnerability to make a server reach out 
 
 
 ### How To Fix 
+<br/> 
 
 Where possible, do not accept user input to have full control of a URL that is requested by a server. Applications could provide users a list of options to select from, rather than a free-form text field. 
 
@@ -51,13 +54,13 @@ If user control of URL is required, verify the URL to-be-requested is acceptable
 
 
 ### How can Contrast help? 
-
+<br/> 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SSRF vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SSRF attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SSRF vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
 
 ### Further Reading
+<br/> 
 
 [SSRF Detection With IAST](https://www.contrastsecurity.com/security-influencers/iast-is-the-only-way-to-accurately-detect-ssrf?hsLang=en-us)

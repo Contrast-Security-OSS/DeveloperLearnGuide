@@ -7,8 +7,6 @@ Internal use: Not Finalized
 Temp placeholder site: https://sara-kathryn.github.io/DeveloperLearnGuide/ 
 
 To Do:
-
-- Confirm correct products supported/listed for vulnerability type in 'How can Contrast help?" section
 - Include images/video demos 
 - Update navigation Order (not alphabetical, display by priority? i.e. XSS, SQli, Command Injection)
 - General Proofreading/formatting

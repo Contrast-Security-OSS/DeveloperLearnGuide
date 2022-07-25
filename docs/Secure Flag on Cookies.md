@@ -17,7 +17,7 @@ nav_order: 14
 
 ---
 # Overview 
-
+<br/> 
 The "secure" flag (e.g., "cookieName=cookieValue; secure") prevents cookies from being transmitted using standard HTTP in modern browsers. 
 
 Set the secure flag on the session cookie when it is generated. This can frequently be done through a simple application 
@@ -26,7 +26,7 @@ server configuration change.
 ## Set by Language 
 
 ### Java 
-
+<br/> 
 The "secure" flag can be enabled for all session cookies by editing the web.xml to include: 
 
 ```xml
@@ -46,7 +46,7 @@ cookie.setSecure(true);
 ``` 
 
 ### .NET 
-
+<br/> 
 The "secure" flag can be enabled for all application cookies via the Web.config in the `system.web/httpCookies` element:
 
 ```xml
@@ -62,7 +62,7 @@ Response.AppendCookie(myCookie);
 ``` 
 
 ### Node 
-
+<br/> 
 
 If using the Express framework, the [cookie-session](https://www.npmjs.com/package/cookie-session) middleware can be used to enable the secure flag for session cookies:
 
@@ -86,15 +86,15 @@ app.use(session({
 ```
 
 ### Ruby 
-
-}If using Rails, the [SSL](https://edgeapi.rubyonrails.org/classes/ActionDispatch/SSL.html) config parameter can be used to enable the secure flag for session cookies: 
+<br/> 
+If using Rails, the [SSL](https://edgeapi.rubyonrails.org/classes/ActionDispatch/SSL.html) config parameter can be used to enable the secure flag for session cookies: 
 
 ```ruby
 config.force_ssl = true
 ```
 
 ### Python 
-
+<br/> 
 Django is configured in application's `settings.py` file:
 
 ```python
@@ -122,6 +122,8 @@ session = beaker.session.Session(..., secure=True)
 
 
 ## How can Contrast help?  
+<br/> 
 
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect ReDoS vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

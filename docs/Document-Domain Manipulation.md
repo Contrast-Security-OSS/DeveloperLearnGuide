@@ -18,14 +18,14 @@ nav_order: 11
 ---
 ## Document-Domain Manipulation
 
-## Overview 
-
+### Overview 
+<br/>
 The now [deprecated](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain) Document.domain property sets or returns the domain name of the server from which the document originated. 
 
 This results in the property defaulting to the domain name of the server where the document was retrieved, but can be changed to a suffix of this domain name. 
 
 ## Scenario 
-
+<br/>
 Uing this property opens up the application to a range of potential security issues. 
 
 1. Alice has a unique subdomain on a shared hosting service:` https://alicecontrast.sharedhost.com`, malicious actor also owns a subdomain.
@@ -38,12 +38,12 @@ As the target page is now compromised, the chain of attacks can potentially lead
 
 
 ## Prevention 
-
+<br/>
 The most effective method of preventing Document Domain Manipulation is to restrict data from untrusted sources dynamically setting the document.domain property.
 
 
 
 ## How can Contrast help?  
-
+<br/>
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect this vulnerability in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

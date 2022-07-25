@@ -20,6 +20,7 @@ nav_order: 12
 
 
 ### Overview 
+<br/> 
 
 If your application does not specify the HTTPOnly flag for session cookies, it is vulnerable to attack. 
 
@@ -29,12 +30,14 @@ Setting this cookie attribute does not eliminate XSS vulnerabilities, but does r
 
 
 ### Impact 
+<br/> 
 
 This type of vulnerability is often used in a chain-attack, for example XSS. 
 For more information, please visit our guide on: [Cross Site Scripting](/io/DeveloperLearnGuide/Cross Site Scripting (XSS)/Overview)
 
 
 ### Python  
+<br/> 
 
 
 Django is configured in application's ```settings.py``` file: 
@@ -64,6 +67,7 @@ session = beaker.session.Session(..., httponly=True)
 ``` 
 
 ### .NET  
+<br/> 
 
 Set the `HTTPOnly` flag on the session cookie when the cookie is generated. The `HTTPOnly` flag (e.g. `cookieName=cookieValue; httpOnly`) will prevent cookies from being accessed by scripts in modern browsers:
 - Internet Explorer 6 SP 1+
@@ -91,6 +95,7 @@ customCookie.HttpOnly = true;
 ```
 
 ### .NET Core 
+<br/> 
 
 By default, the session cookie used in ASP.NET Core (which defaults to `.AspNetCore.Session`), has the `HttpOnly` flag set. If this rule was triggered, consider ensuring that that the [CookieBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.cookiebuilder).[HttpOnly](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) property is set to `true` during service configuration.
 
@@ -118,6 +123,7 @@ Response.Cookies.Append("cookie-name", "cookie-value", option);
 ```
 
 ### Ruby
+<br/> 
 
 Change the `HttpOnly` value to `true` or remove the attribute. 
 By default, this setting is true and all cookies issued by the application will have the HTTPOnly flag. 
@@ -130,6 +136,7 @@ Demo::Rack::Application.config.session_store :cookie_store,
 ## Session Rewriting
 
 ### Overview 
+<br/> 
 
 If your application allows browsers that don't support cookies to rewrite session IDs into the URL, it is vulnerable to attack. 
 
@@ -159,11 +166,13 @@ Let's walkthrough a simple example:
 
 
 ### Impact 
+<br/> 
 
 When successfully exploited, the risk can range from unauthorized access to sensitive data and privileges, ultimately ompromising the confidentiality, integrity, and availability of your application. 
 
 
 ### Java 
+<br/> 
 
 Until the Java Servlet Specification (JSS) 3.0, the disabling of URL rewriting were all container-specific. 
 Our advice is arranged into two sections - recommendations for JSS 3.0 compatible applications, and recommendations for everyone else. 
@@ -227,6 +236,7 @@ request.getSession(true);
 
 
 ### .NET 
+<br/> 
 
 The .NET framework implements session management via the `&lt;sessionState&gt;` directive in Web.config. 
 Using the attribute `cookieless="true"`, the session token will be stored in the URL instead of a cookie. 
@@ -292,6 +302,7 @@ This type of vulnerability is often used in a chain-attack, for example XSS.
 For more information, please visit our guide on: [Cross Site Scripting](/io/DeveloperLearnGuide/Cross Site Scripting (XSS)/Overview) or [Cross Site Request Forgery](/io/DeveloperLearnGuide/Cross Site Request Forgery/Overview)
 
 ### Java 
+<br/> 
 
 Decreasing your session timeout is easy. 
 Simply specify a reasonable `session-timeout` value in your application's /WEB-INF/web.xml file, like in this example: 
@@ -302,6 +313,7 @@ Simply specify a reasonable `session-timeout` value in your application's /WEB-I
 ```
 
 ### .NET 
+<br/> 
 
 Specify a reasonable `sessionState.timeout` value in your application's Web.config file, like in this example: 
 
@@ -316,6 +328,7 @@ ensure the timeout value is not excessive.
 
 
 ### .NET Core 
+<br/> 
 
 Specify a reasonable `IdleTimeout` value in your application's `SessionOptions`, like in this example: 
 
@@ -326,6 +339,7 @@ services.AddSession(options => {
 ``` 
 
 ### Node 
+<br/> 
 
 The node.js built-in http module is stateless and has no notion of sessions or session variables, however frameworks such as [express](https://www.npmjs.com/package/express) are built on top of http and provide useful abstractions such as sessions, and can allow you to set session timeout values similarly to this: 
 
@@ -338,7 +352,7 @@ app.use(express.session({
 ``` 
 
 ### Ruby 
-
+<br/> 
 
 Specify a reasonable value in your application's configuration, like in this example: 
 
@@ -349,6 +363,7 @@ Demo::Rack::Application.config.session_store :cookie_store,
 
 
 ### Python 
+<br/> 
 
 Each framework provides a different way for configuring session timeout values. 
 For the given framework, simply set the timeout to a value representing 30 minutes or less. 
@@ -385,9 +400,9 @@ session = beaker.session.Session(..., timeout=15*60)
 
 
 ## How can Contrast help? 
+<br/> 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack.
 

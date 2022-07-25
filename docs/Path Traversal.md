@@ -13,7 +13,7 @@
 ## Path Traversal 
 
 ### Overview 
-
+<br/>
 Path traversal (also known as directory traversal) is an attack that uses an affected application to gain unauthorized access to server file system folders that are higher in the hierarchy than the web root folder. 
 
 A successful path traversal attack can fool a web application into reading and consequently exposing the contents of files outside of the document root directory of the application or the web server, including credentials for back-end systems, application code and data, and sensitive operating system files.
@@ -22,7 +22,7 @@ Path traversal vulnerabilities can exist in a variety of programming languages, 
 
 
 ### Impact 
-
+<br/>
 If an application is vulnerable to to Path Traversal, this can enable an attacker to obtain and read senitive files, for example database credentials, source code, and private encyrption keys. 
 
 In some cases, bad actors may also be able to write data to arbitrary files, enabling them to upload malicious files that will automatically run, etc.
@@ -31,7 +31,7 @@ In some cases, bad actors may also be able to write data to arbitrary files, ena
 ## Path Traversal by Language
 
 ### Path Traversal in Dotnet 
-
+<br/>
 Let's walkthrough an example of Path Traversal in .NET Core and how to fix this.
 
 ```csharp
@@ -157,7 +157,7 @@ if( !p.matcher(statement).matches() ) {
 ```
 
 ### Path Traversal in Go 
-
+<br/>
 Let's walkthrough an example of Path Traversal in Go and how to fix this.
 
 ```go
@@ -193,6 +193,7 @@ For example, validate the filename using an allowlist or regular expression.
 <br/> 
 
 ### Path Traversal in Node 
+<br/>
 
 The following [module](https://nodejs.org/api/path.html) contains tools to help reduce the risk of an attacker accessing 
 files they should not have access to.  
@@ -216,6 +217,7 @@ However, that if user input contained ``..`` the user may still have been able t
 Always be sure to check for this. 
 
 ### Path Traversal in PHP 
+<br/>
 
 Let's walkthrough an example of Path Traversal in PHP and how to fix this.
 
@@ -248,6 +250,7 @@ For example, validate the filename using an allowlist or regular expression.
 
 
 ### Path Traversal in Python 
+<br/>
 
 Let's walkthrough an example of Path Traversal in Python and how to fix this.
 
@@ -332,7 +335,7 @@ if statement =~ regexp
 
 
 ## How can Contrast help? 
-
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block Path Traversal vulnerabilities.
 
@@ -341,6 +344,7 @@ if statement =~ regexp
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
 
 
 

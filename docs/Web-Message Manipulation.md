@@ -17,7 +17,7 @@ nav_order: 16
 
 ---
 ## Overview 
-
+<br/>
 Sending web messages across an application is normal practice, however this process becomes exploitable once the application accepts data from an untrusted source. 
 
 An attacker may be able to use the web message data as a source by constructing a web page that, if visited by a user, will cause the user's browser to send a web message containing data that is under the attacker's control. 
@@ -33,11 +33,12 @@ An attacker may be able to use this flaw in order to process unintended actions 
 
 
 ## How To Fix   
-
+<br/>
 The most effective method of preventing Web message manipulation is to avoid sending web messages containing data from any untrusted source. Additionally, always ensure to verify the origin of incoming messages, and restrict messages from untrusted domains. 
 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

@@ -20,6 +20,7 @@ nav_order: 12
 
 
 ### Overview 
+<br/> 
 
 SMTP Injection is an attack that can be used to control part of the outgoing email or inject attachments.
 When email or contact form headers are set and interpreted, these are turned into SMTP commands, and subsequently proocessed by the SMTP server. 
@@ -30,6 +31,7 @@ This makes it possible for an attacker to set additional headers, allowing the m
 
 
 ### Impact 
+<br/> 
 
 As is shown, the user controls a piece of the outgoing SMTP message. Depending on the piece of the message the untrusted user can control, it's possible that the functionality can be abused.  
 
@@ -38,11 +40,13 @@ As is shown, the user controls a piece of the outgoing SMTP message. Depending o
 
 
 ## Prevention  
+<br/> 
 
 Use indirect references, or static/trusted data to supply all the fields and headers of an SMTP message. 
 As always, sanitize all user input. 
 
 ### Java 
+<br/> 
 
 Let's walkthrough preventing this vulnerability when using Java in your application.
 
@@ -71,6 +75,7 @@ msg.setSubject(subject);
 ```
 
 ### .NET
+<br/> 
 
 Next, let's look at prevention of SMTP Injection when using .NET. 
 
@@ -99,8 +104,8 @@ mailMessage.Subject = subject;
 ```
 
 ## How can Contrast help?  
+<br/> 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect CMTP Injection vulnerabilities as you code.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SMTP Injection attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SMTP Injection vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

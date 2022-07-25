@@ -19,8 +19,8 @@ nav_order: 3
 
 ## Cross Site Scripting (XSS)
 
-### What Is It? 
-
+### Overview
+<br/>
 Cross Site Scripting scripting (XSS) describes a web security vulnerability that allows attackers to compromise user interactions by inserting malicious scripts designed to hijack vulnerable applications.  
 
 An XSS attack targets the scripts running behind a webpage which are being executed on the client-side (in the user’s web browser). 
@@ -69,7 +69,7 @@ If the victim user has privileged access within the application, the attacker mi
 
 
 ### Impact 
-
+<br/>
 XSS vulnerabilities are especially dangerous because an attacker exploiting an HTML or JavaScript vulnerability can gain the ability to do whatever the user can do, and to see whatever the user can see – including passwords, payments, sensitive financial information, and more. 
 
 What makes the XSS attack even worse is the fact that victims, both the user and the vulnerable application, often won’t be aware they’re being attacked.
@@ -83,7 +83,7 @@ The compromised user has elevated privileges within the application, allowing th
 
 
 ### Prevention 
-
+<br/>
 OWASP has published a cheat sheet that can be used to prevent XSS attacks. 
 These guidelines focus on three prevention strategies – escaping, validating input, and sanitizing.
 
@@ -101,6 +101,7 @@ And most importantly, never accept JavaScript code from an untrusted source and 
 ## Cross Site Scripting by Language 
 
 ### In .NET 
+<br/>
 
 Using Microsoft's AntiXSSLibrary's `AntiXSSEncoder.HtmlEncode()` method:
 
@@ -133,7 +134,7 @@ If using .NET 4.0 or greater, we also recommend making AntiXSS your default enco
 In addition to proper output encoding, you can also use the built-in XSS global validation feature called ASP.NET Request Validation to help provide a site-wide secondary line of defense against XSS. 
 <br/>
 ASP.NET Request Validation examines each HTTP request and determines whether it contains potentially dangerous content.
-<br/> 
+<br/><br/>
 In this context, potentially dangerous content is any HTML markup or JavaScript code in the body, header, query string, or cookies of the request.
 
 By default, request validation is enabled in the `machine.config`. Verify that request validation is currently enabled in the server's `machine.config` and that the application does not override this setting in its `web.config`. Check that `validateRequest` is set to `true` as shown in the following example:

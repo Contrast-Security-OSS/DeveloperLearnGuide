@@ -18,6 +18,7 @@ nav_order: 14
 ---
 
 ## Overview 
+<br/> 
 
 Storage manipulation occurs when the localStorage or SessionStorage of a web application is compromised by attacker-controllable script. 
 One simple method of exploiting a weakness in this area is: 
@@ -29,6 +30,7 @@ One simple method of exploiting a weakness in this area is:
 This behavior does not in itself constitute a security vulnerability. However, if the application later reads data back from storage and processes it in an unsafe way, an attacker may be able to leverage the storage mechanism to deliver other DOM-based attacks, such as cross-site scripting and JavaScript injection.
 
 ### Impact
+<br/> 
 
 This vulnerability is often used in a sequence of attacks, so risk can range from low to severe. 
 
@@ -36,6 +38,7 @@ An attacker may be able to use this flaw in order to exploit the storage vulnera
 
 
 ### Prevention
+<br/> 
 
 The most effective method of preventing storage manipulation is to verify the origin of the sender, and perform input validation on the data attribute to confirm it is in the desired format. 
 
@@ -43,6 +46,7 @@ Most importantly always restrict data from untrusted sources being placed in sto
 
 
 ## How can Contrast help? 
+<br/> 
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

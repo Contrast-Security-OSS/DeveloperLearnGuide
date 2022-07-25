@@ -17,6 +17,7 @@ nav_order: 16
 
 ---
 ## Overview 
+<br/> 
 
 Attackers can manipulate the HTTP method to attempt to bypass security controls. 
 The full list of HTTP methods is: 
@@ -34,6 +35,7 @@ The use of the HEAD method, for example, to access anything in the /admin/* spac
 
 
 ## How To Fix   
+<br/> 
 
 The most complete fix for this issue is simple: remove any `<http-method>` entries from your `<security-constraint>`. 
 
@@ -71,6 +73,8 @@ Let's fix this to make it **safer** by removing the HTTP Methods:
 
 
 ## How can Contrast help? 
+<br/> 
 
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Untrusted Deserialization vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

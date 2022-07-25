@@ -18,14 +18,15 @@ nav_order: 7
 ---
 ## Cookie Manipulation
 
-### Overview 
+### Overview
+<br/>
 The process of tampering with cookies with the goal of bypassing security measures or sending false information to the server, is called cookie manipulation.
 
 A successful exploit can allow unauthorized access to the victim's account, either by poisioning the original cookie value, or tricking the server into accepting a new version of the initial cookie with modified values.
 
 
 ### Impact 
-
+<br/>
 - For cookies that control behaviour from user actions, a malicious actor may be able to manipulate the cookie's value in order to perform unintended actions on behalf of the user.
 - For session tracking cookies, the attacker may be able to leverage a session fixation attack. 
 This attack works by using a valid token within the cookie parameter, and hijacking the user's next interaction with the site. The risk of this can range from privacy concerns to takeover of user's account.
@@ -33,6 +34,7 @@ This attack works by using a valid token within the cookie parameter, and hijack
 
 
 ### Prevention
+<br/>
 
 - Ensure you restrict data from untrusted sources dynamically writing to cookies.
 
@@ -40,6 +42,7 @@ This attack works by using a valid token within the cookie parameter, and hijack
 
 
 ## Cookie Flags  
+<br/>
 
 Ensuring the `secure` and `httponly` flags are set in your Cookie headers prevents prevents the browser from sending them over a connection that isn't encrypted with SSL or TLS.  When code generates a cookie without setting the secure flag, this creates the possibility that an attacker could gain access to it on an unencrypted connection. 
 
@@ -47,6 +50,7 @@ If this cookie is used for authentication or session management, disclosing it c
 
 
 ### .NET 
+<br/>
 
 The `secure` and `httponly` flags can be enabled for all application cookies via the `web.config` using the [httpCookies](https://docs.microsoft.com/en-us/dotnet/api/system.web.configuration.httpcookiessection?view=netframework-4.8) section. 
 
@@ -92,6 +96,7 @@ public HttpResponseMessage GetValue()
 ```
 
 ### .NET Core
+<br/>
 
 Under ASP.NET Core, the `secure` and `httponly` cookie flags may be set globally during the [method](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/startup?view=aspnetcore-6.0) of the `Startup` class using {{#link}}https://docs.microsoft.com/en-us/aspnet/core/fundamentals/startup$$LINK_DELIM$$Startup.ConfigureServices{{/link}} method of the 'Startup' class using the [CookiePolicyOptions](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-6.0) class. 
 
@@ -112,6 +117,7 @@ public void ConfigureServices(IServiceCollection services)
 These options can also be set programatically using [CookieOptions](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.cookieoptions?view=aspnetcore-6.0) class. 
 
 For example:
+<br/>
 
 ```csharp
 var options = new CookieOptions
@@ -123,7 +129,7 @@ Response.Cookies.Append("myCookieName", "myCookieValue", options);
 ```
 
 ### Java 
-
+<br/>
 Remediating this issue in Java is simple.  
 
 Ensure that the `javax.servlet.http.Cookie#setSecure()` method is called for this cookie with a parameter of "true". 
@@ -131,8 +137,8 @@ Ensure that the `javax.servlet.http.Cookie#setSecure()` method is called for thi
 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Cookie Manipulation vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Cookie Manipulation attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Cookie Manipulation vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

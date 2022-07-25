@@ -17,12 +17,13 @@ nav_order: 13
 
 ---
 ## Parameter Pollution 
+<br/>
 When an application has a `form` tag that doesn't specify an `action` attribute, it is vulnerable to Parameter Pollution. 
 In forms containing sensitive information, this can be a very dangerous pattern that can be exploited by users looking to attack other users. 
 
 
 ### Java 
-
+<br/>
 Consider the following statement from the Java Servlet Specification (Version 3, Section 3.1):
 
 - Data from the query string and the post body are aggregated into the request parameter set. Query string data is presented before post body data. For example, if a request is made with a query string of a=hello and a post body of a=goodbye&a=world, the resulting parameter set would be ordered a=(hello, goodbye, world).
@@ -61,6 +62,7 @@ The fix for this issue is easy: make sure every `form` tag has an `action` attri
 
 
 ### Node 
+<br/>
 
 In the Express framework, duplicate parameters are stored as arrays rather than strings:
 `<uri>/search?name=Bob&name=Bob` will not return the string `'Bob'` but rather
@@ -104,7 +106,7 @@ Additionally, the [middleware](https://www.npmjs.com/package/hpp) middleware can
 
 
 ### .NET/.NET Core
-
+<br/>
 
 The fix for this issue is easy: make sure every `form` tag has an `action` attribute specified! If you have a `form` tag that you always want to submit to the current URI, but don't want to be vulnerable, considering using a snippet to hardcode the `action` to the current URI:
 
@@ -118,6 +120,7 @@ The fix for this issue is easy: make sure every `form` tag has an `action` attri
 
 
 ### Ruby
+<br/>
 
 The fix for this issue is easy: make sure every `form` tag has an `action` attribute specified! If you have a `form` tag that you always want to submit to the current URI, but don't want to be vulnerable, considering using a snippet to hardcode the `action` to the current URI:
 
@@ -127,6 +130,7 @@ The fix for this issue is easy: make sure every `form` tag has an `action` attri
 ``` 
 
 ### Python 
+<br/>
 
 The fix for this issue is easy: make sure every `form` tag has an `action` attribute specified! If you have a `form` tag that you always want to submit to the current URI, but don't want to be vulnerable, considering using a snippet to hardcode the `action` to the current URI:
 
@@ -140,6 +144,7 @@ The fix for this issue is easy: make sure every `form` tag has an `action` attri
 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

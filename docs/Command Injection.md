@@ -18,22 +18,22 @@ nav_order: 1
 ---
 
 ## Command Injection
-<br/>
 
 ### Overview 
+<br/>
 **In Progresss- Do we have any Contrast Branded Diagrams/Video demos of this?** 
 
-With a command injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
-<br/> 
+With a Command Injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
+<br/><br/>
 Command injection vulnerabilities are most often found in older, legacy code, such as CGI scripts. By identifying a critical vulnerability, attackers can insert malicious code in an application, gaining functionality and ultimately executing specific commands that infect the targeted user and system networks.
-<br/> 
+<br/><br/> 
 Under this attack, functionality on the application server can be modified and invoked. With unauthorized access to data, an account can add additional commands and potentially take complete control of the web server’s host operating system.
 
 
 ## Command Injection by Language 
 
 ### .NET 
-
+<br/>
 Any time user input is used to build a system command, the possibilities for abuse are real. Passing arbitrary command arguments to a process can lead to code execution or similar dangers. Here are a few best practices that may help reduce your risk:
 
 - Refactor the command line call out. There are many who believe that native OS calls represent an inherently bad software design. In .NET, this is done by using the `System.Diagnostics.Process` class as illustrated in the example below. If possible, use existing .NET APIs, libraries, or external systems to accomplish the functionality without needing a dangerous, platform-dependent .NET-to-OS bridge.
@@ -176,11 +176,13 @@ If the shell (like bash or cmd.exe) is used, malicious input can redirect comman
 
 
 ## How can Contrast help?
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Command Injection attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Command Injection vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
 
 
 

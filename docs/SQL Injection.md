@@ -18,6 +18,7 @@ nav_order: 1
 ---
 
 ### Overview 
+<br/> 
 
 A SQL injection attack consists of an insertion or injection of a SQL query via the input data from the client to the application. SQL commands are injected into data-plane input that affect the execution of predefined SQL commands. 
 
@@ -31,6 +32,7 @@ If a web application or website uses SQL databases like Oracle, SQL Server, or M
 
 
 ### Impact 
+<br/> 
 
 A successful SQL injection exploit can read sensitive data from the database, modify database data (insert, update, or delete), execute administrative operations on the database, recover the content of a file present in the database management system, and even issue commands to the operating system in some instances.
 
@@ -38,6 +40,7 @@ One example is an attacker could use SQL Injection on a vulnerable application i
 
 
 ### How Is This Flaw Exploited?
+<br/> 
 
 To perform an SQL injection attack, an attacker must locate a vulnerable input in a web application or webpage. When an application or webpage contains a SQL injection vulnerability, it uses user input in the form of an SQL query directly. 
 The hacker can execute a specifically crafted SQL command as a malicious cyber intrusion. 
@@ -65,6 +68,7 @@ An attacker seeks to retrieve user data from an application and can simply type 
 SQL injection can be categorized into three categories: in-band, blind, and out-of-band.  
 
 ### In-band SQL injection 
+<br/> 
 
 In-band SQL injection is the most frequent and commonly used SQL injection attack. 
 The transfer of data used in in-band attacks can either be done through error messages on the web or by using the UNION operator in SQL statements. 
@@ -77,6 +81,7 @@ There are two types of in-band SQL injection: union-based and error-based SQL in
 
 
 ### Blind SQL injection 
+<br/> 
 
 In a blind SQL injection attack, after sending a data payload, the attacker observes the behavior and responses to determine the data structure of the database.
 
@@ -87,6 +92,7 @@ There are two types of blind or inferential SQL injection attacks: Boolean and t
 This technique forces the database to wait for a specific time. The response time helps the attacker to identify the query returns as TRUE or FALSE. 
 
 ### Out-of-band SQL injection 
+<br/> 
 
 The out-of-band SQL injection attack requests that the application transmit data via any protocol—HTTP, DNS, or SMB. To perform this type of attack, the following functions can be used on Microsoft SQL and MySQL databases, respectively:
 
@@ -96,6 +102,7 @@ The out-of-band SQL injection attack requests that the application transmit data
 
 
 ## SQL Injection in .NET 
+<br/> 
 
 The most effective method of stopping SQL injection attacks is to only use a [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) like [Entity Framework](https://docs.microsoft.com/en-us/ef/) that safely handles database interaction. 
 
@@ -112,6 +119,7 @@ misinterpreted as SQL code.
 
 
 ### Using Parameterization 
+<br/> 
 
 **C# Example** 
 
@@ -182,6 +190,7 @@ End Try
 
 
 ### Using Stored Procedures 
+<br/> 
 
 Now, let's see the same query in C# and VB made ```safe``` using Stored Procedures. 
 First, create the stored procedure:
@@ -385,6 +394,7 @@ This treats user input as parameter content instead of as part of an SQL command
 
 
 ## SQL Injection in Go 
+<br/> 
 
 The most effective method of stopping SQL injection attacks is to use a [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) to safely handle database interaction. 
 
@@ -407,6 +417,7 @@ database/sql.DB.Exec("SELECT * FROM users WHERE id = '?'", userID)
 
 
 ## SQL Injection in PHP 
+<br/> 
 
 The most effective method of stopping SQL injection attacks is to only use a [Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) (ORM) to safely handle database interaction. 
 
@@ -466,13 +477,6 @@ Second order SQL injection is possible when user supplied data is stored by the 
 
 The goal of such attacks is to force the database to retrieve and output data to which the user would not otherwise have access. For example, an attacker could use Second order SQL Injection on a vulnerable web application by registering an unsafe username. 
 This would then be stored in the User table, and executed at a later date to retrieve or manipulate data. 
-
-
-
-### Attack Scenario
-<br/>
-TODO.
-
 
 
 ### Impact 
@@ -535,9 +539,10 @@ String query = "SELECT user_id FROM user_data WHERE user_name = '" + ESAPI.encod
 ``` 
 
 ## How can Contrast help?
-
+<br/> 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SQLi vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SQLi attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SQLi vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.

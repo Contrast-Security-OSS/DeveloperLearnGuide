@@ -137,7 +137,7 @@ Additionally, SAST generates significant false positives that consume valuable t
 
 
 
-## How can Contrast Security secure your application against CSRF attacks? 
+## How can Contrast help? 
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block CSRF vulnerabilities.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block CSRF attacks at runtime. 

@@ -75,6 +75,7 @@ response.setHeader("Content-Disposition", "attachment; filename=hardcoded.dat");
 ```
 
 ### .NET
+<br/>
 
 First ensure you **enable header checking** in ASP.NET, as follows `&lt;httpRuntime enableHeaderChecking="true"/&gt;`
 
@@ -91,6 +92,7 @@ Here is an example `web.config` with `enabledHeaderChecking` explicitly set:
 <br/> 
 
 ### Node 
+<br/>
 
 Let's walkthrough steps to remediate this issue when using Node. 
 
@@ -105,8 +107,8 @@ Additionally, ensure that `response.statusMessage` is never set with user contro
 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Headeer Injection vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Header Injection attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Header Injection vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

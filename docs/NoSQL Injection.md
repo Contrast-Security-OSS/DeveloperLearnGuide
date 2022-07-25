@@ -19,9 +19,11 @@ nav_order: 5
 ## NoSQL Injection
 
 ### Overview 
+<br/>
 NoSQL injection occurs when developers hand-build NoSQL statements containing user-supplied data without validation or encoding. 
 
 ### Impact 
+<br/>
 The goal of such attacks is to force the database to retrieve and output data to which the user would not otherwise have access. 
 
 For example, an attacker could use NoSQL Injection on a vulnerable application in order to query the database for customer credit card numbers and other data, even if it wasn't part of the query the developer created. NoSQL injection also allows privilege escalation and account hijacking.
@@ -30,7 +32,7 @@ For example, an attacker could use NoSQL Injection on a vulnerable application i
 ## NoSQL Injection in Java
 
 ### Prevention 
-
+<br/>
 The most effective method of stopping NoSQL injection attacks is to only use a library like [Hibernate OGM](http://hibernate.org/ogm/) that safely handles database interaction. 
 
 If you must execute queries manually, see below for guidance:
@@ -112,7 +114,7 @@ This is difficult to do by hand, but luckily the ESAPI library offers such funct
 <br/>
 
 **DynamoDB** 
-
+<br/>
 The following [APIs](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/AmazonDynamoDB.html) utilize bind variables. You must still avoid concatenating or using user supplied input to queries to keep user input from being misinterpreted as NoSQL injections.
 
 
@@ -162,7 +164,7 @@ ScanFilter = {'username': {"AttributeValueList": [{"S": user}],
 ## NoSQL Injection in Node 
 
 ### Prevention in MongoDB 
-
+<br/>
 The best way to remediate or avoid this type of attack is to simply not use the following $query string-based operators
 or database methods since they have the ability to execute JavaScript: 
 
@@ -295,6 +297,7 @@ See the following example using the [validation library](https://www.npmjs.com/p
 ``` 
 
 ### Prevention in RethinkDB 
+<br/>
 
 - [RethinkDB Docs](https://rethinkdb.com/api/javascript) 
 - [RethinkDB .js method](https://rethinkdb.com/api/javascript/js) 
@@ -441,11 +444,13 @@ client.send(new ExecuteStatementCommand(params));
 ``` 
 
 ## How can Contrast help? 
+<br/>
 
  - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect NoSQLi vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block NoSQLi attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect NoSQLi vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
+- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
 
 
 

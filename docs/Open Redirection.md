@@ -17,7 +17,7 @@ nav_order: 14
 
 ---
 # Unvalidated Redirects 
-
+<br/>
 An unvalidated redirect occurs when a web application is manipulated into redirecting a user to a URL, under the control of an attacker, e.g. http://`examplesite.com/path?url=http://partner.com/`. 
 
 This could be used to greatly increase the likelihood of success of a phishing campaign
@@ -27,7 +27,7 @@ If redirection is successful, it may be possible to escalate this vulnerability 
 It may even be possible to introduce XSS, depending on the circumstances (like if the victim's browser supports redirecting to [specified](https://code.google.com/archive/p/browsersec/wikis/Part2.wiki#Redirection_restrictions) protocols.
 
 ## How To Fix 
-
+<br/>
 There are a few good ways to address this issue:
 
 - **Use maps to filter out invalid values**  
@@ -37,6 +37,7 @@ If the map has no corresponding value for the key given, then throw an error.
 Ensure that the targeted URL belongs to an expected destination. Many naive implementations will do something similar to this unsafe pattern: 
 
 ### Java
+<br/>
 
 - Example  
 
@@ -61,6 +62,7 @@ try {
 ```
 
 ### .NET 
+<br/>
 
 - Example 
 
@@ -83,6 +85,7 @@ if (uri.Host.Equals("expected-domain.com")) {
 ```
 
 ### .NET Core
+<br/>
 
 - Example  
 
@@ -105,6 +108,7 @@ if (uri.Host.Equals("expected-domain.com")) {
 ```
 
 ### Node
+<br/>
 
 ```js
 app.get('/foo', function(req, res, next) {
@@ -130,8 +134,9 @@ res.redirect(inputUrl);
 ```
 
 ### Ruby
+<br/>
 
-```
+```ruby
 url = params['url']
 if url.start_with?('http://expected-domain.com')
   redirect_to url
@@ -147,6 +152,7 @@ if url.host == 'expected-domain.com'
 ```
 
 ### Python
+<br/>
 
 ```python
 if url.startswith('http://expected-domain.com'):
@@ -164,6 +170,7 @@ if parsed.netloc == 'expected-domain.com':
 
 
 # Unvalidated Forwards 
+<br/>
 
 An unvalidated forward occurs when the application takes input from the user, and uses it to build a file path to which the user is forwarded. If a user 
 controls a part of that path, they may be able to direct themselves to sensitive files, like `/WEB-INF/web.xml`, application code, or configuration files, which may contain passwords. 
@@ -171,6 +178,7 @@ controls a part of that path, they may be able to direct themselves to sensitive
 ## How To Fix 
 
 ### Java 
+<br/>
 
 Your Java application is at risk if it takes a value from the user and performs an internal forward using that value as a destination. 
 As discussed in the summary, this can lead to sensitive data exposure. There's probably some code in your application that looks like this: 
@@ -199,6 +207,7 @@ if( p.matcher(target).matches() ) {
 
 
 ### .NET 
+<br/>
 
 Users may be able to bypass IIS and ASP.NET's authentication and authorization checks if a user controls a part of that path.  IIS and ASP.NET do not perform authorization checks for the target page of the [transfer](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpserverutility.transfer?view=netframework-4.8) and [execute](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpserverutility.execute?view=netframework-4.8) methods
 That is, authorization modules (such as `FileAuthorizationModule` or `UrlAuthorizationModule`) that occur earlier in the ASP.NET pipeline are executed for the initial page but the `Transfer()` and `Execute()` methods pass execution to a new handler without re-executing steps earlier in the pipeline. 
@@ -233,6 +242,7 @@ Server.Transfer(target);
 ```
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

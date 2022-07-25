@@ -19,7 +19,7 @@ nav_order: 12
 ## Response With Insecurely Configured Content-Security-Policy Header 
 
 ### Overview 
-
+<br/>
 Content-Security-Policy is an opt-in site protection mechanism supported by current browsers. 
 <br/> 
 
@@ -34,7 +34,7 @@ Not setting Content-Security-Policy header allows the browser to assume the appl
 This means it will attempt to render elements and execute scripts from any source, including those which are unknown and potentially malicious. 
 
 ### How To Fix  
-
+<br/>
 In order to properly restrict your application's behavior, a Content-Security-Policy (CSP) header should be created. 
 At a minimum, this header should limit access to outside content by specifying a tightly constrained 'default-src' value. 
 <br/> 
@@ -51,7 +51,7 @@ Once the base sources have been determined, the header should be changed from CS
 ## Response With Insecurely Configured Strict-Transport-Security Header 
 
 ### Overview 
-
+<br/>
 HTTP Strict Transport Security (HSTS) is used by an application to indicate that an user-agent can only communicate with it over HTTPS. 
 The Strict-Transport-Security header indicates that for the duration specified by the 'max-age' setting, only HTTPS should be used. 
 <br/> 
@@ -61,10 +61,11 @@ In these attacks, in an attempt to be backwards compliant, the user-agent drops 
 man-in-the-middle attack
 
 ### How To Fix
-
+<br/>
 In order to prevent down-grade attacks and the transition from HTTPS to HTTP, include the Strict-Transport-Security header with a value greater than ``0``. 
 
 ### How To Fix in Ruby 
+<br/>
 
 The easiest way to prevent this issue from occurring in Rails applications is to add these
 ``default_headers`` calls to the application configuration: 
@@ -91,16 +92,17 @@ use Rack::Protection::StrictTransport, :max_age => 86_400
 ## Response With X-XSS-Protection Disabled 
 
 ### Overview 
-
+<br/>
 Setting X-XSS-Protection to a value other than '1' disables the browser's default cross-site scripting (XSS) protection. 
 This is a key protection against reflected XSS attacks. 
 
 ### How To Fix 
-
+<br/>
 In order to prevent reflected XSS attacks, the X-XSS-Protection header should never be disabled. 
 Specifically, the value should be left default (unset) or set to '1'.
 
 ### How To Fix in Ruby 
+<br/>
 
 The easiest way to prevent this issue from occurring in Rails applications is to add this
 ``default_headers`` call to the application configuration:
@@ -122,7 +124,7 @@ use Rack::Protection::XSSHeader
 ## Response Without Content-Security-Policy Header 
 
 ### Overview 
-
+<br/>
 Content-Security-Policy is an opt-in site protection mechanism supported by current browsers. 
 It can be used to tightly restrict the content and behavior of the page. 
 Adding restrictions can greatly reduce the attack surface of the page. 
@@ -134,7 +136,7 @@ This means it will attempt to render elements and execute scripts from any sourc
 
 
 ### How To Fix 
-
+<br/>
 In order to properly restrict your application's behavior, a Content-Security-Policy (CSP) header should be created. 
 At a minimum, this header should limit access to outside content by specifying a tightly constrained 'default-src' value. 
 <br/> 
@@ -154,7 +156,7 @@ Once the base sources have been determined, the header should be changed from CS
 ## Response Without X-Content-Type-Options Header 
 
 ### Overview 
-
+<br/>
 User-agents employ a technique called MIME-sniffing to try and determine the **Content Type** of the page they are rendering. 
 This is done by inspecting a byte-stream in an attempt to determine the file type it represents. 
 <br/> 
@@ -163,11 +165,12 @@ This action can be dangerous if an attacker can trick the user-agent into incorr
 
 
 ### How To Fix 
-
+<br/>
 In order to prevent improper identification of the Content-Type of a page, all requests should have an X-Content-Type-Options header set to a value of 'nosniff'.
 
 
 ### How To Fix in Ruby 
+<br/>
 
 The easiest way to prevent this issue from occurring in Rails applications is to add this
 ``default_headers`` calls to the application configuration:
@@ -185,9 +188,9 @@ require 'rack/protection'
 use Rack::Protection::XSSHeader
 ```
 
-## How can Contrast hekp? 
+## How can Contrast help? 
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect these vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block these attacks at runtime. 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning code.
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

@@ -13,7 +13,7 @@
 ## Anti-Caching Controls Missing 
 
 ### Overview 
-
+<br/>
 
 By default, web browsers and proxies aggressively cache web content, including pages as well as their static content, often for performance reasons.
 
@@ -21,12 +21,12 @@ When an application doesnt effectively inform the browsers to not save this cont
 
 
 ### Impact 
-
+<br/>
 This flaw may be leveraged too expose sensitive information previously displayed to the user, such as passwords and bank details.
 
 
 ## Anti-Caching Controls by Language
-
+<br/>
 There are a couple ways in the HTTP response to tell the browser and any intervening proxies to not cache this data. 
 Given the ever increasing number of browser and proxy version permutations, keeping up to date with what browser or proxy requires
 what cache control is hard, and thus our recommendation is to issue a combination of caching controls in
@@ -36,7 +36,7 @@ Issuing only a subset of these controls guarantees that some version of some bro
 <br/>
 
 ### .NET  
-
+<br/>
 
 
 Under ASP.NET, unfortunately, [HttpContext.Response.Cache.SetCacheability](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpcachepolicy.setcacheability?view=netframework-4.8) method only allows a single cache control directive to be added to the headers. Instead, directly call [HttpResponse.AppendHeader](https://docs.microsoft.com/en-us/dotnet/api/system.web.httpresponse.appendheader?view=netframework-4.8) to correctly set the caching headers you need.
@@ -99,7 +99,7 @@ public class ValuesController : ApiController
 
 
 ### .NET Core  
-
+<br/>
 
 ASP.NET Core provides several [mechanisms](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/response?view=aspnetcore-6.0) to set cache control headers. The easiest way to prevent this issue is to specify a cache profile in ```Startup.ConfigureServices```
 
@@ -160,7 +160,7 @@ Response.Headers.Add("Expires", "-1"); //Prevents caching on proxy servers
 ``` 
 
 ### Java  
-
+<br/>
 
 
 The easiest way to prevent this issue from occurring in Java EE applications is to add these ```setHeader()``` calls to a servlet filter for all sensitive content:
@@ -173,7 +173,7 @@ response.setDateHeader("Expires", -1); //Prevents caching on proxy servers
 
 
 ### Node  
-
+<br/>
 
 The [http module](https://nodejs.org/api/http.html#http_class_http_serverresponse) class exposes a 
 
@@ -201,6 +201,7 @@ app.use(helmet.noCache());
 ```
 
 ### Ruby  
+<br/>
 
 The easiest way to prevent this issue from occurring in Rails applications is to add these
 **default_headers** calls to the application configuration:
@@ -236,10 +237,11 @@ At a minimum, Contrast expects to see a ```Cache-Control``` setting that contain
 
 
 ### Overview 
+<br/>
 Without proper cache controls, an attacker could learn any sensitive information contained in the victim's client-side browser cache. This sensitive information may include PII, authentication information such as usernames, or financial data such as account numbers. An attacker may gain access to a victim's browser cache through a number of different means such as: shared machine access, host OS exploits, browser exploits, browser plugin exploits, etc.
 
 ### How To Fix 
-
+<br/>
 The cache control header can be enabled by changing the `sendCacheControlHeader` value to `true`, as is shown in this example: 
 	    
 ```xml
@@ -248,6 +250,9 @@ The cache control header can be enabled by changing the `sendCacheControlHeader`
 
 
 ## How can Contrast help? 
+<br/>
+
+- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Caching vulnerabilities as they are tested by watching HTML output and encoding.
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 

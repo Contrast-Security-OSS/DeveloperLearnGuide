@@ -19,7 +19,7 @@ nav_order: 17
 ## Form Protection Authorization  
 
 ### Overview 
-
+<br/>
 The `All` protection mode indicates that the forms authentication cookie will be both encrypted and validated. 
 
 All is the default protection mode for forms authentication. The forms authentication cookie contains the following information: username, date and time for forms authentication ticket expiration, date and time when the forms authentication ticket was issued, and any custom user data added by the application. 
@@ -39,7 +39,7 @@ The cookie contents are plaintext and readable by users. This mode may reveal se
 
 
 ### How To Fix 
-
+<br/>
 
 Change the forms authentication `protection` mode to `All` as is shown in the following example: 
 	    
@@ -52,7 +52,7 @@ Change the forms authentication `protection` mode to `All` as is shown in the fo
 ## Form Redirect Authorization   
 
 ### Overview 
-
+<br/>
 
 When `EnableCrossAppRedirects` is `true`, ASP.NET forms authentication allows users to be redirected to URLs outside of the application's path.  The default value for `EnableCrossAppRedirects` is `false` which does not allow users to be redirected outside of the application by forms authentication.  
 
@@ -62,7 +62,7 @@ Additionally, under forms authentication, if `CookiesSupported` is false, `Enabl
 
 
 ### How To Fix  
-
+<br/>
 
 The forms authentication section's `enableCrossAppRedirects` attribute should be set to `false`, as is shown in this example:
 	    
@@ -74,7 +74,7 @@ The forms authentication section's `enableCrossAppRedirects` attribute should be
 ## Form SSL Authorization  
 
 ### Overview 
-
+<br/>
 
 When `requireSSL` is `true`, an SSL connection is required for forms authentication and the forms authentication cookie will have the 'secure' flag which prevents browsers from sending the cookie across unencrypted connections.  
 
@@ -82,7 +82,7 @@ Neither of these protections are used when `requireSSL` is `false`. An attacker 
 
 
 ### How To Fix  
-
+<br/>
 
 The forms authentication section's `requireSSL` attribute should be set to `true`, as is shown in the following example: 
 	    
@@ -91,7 +91,8 @@ The forms authentication section's `requireSSL` attribute should be set to `true
 	<forms requireSSL="true" ...
 ```
 
-## How can Contrast help?  
+## How can Contrast help?
+<br/>
 
 - [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
 - [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

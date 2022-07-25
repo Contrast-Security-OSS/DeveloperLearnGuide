@@ -19,7 +19,7 @@ nav_order: 5
 ## Expression Language Injection
 
 ### Overview 
-
+<br/>
 Expression Language Injection (aka EL Injection) enables an attacker to view server-side data and other configuration details and variables, including sensitive code and data (passwords, database queries, etc.) 
 
 The Expression Language Injection attack takes advantage of server-side code injection vulnerabilities which occur whenever an application incorporates user-controllable data into a string that is dynamically evaluated by a code interpreter. 
@@ -31,14 +31,14 @@ When user data is evaluated by an Expression Language interpreter, it is likely 
 
 
 ### Impact 
-
+<br/>
 Expression Language Injections are very serious server-side vulnerabilities, as they can lead to complete compromise of the application's data and functionality, as well as the server that is hosting the application. 
 
 Expression Language Injection attacks can also use the server as a platform for further attacks against other systems.
 
 
 ### Prevention 
-
+<br/>
 Ensure to perform data validation best practice against untruste input and to confirm 
 that output encoding is applied when data arrives on the EL layer, so that
 no metacharacter is found by the interpreter within the user content before evaluation. 
@@ -48,6 +48,7 @@ this data.
 
 
 ## How can Contrast help? 
+<br/>
 
 - [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Expression Language Injection vulnerabilities as they are tested by watching HTML output and encoding.
 - [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Expression Language Injection attacks at runtime. 
