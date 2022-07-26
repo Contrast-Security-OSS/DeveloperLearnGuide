@@ -25,11 +25,10 @@ remote_theme: pmarsceill/just-the-docs
 # theme: just-the-docs
 plugins:
   - jekyll-feed
-
-logo: '/assets/images/logo.svg'
+logo: '/assets/images/Contrast_Logo_White_RGB.png'
 aux_links:
-  "Description unclear? Help us fix it on GitHub!":
-    - "https://github.com/sara-kathryn/DeveloperLearnGuide"
+  "WIP-Codesec Header":
+    - "https://www.contrastsecurity.com/"
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
@@ -38,7 +37,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 footer_content: "Copyright &copy; Contrast Security 2022"
 
 heading_anchors: true
-color_scheme: custom
+color_scheme: dark
 search_enabled: true
 search_tokenizer_separator: /[\s/]+/
 
