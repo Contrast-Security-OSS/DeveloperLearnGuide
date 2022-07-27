@@ -10,7 +10,7 @@ has_toc: false
 <h1>Developer Learning Guide </h1>
 
 
-**To be finalized**
+**To be finalized-Confirm if we are keeping a landing page**
 <br/> 
 <br/> 
 [Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
