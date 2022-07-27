@@ -133,12 +133,3 @@ Response.Cookies.Append("myCookieName", "myCookieValue", options);
 Remediating this issue in Java is simple.  
 
 Ensure that the `javax.servlet.http.Cookie#setSecure()` method is called for this cookie with a parameter of "true". 
-
-
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Cookie Manipulation vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Cookie Manipulation vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

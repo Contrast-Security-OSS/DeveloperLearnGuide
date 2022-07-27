@@ -537,12 +537,3 @@ String user = req.getParameter("user");
 String pass = req.getParameter("pass");
 String query = "SELECT user_id FROM user_data WHERE user_name = '" + ESAPI.encoder().encodeForSQL( ORACLE_CODEC, **user**) + "' and user_password = '" + ESAPI.encoder().encodeForSQL( ORACLE_CODEC, **pass**) + "'";
 ``` 
-
-## How can Contrast help?
-<br/> 
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SQLi vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block SQLi attacks at runtime. 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SQLi vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.

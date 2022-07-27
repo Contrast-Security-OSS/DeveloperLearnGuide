@@ -21,7 +21,6 @@ nav_order: 1
 
 ### Overview 
 <br/>
-**In Progresss- Do we have any Contrast Branded Diagrams/Video demos of this?** 
 
 With a Command Injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
 <br/><br/>

@@ -40,10 +40,3 @@ As the target page is now compromised, the chain of attacks can potentially lead
 ## Prevention 
 <br/>
 The most effective method of preventing Document Domain Manipulation is to restrict data from untrusted sources dynamically setting the document.domain property.
-
-
-
-## How can Contrast help?  
-<br/>
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect this vulnerability in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

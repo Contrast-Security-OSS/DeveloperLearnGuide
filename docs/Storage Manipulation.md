@@ -43,10 +43,3 @@ An attacker may be able to use this flaw in order to exploit the storage vulnera
 The most effective method of preventing storage manipulation is to verify the origin of the sender, and perform input validation on the data attribute to confirm it is in the desired format. 
 
 Most importantly always restrict data from untrusted sources being placed in storage.
-
-
-## How can Contrast help? 
-<br/> 
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

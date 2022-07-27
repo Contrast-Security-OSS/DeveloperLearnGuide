@@ -52,14 +52,6 @@ Where possible, do not accept user input to have full control of a URL that is r
 
 If user control of URL is required, verify the URL to-be-requested is acceptable. For example, use an allow-list to limit what domains, IPs, methods, or paths can be requested. Additionally, a deny-list could be used to exclude localhost, private network ranges, or etc.
 
-
-### How can Contrast help? 
-<br/> 
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SSRF vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SSRF vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-
 ### Further Reading
 <br/> 
 

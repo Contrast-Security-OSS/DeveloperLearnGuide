@@ -59,12 +59,3 @@ Unfortunately, there is no way to safely deserialize XML that comes from untrust
 We primarily recommend **not using XMLDecoder with untrusted input** or **moving to a different serialization format**.
 	
 It _may_ be possible to subclass XMLDecoder and develop a safe alternative, or sandbox the application to prevent obvious exploits. 
-
-## How can Contrast help? 
-<br/> 
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect SQLi vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
-

@@ -28,10 +28,3 @@ If the user form is successfully exploited, this could also result in sensitive 
 ### How To Fix  
 <br/>
 The most effective method of preventing Link Manipulation is to restrict data from untrusted sources dynamically setting target URLs or forms.
-
-
-
-## How can Contrast help?  
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

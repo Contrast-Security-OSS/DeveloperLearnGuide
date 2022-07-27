@@ -240,10 +240,3 @@ Server.Transfer(target);
 // process error
 }
 ```
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-

@@ -113,10 +113,3 @@ Else
 ' process error
 End
 ``` 
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Arbitrary Server Side Forward vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Arbitrary Server Side Forward vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

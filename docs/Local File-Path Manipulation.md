@@ -25,11 +25,3 @@ An attacker may be able to use this flaw to modify the path, and access sensitiv
 ### How To Fix 
 <br/>
 The most effective method of preventing File Path Manipulation is to not place user controlled data into file paths in order to access resources. If this is not possible, there should be appropriate data validation against a list of allowed and accepted values.
-
-
-## How can Contrast help?  
-<br/>
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-

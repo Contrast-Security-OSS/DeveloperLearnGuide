@@ -30,9 +30,3 @@ The attacker also has the potential to conduct client-side attacks against the u
 The most effective method of stopping WebSocket poisoning is to avoid allowing data from any untrusted source to dynamically set the target URL of a WebSocket connection. 
 
 Additionally, always use `JSON.parse()` to safely parse JSON response data. 
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

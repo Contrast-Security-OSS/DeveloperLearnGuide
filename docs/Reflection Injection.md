@@ -120,11 +120,3 @@ end
 Reflection injection occurs when the application allows user-controlled data to either load a class or call a function or method via the [API](https://www.php.net/manual/en/book.reflection.php). 
 
 The simplest and most reliable way to avoid this issue is to never use untrusted user input as arguments when calling reflection functions. 
-
-
-## How can Contrast help? 
-<br/> 
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) can monitor requests of your application and determine if the application checks origins or items that will block Path Traversal vulnerabilities.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

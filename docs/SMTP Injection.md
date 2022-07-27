@@ -102,10 +102,3 @@ switch (Request.QueryString["subject"])
 var mailMessage = new MailMessage();
 mailMessage.Subject = subject;
 ```
-
-## How can Contrast help?  
-<br/> 
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect CMTP Injection vulnerabilities as you code.
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect SMTP Injection vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

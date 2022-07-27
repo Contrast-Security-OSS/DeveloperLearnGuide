@@ -45,12 +45,3 @@ no metacharacter is found by the interpreter within the user content before eval
 
 The most obvious patterns to detect include ```${``` and ```#{```, but it may be possible to encode or fragment
 this data.
-
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Expression Language Injection vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Expression Language Injection attacks at runtime. 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Expression Language Injection vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

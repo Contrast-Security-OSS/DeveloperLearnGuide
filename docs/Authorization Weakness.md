@@ -59,10 +59,3 @@ This configuration denies access to users with the guest role, denies access to 
 	<allow users="*"/>
 </authorization>
 ```
-
-## How can Contrast help? 
-<br/>
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) observes the data flows in the source code and identifies if your custom code is vulnerable to this attack. 
-
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

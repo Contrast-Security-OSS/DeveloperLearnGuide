@@ -41,7 +41,6 @@ color_scheme: dark
 
 #### Contrast Assess 
 <br/>
-Detects Command Injection vulnerabilities as they are tested by watching HTML output and encoding. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z0DBdAW6IKw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
 

@@ -39,11 +39,3 @@ This vulnerability may enable the attacker to perform actions on behalf of a use
 The most effective method of preventing JavaScript injection is to restrict data from untrusted sources being executed as JavaScript. 
 <br/> 
 Ensure to apply all standard security measures such as validation of input, and appropriate escaping of output.
-
-
-
-## How can Contrast help?
-<br/>
-
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect these vulnerabilities in many applications by scanning your code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.

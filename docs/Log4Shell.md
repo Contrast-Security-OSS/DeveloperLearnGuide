@@ -88,15 +88,3 @@ You can use a tool such as SafeLog4J to evaluate these applications.
 
 Alternatively, check out below how we can help to detect and protect your application.  
 
-## How can Contrast help? 
-<br/>
-
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) defend the applications against the underlying vulnerability. 
-This means, Contrast was protecting you against the log4j vulnerability long before it was disclosed as a CVE.
-
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) & [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can identify that the application uses the vulnerable version of Log4j. 
-Our runtime context also allows you to identify which applications use JMSAppender, the specific class that can be exploited using this CVE.
-
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) application security detects the underlying vulnerability in applications. 
-This means, Contrast will find the next application vulnerability like this one, before it becomes a disclosed CVE or major incident.
-- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
