@@ -30,11 +30,86 @@ We welcome you to contribute to our guide by submitting an issue or pull request
 <br/> 
 
 
-## How Can We Help?
+## Developer Resources 
 
-#### Contrast CodeSec 
+### Contrast CodeSec 
 
-In Progress
+CodeSec is Contrast Security’s new free developer security tool, that brings the fastest and most accurate
+scanner in the market right to developers for FREE. 
+<br/> 
+
+Providing actionable remediation guidance, CodeSec by Contrast enables developers to get up and running in less than five minutes. 
+
+Here's how: 
+
+
+#### 1. Start Now 
+
+Head over to https://www.contrastsecurity.com/developer to begin
+
+
+#### 2. Install via CLI
+
+CodeSec also offers multiple install options including NPM, Artifactory, and Homebrew 
+
+```ruby
+brew tap contrastsecurity/tap
+brew install contrast
+```
+
+#### 3. Authorize 
+
+CodeSec allows users to auth with either Google or GitHub. 
+
+
+#### 4. Run CodeSec in your project folder 
+
+CodeSec allow users to run serverless or scan.
+
+```
+Searched 3 directory levels & found:
+- build/...SNAPSHOT.jar
+- build/...SNAPSHOT.war
+``` 
+
+#### 5. Scan JAR / WAR 
+
+Scan via: 
+
+```js
+contrast scan -f build/libs/
+terracotta-bank-servlet-0.0.1-
+SNAPSHOT.jar
+``` 
+
+
+Example output: 
+
+```js
+Found 17 vulnerabilities
+8 Critical | 3 High | 5 Medium |
+0 Low | 1 Note
+```
+
+
+#### 6. Results 
+
+We'll tell you not only what vulnerabilities you have, but what you should tackle first
+
+```js
+Scan completed in 25.19s
+Here are your top priorities to fix
+CRITICAL | sql-injection
+...
+```
+
+
+
+
+
+
+
+
 
 ### Contrast Platform
 
