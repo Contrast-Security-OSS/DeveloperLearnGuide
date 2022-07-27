@@ -175,14 +175,28 @@ For the same reason, when using `shell_exec` or related functions, do not set th
 If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
 
 
-## How can Contrast help?
+## How Can We Help?
 <br/>
 
-- [Contrast Assess](https://www.contrastsecurity.com/contrast-assess) Contrast Assess can detect Command Injection vulnerabilities as they are tested by watching HTML output and encoding.
-- [Contrast Protect](https://www.contrastsecurity.com/contrast-protect) can detect and block Command Injection attacks at runtime. 
-- [Contrast Scan](https://www.contrastsecurity.com/contrast-scan) can detect Command Injection vulnerabilities in many applications by scanning code.
-- [Contrast SCA](https://www.contrastsecurity.com/contrast-sca) can determine if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage.
-- [Contrast Serverless](https://www.contrastsecurity.com/contrast-serverless) can determine if you are vulnerable within your Cloud Native environment.
+#### Contrast Assess 
+
+Detects Command Injection vulnerabilities as they are tested by watching HTML output and encoding. Check it out [here](https://www.contrastsecurity.com/contrast-assess)
+
+#### Contrast Protect 
+
+Detects and block Command Injection attacks at runtime. Check it out [here](https://www.contrastsecurity.com/contrast-protect)
+
+#### Contrast Scan
+
+Detects Command Injection vulnerabilities in many applications by scanning code. Check it out [here](https://www.contrastsecurity.com/contrast-scan)
+
+#### Contrast Scan
+
+Determines if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage. Check it out [here](https://www.contrastsecurity.com/contrast-sca)
+
+#### Contrast Scan
+
+Determines if you are vulnerable within your Cloud Native environment. Check it out [here](https://www.contrastsecurity.com/contrast-serverless)
 
 
 

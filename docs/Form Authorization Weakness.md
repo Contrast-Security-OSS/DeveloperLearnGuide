@@ -3,7 +3,7 @@ layout: default
 title: Form Authorization Weakness
 nav_order: 17
 ---
-# For Authorization Weakness
+# Form Authorization Weakness
 {: .no_toc }
 
 {: .fs-6 .fw-300 }
