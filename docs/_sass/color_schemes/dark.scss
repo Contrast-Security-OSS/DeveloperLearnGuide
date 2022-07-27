@@ -18,3 +18,18 @@ $content-width: 1000px;
 
 @import "./pygments-github-dark";
 $code-background-color: #1d1f21;
+
+//sidebar
+
+$nav-width: 275px;
+$nav-width-md: 275px;
+
+$content-width: 1370px;
+
+$media-queries: (
+  xs: 320px,
+  sm: $content-width,
+  md: $content-width + $nav-width,
+  lg: 1700px,
+  xl: 1920px,
+);
