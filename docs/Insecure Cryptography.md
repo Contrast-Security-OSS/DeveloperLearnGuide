@@ -16,6 +16,8 @@ nav_order: 5
 {:toc}
 
 ---
+[CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 ## Insecure Authentication Protocol
 <br/>
 The use of outdated and insecure authentication protocols puts your application and sensitive data at serious risk.

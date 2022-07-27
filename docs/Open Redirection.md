@@ -16,6 +16,8 @@ nav_order: 14
 {:toc}
 
 ---
+[CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 # Unvalidated Redirects 
 <br/>
 An unvalidated redirect occurs when a web application is manipulated into redirecting a user to a URL, under the control of an attacker, e.g. http://`examplesite.com/path?url=http://partner.com/`. 

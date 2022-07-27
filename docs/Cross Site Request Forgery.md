@@ -16,6 +16,8 @@ nav_order: 5
 {:toc}
 
 ---
+[CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 ## Cross Site Request Forgery
 <br/>
 Application attacks are on the rise and becoming more advanced. On average, applications have more than 10 vulnerabilities when they release into production, leaving significant opportunities for attackers to exploit. 

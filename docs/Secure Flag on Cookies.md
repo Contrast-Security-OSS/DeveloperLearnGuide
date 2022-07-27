@@ -16,6 +16,8 @@ nav_order: 14
 {:toc}
 
 ---
+[CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 # Overview 
 <br/> 
 The "secure" flag (e.g., "cookieName=cookieValue; secure") prevents cookies from being transmitted using standard HTTP in modern browsers. 

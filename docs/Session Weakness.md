@@ -16,6 +16,8 @@ nav_order: 12
 {:toc}
 
 ---
+[CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 ## Session Cookie No HTTPOnly Flag
 
 
