@@ -88,5 +88,3 @@ These inventories provide immediate guidance on which applications are affected 
 We recommend looking at other applications where you have not yet created an inventory. 
 You can use a tool such as SafeLog4J to evaluate these applications. 
 
-Alternatively, check out below how we can help to detect and protect your application.  
-

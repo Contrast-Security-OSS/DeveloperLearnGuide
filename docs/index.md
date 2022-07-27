@@ -8,7 +8,7 @@ has_toc: false
 ---
 # Learning Guide
 
-**In Progress-Confirm are keeping a landing page?**
+**In Progress-Confirm if we're keeping a landing page?**
 <br/> 
 <br/> 
 The Contrast Learn Guide is for **you**, the Developer. 
@@ -24,7 +24,7 @@ While we will walk you through the correct techniques to fix and prevent attacks
 Do you have another attack example to share? 
 <br/>
 <br/>
-Or are ane any descriptions unclear?
+Are there any descriptions that are unclear?
 <br/> 
 We welcome you to contribute to our guide by submitting an issue or pull request.
 <br/><br/>
@@ -35,7 +35,7 @@ We welcome you to contribute to our guide by submitting an issue or pull request
 ## Developer Resources 
 
 ### Contrast CodeSec 
-
+<br/> 
 CodeSec is Contrast Security’s new free developer security tool, that brings the fastest and most accurate
 scanner in the market right to developers for FREE. 
 <br/> 
@@ -45,10 +45,11 @@ Providing actionable remediation guidance, CodeSec by Contrast enables developer
 Here's how: 
 
 
-#### 1. Start Now  
-<br/>  
+#### 1. Start Now 
+
 Head over to https://www.contrastsecurity.com/developer to begin
 
+<br/>
 
 #### 2. Install via CLI 
 <br/> 
@@ -58,11 +59,13 @@ CodeSec also offers multiple install options including NPM, Artifactory, and Hom
 brew tap contrastsecurity/tap
 brew install contrast
 ```
+<br/>
 
 #### 3. Authorize 
 <br/> 
 CodeSec allows users to auth with either Google or GitHub. 
 
+<br/>
 
 #### 4. Run CodeSec in your project folder<br/> 
 <br/> 
@@ -73,6 +76,7 @@ Searched 3 directory levels & found:
 - build/...SNAPSHOT.jar
 - build/...SNAPSHOT.war
 ``` 
+<br/>
 
 #### 5. Scan JAR / WAR 
 <br/> 
@@ -91,8 +95,8 @@ Example output:
 Found 17 vulnerabilities
 8 Critical | 3 High | 5 Medium |
 0 Low | 1 Note
-```
-
+``` 
+<br/>
 
 #### 6. Results 
 <br/> 

@@ -45,7 +45,8 @@ One example is an attacker could use SQL Injection on a vulnerable application i
 
 To perform an SQL injection attack, an attacker must locate a vulnerable input in a web application or webpage. When an application or webpage contains a SQL injection vulnerability, it uses user input in the form of an SQL query directly. 
 The hacker can execute a specifically crafted SQL command as a malicious cyber intrusion. 
-Then, leveraging malicious code, a hacker can acquire a response that provides a clear idea about the database construction and thereby access to all the information in the database.   
+Then, leveraging malicious code, a hacker can acquire a response that provides a clear idea about the database construction and thereby access to all the information in the database. 
+<br/> 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Bo4Be7aV3Ik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -65,7 +66,7 @@ An attacker seeks to retrieve user data from an application and can simply type 
 
 
 ## Types of SQL injection 
-
+<br/> 
 SQL injection can be categorized into three categories: in-band, blind, and out-of-band.  
 
 ### In-band SQL injection 
