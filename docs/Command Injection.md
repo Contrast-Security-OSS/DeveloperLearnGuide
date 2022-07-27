@@ -95,6 +95,30 @@ Runtime.getRuntime().exec(cmd);
 ```
 <br/>
 
+
+
+Passing the `statementId` a value of `foo &amp; calc`, as shown in the following URL for the code above will cause the calculator to run on the target host:
+
+`http://yoursite.com/app/deleteStatement?statementId=foo+%26+calc`
+
+Let's fix this problem-in this version, the attacker can only possibly inject additional arguments to the executable, and not actually issue new commands:
+
+```java
+String statementId = Request.QueryString("statementId");
+Process p = new Process();
+p.StartInfo.Filename = "c:\\del_statement.exe";
+p.StartInfo.Arguments = statementId;
+p.StartInfo.UseShellExecute = false;
+p.Start();
+```
+
+**Note:** 
+<br/>
+Sometimes, an attacker can cause harm or undesirable behavior even if they can't directly inject into the command the application executes. The best defense against command injection is to not pass user input to `System.Diagnostics.Process`.
+
+It's also always helpful to ensure that the application user is granted only the minimum OS and filesystem privileges necessary to perform its function. This may help reduce the impact of a successful command injection attack.
+
+
 ### Node 
 <br/>
 Any time user input is used to build a system command, this is a high impact flaw.
