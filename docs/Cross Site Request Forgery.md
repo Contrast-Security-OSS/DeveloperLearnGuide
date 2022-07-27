@@ -73,10 +73,6 @@ In the example below we can see how it can be leveraged to transfer funds to the
 The image HTML could be placed in a malicious page by an attacker.
 
 
-------->>(insert image-TBC)
-
-
-
 If the victim were to visit a malicious page containing that code, the victim's browser would request the image with the URL specified, and in effect, the attacker's chosen malicious request would "ride along with" the user's already authenticated session. This is why some have called this vulnerability "Session Riding."
 
 Even though the request is for an image, it will look "normal" to the bank, and will be processed as if the user had gone through the normal page workflow of transferring money.
