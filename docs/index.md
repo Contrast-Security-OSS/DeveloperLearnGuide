@@ -6,22 +6,37 @@ has_children: true
 nav_order: 0
 has_toc: false
 ---
+# Learning Guide
 
-<h1>Developer Learning Guide </h1>
-
-
-**To be finalized-Confirm if we are keeping a landing page**
+**In Progress-Confirm are keeping a landing page?**
 <br/> 
+<br/> 
+The Contrast Learn Guide is for **you**, the Developer. 
+
+We strive to use our years of experience in the field to provide the most helpful point of referencee. 
+
+While we will walk you through the correct remediation techniques to fix and prevent attacks, we aim to empower Engineers within your team and organization to make the most informed decision towards your security landscape. 
+
+
+## Contribute 
+
+Any descriptions unclear? 
+<br/> 
+Do you have another attack example to share? 
+<br/> 
+We welcome you to contribute to our guide by submitting an issue or pull request.
 <br/> 
 [Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 <br/> 
-Any descriptions unclear? 
-<br/> 
-We welcome you to contribute to our guide by submitting an issue or pull request.
-
 
 
 ## How Can We Help?
+
+#### Contrast CodeSec 
+
+In Progress
+
+### Contrast Platform
 
 #### Contrast Assess 
 <br/>
