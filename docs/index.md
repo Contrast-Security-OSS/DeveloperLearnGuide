@@ -10,29 +10,14 @@ has_toc: false
 <h1>Developer Learning Guide </h1>
 
 
-To be updated
-
+**To be finalized**
+<br/> 
 [Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 <br/> 
 Any descriptions unclear? We welcome you to contribute to our guide by submitting an issue or pull request.
 
 
 
-## Nav Testing area
-
-{: .d-inline-block }
-
-New
-{: .label .label-green }
-
-
-#### Example
-{: .no_toc }
-
-```yaml
-# Color scheme supports "light" (default) and "dark"
-color_scheme: dark
-```
 
 
 ## How Can We Help?
