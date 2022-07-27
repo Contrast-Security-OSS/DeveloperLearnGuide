@@ -175,30 +175,6 @@ For the same reason, when using `shell_exec` or related functions, do not set th
 If the shell (like bash or cmd.exe) is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. 
 
 
-## How Can We Help?
-<br/>
-
-#### Contrast Assess 
-
-Detects Command Injection vulnerabilities as they are tested by watching HTML output and encoding. Check it out [here](https://www.contrastsecurity.com/contrast-assess)
-
-#### Contrast Protect 
-
-Detects and block Command Injection attacks at runtime. Check it out [here](https://www.contrastsecurity.com/contrast-protect)
-
-#### Contrast Scan
-
-Detects Command Injection vulnerabilities in many applications by scanning code. Check it out [here](https://www.contrastsecurity.com/contrast-scan)
-
-#### Contrast Scan
-
-Determines if you are using a vulnerable version of a library with this attack, and prioritze based on Runtime Library Usage. Check it out [here](https://www.contrastsecurity.com/contrast-sca)
-
-#### Contrast Scan
-
-Determines if you are vulnerable within your Cloud Native environment. Check it out [here](https://www.contrastsecurity.com/contrast-serverless)
-
-
 
 
 
