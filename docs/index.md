@@ -41,20 +41,30 @@ color_scheme: dark
 
 #### Contrast Assess 
 
-Detects Command Injection vulnerabilities as they are tested by watching HTML output and encoding. Check it out [here](https://www.contrastsecurity.com/contrast-assess)
+Detects Command Injection vulnerabilities as they are tested by watching HTML output and encoding. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z0DBdAW6IKw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Contrast Protect 
 
-Detects and blocks attacks at runtime. Check it out [here](https://www.contrastsecurity.com/contrast-protect)
+Detects and blocks attacks at runtime.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-cV6BsTQpi4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Contrast Scan
 
-Detects vulnerabilities in  applications by scanning code. Check it out [here](https://www.contrastsecurity.com/contrast-scan)
+Detects vulnerabilities in  applications by scanning code.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AvRG2KzQk4w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Contrast SCA
 
-Determines if you are using a vulnerable version of a library with attacks, and prioritze based on Runtime Library Usage. Check it out [here](https://www.contrastsecurity.com/contrast-sca)
+Determines if you are using a vulnerable version of a library with attacks, and prioritze based on Runtime Library Usage.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8HH6kjSva1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### Contrast Serverless
 
-Determines if you are vulnerable within your Cloud Native environment. Check it out [here](https://www.contrastsecurity.com/contrast-serverless)
+Determines if you are vulnerable within your Cloud Native environment. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ferTzMA-uhI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
