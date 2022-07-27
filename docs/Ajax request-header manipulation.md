@@ -10,6 +10,8 @@
 {:toc}
 
 ---
+[Find vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+
 ### Overview 
 <br/>
 This type of attack occurs using a script is used to write attacker controllable data. This is then placed into the request header of an Ajax request, provided by a XmlHttpRequest object.

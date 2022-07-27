@@ -14,9 +14,7 @@ To be updated
 
 [Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 <br/> 
-Any descriptions unclear? We welcome you to contribute to our guide.
-<br/>  
-Please follow our Contributing Guide to submit an issue or pull request.
+Any descriptions unclear? We welcome you to contribute to our guide by submitting an issue or pull request.
 
 
 
