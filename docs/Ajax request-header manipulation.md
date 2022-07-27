@@ -10,7 +10,7 @@
 {:toc}
 
 ---
-[Find vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
+[Codesec: Find vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-green }
 
 ### Overview 
 <br/>

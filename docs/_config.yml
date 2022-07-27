@@ -26,10 +26,6 @@ remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 logo: '/assets/images/Contrast_Logo_White_RGB.png'
-aux_links:
-  "WIP-Codesec Header":
-    - "https://www.contrastsecurity.com/"
-
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
 nav_sort: case_sensitive # Capital letters sorted before lowercase
