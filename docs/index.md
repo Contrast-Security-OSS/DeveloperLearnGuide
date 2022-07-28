@@ -26,7 +26,7 @@ Are there any descriptions that are unclear?
 <br/><br/>
 We welcome you to contribute to our guide by submitting an issue or pull request.
 <br/><br/>
-[Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
+[Contrast GitHub Community](https://github.com/Contrast-Security-Inc){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 <br/> 
 
 
@@ -63,6 +63,7 @@ brew install contrast
 ```js
 npm install -g @contrast/contrast
 ```
+<br/>
 
 **Via Artifactory**
 
