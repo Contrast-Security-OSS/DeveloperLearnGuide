@@ -11,21 +11,19 @@ has_toc: false
 **In Progress-Confirm if we're keeping a landing page?**
 <br/> 
 <br/> 
-The Contrast Learn Guide is for **you**, the Developer. 
+The Contrast Learn Guide is for developers like you.
 
-We strive to use our years of experience in the field to provide the most helpful point of referencee. 
+We strive to use our years of experience in the field to provide the most helpful point of reference. 
 
-While we will walk you through the correct techniques to fix and prevent attacks, we aim to empower Engineers within your team and organization to make the most informed decision towards your security landscape. 
-
+While we will walk you through the correct techniques to fix and prevent attacks, we aim to empower Engineers within your team and organization to make the most informed decision regarding your security landscape.
 
 ## Contribute 
 
 <br/> 
 Do you have another attack example to share? 
 <br/>
-<br/>
 Are there any descriptions that are unclear?
-<br/> 
+<br/><br/>
 We welcome you to contribute to our guide by submitting an issue or pull request.
 <br/><br/>
 [Contrast GitHub Community](https://github.com/sara-kathryn/DeveloperLearnGuide){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
@@ -36,7 +34,7 @@ We welcome you to contribute to our guide by submitting an issue or pull request
 
 ### Contrast CodeSec 
 <br/> 
-CodeSec is Contrast Security’s new free developer security tool, that brings the fastest and most accurate
+CodeSec is Contrast Security’s new free developer security tool that brings the fastest and most accurate
 scanner in the market right to developers for FREE. 
 <br/> 
 
@@ -45,31 +43,43 @@ Providing actionable remediation guidance, CodeSec by Contrast enables developer
 Here's how: 
 
 
-#### 1. Start Now 
-
-Head over to https://www.contrastsecurity.com/developer to begin
-
-<br/>
+#### 1. Start Now
+<br/> 
+Head over to https://www.contrastsecurity.com/developer to begin. 
 
 #### 2. Install via CLI 
 <br/> 
 CodeSec also offers multiple install options including NPM, Artifactory, and Homebrew 
+
+**Via Homebrew**
 
 ```ruby
 brew tap contrastsecurity/tap
 brew install contrast
 ```
 <br/>
+**Via NPM**
+
+```js
+npm install -g @contrast/contrast
+```
+
+**Via Artifactory**
+
+- Go to https://pkg.contrastsecurity.com/ui/repos/tree/General/cli
+- Select your operating system under the **cli** folder and download the package.
+- You must allow execute permissions on the file depending on your OS.
+
+
+
 
 #### 3. Authorize 
 <br/> 
-CodeSec allows users to auth with either Google or GitHub. 
+CodeSec allows you to auth with either Google or GitHub. 
 
-<br/>
-
-#### 4. Run CodeSec in your project folder<br/> 
+#### 4. Run CodeSec<br/> 
 <br/> 
-CodeSec allow users to run serverless or scan.
+CodeSec gives you the option to run serverless or scan in your project folder.
 
 ```
 Searched 3 directory levels & found:
@@ -101,7 +111,7 @@ Found 17 vulnerabilities
 #### 6. Results 
 <br/> 
 
-We'll tell you not only what vulnerabilities you have, but what you should tackle first;
+We’ll tell you not only what vulnerabilities you have, but what you should tackle first.
 
 ```js
 Scan completed in 25.19s
@@ -109,14 +119,7 @@ Here are your top priorities to fix
 CRITICAL | sql-injection
 ...
 ```
-
-
-
-
-
-
-
-
+<br/> 
 
 ### Contrast Platform
 
