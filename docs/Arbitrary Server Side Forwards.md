@@ -22,12 +22,16 @@ nav_order: 18
 
 ### Overview
 <br/>
-We categorize Arbritrary SSRF as a class of vulnerabilities that allow a web application to accept a modified input that could cause the web application to forward the request to as untrusted URL.
+ Applications often receive requests that need to be "forwarded" to another piece of server-side code for processing. If the application forwards the request to a location that came from the user, such as a URL parameter or cookie, we call this an Arbritrary Server-Side Forward. In this case, although the attacker cannot access the location directly, the forwarded request can bypass the access control check.
 
-These type of attacks can act as a precursor, and as such, may be part of a chain attack.
-Depending on the targeted user, the impact of this vulnerability can range from mild to severe. 
+### Attack
+<br/>
 
-The malicious user may elevate this to other, more serious, attacks such as Cross Site Scripting (XSS),leading to sensitive data exposure.
+
+### Impact 
+<br/>
+
+Generally, the biggest impact occurs when an attacker, as an unprivileged user, can trick the application into forwarding a request to privileged functions.
 
 
 ## Arbitrary Server Side Forwards by Langugage
@@ -45,9 +49,9 @@ String target = request.getParameter("target");
 request.getRequestDispatcher(target).forward(request, response);
 ``` 
 
-If a user passes a querystring like the following, they may get access to important application details:```http://yoursite.com/app/vulnerable.do?target=/WEB-INF/web.xml``` 
+If a user passes a querystring like the following, they may get access to important application details: ```http://yoursite.com/app/vulnerable.do?target=/WEB-INF/web.xml``` 
 
-This can also lead to server-side code disclosure, too:```http://yoursite.com/app/vulnerable.do?target=/WEB-INF/classes/org/yoursite/app/YourClass.class``` 
+This can also lead to server-side code disclosure, too: ```http://yoursite.com/app/vulnerable.do?target=/WEB-INF/classes/org/yoursite/app/YourClass.class``` 
 
 
 Forwarding to internal resources is dangerous. It can be abused to get to files that should never be served, like ```web.xml```.

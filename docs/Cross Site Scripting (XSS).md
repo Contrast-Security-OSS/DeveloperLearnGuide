@@ -22,7 +22,7 @@ nav_order: 3
 
 ### Overview
 <br/>
-Cross Site Scripting scripting (XSS) describes a web security vulnerability that allows attackers to compromise user interactions by inserting malicious scripts designed to hijack vulnerable applications.  
+Cross Site Scripting (XSS) occurs when _________ is a web security vulnerability that allows attackers to compromise user interactions by inserting malicious scripts designed to hijack vulnerable applications.  
 
 An XSS attack targets the scripts running behind a webpage which are being executed on the client-side (in the user’s web browser). 
 

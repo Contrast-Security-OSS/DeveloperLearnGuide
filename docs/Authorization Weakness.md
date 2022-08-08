@@ -18,13 +18,22 @@ nav_order: 16
 [CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 
 ## Authorization Missing 
-### Overview 
-<br/>
-An application could be at risk if it does not include a rule to deny access to all users nor a rule to deny access to anonymous users. 
-ASP.NET, for example, evaluates authorization rules in a top-down order until a rule is satisfied. Authorization rules include a default allow all rule that is evaluated last.
-<br/> 
 
-The result of this is an attacker could potentially gain access to protected resources due to this missing rule.
+### Vulnerability 
+<br/>
+An application could be at risk if it does not include a rule to deny access to all users or a rule to deny access to anonymous users. 
+ASP.NET, for example, evaluates authorization rules in a top-down order until a rule is satisfied. The final rule must not be "allow all" as it will grant anyone full access to any resource not specifically covered by a rule.
+<br/>
+
+### Attacks
+Attackers use automated tools to crawl and scan a website to attempt to access to unauthorized functions and resources.
+<br/>
+
+
+### Impact 
+<br/>
+
+The result of missing authorization is that an attacker can gain unauthorized access to sensitive functions or data. The impact can range from minor to highly critical.
 
 
 ### How To Fix 

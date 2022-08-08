@@ -23,7 +23,7 @@ nav_order: 4
 
 ### Overview
 <br/>
-This attack occurs when data from an untrusted source is not sanitized sufficiently, and then parsed directly using the Javascript ```eval()``` function.
+Client Side Injection is  occurs when data from an untrusted source is not sanitized sufficiently, and then parsed directly using the Javascript ```eval()``` function.
 
 Let's walkthrough an vulnerable example. 
 Here we have a web application that displays the user profile of airline passenger when viewing their profile photo,
@@ -78,7 +78,7 @@ An attacker may be able to use this flaw in order to process unintended actions 
 
 Vulnerabilities like this can also lead to other dangerous attacks, such as Cross Site Scripting (XSS).
 
-### Prevention
+### How to Fix
 <br/>
 The most effective method of preventing JSON injection is to avoid allowing strings containing data from any untrusted source to be parsed as JSON.
 

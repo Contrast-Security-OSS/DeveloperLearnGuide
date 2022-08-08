@@ -18,37 +18,37 @@ nav_order: 7
 ---
 [CodeSec: Find this vulnerability straight from your CLI](https://www.contrastsecurity.com/developer/codesec/){: .btn .btn-primary .fs-4 .mb-4 .mb-md-0 .mr-2 }
 
-## Cookie Manipulation
+## Cookie Weakness
 
-### Overview
+### Vulnerability
 <br/>
-The process of tampering with cookies with the goal of bypassing security measures or sending false information to the server, is called cookie manipulation.
 
-A successful exploit can allow unauthorized access to the victim's account, either by poisioning the original cookie value, or tricking the server into accepting a new version of the initial cookie with modified values.
+Cookies are an important way for web applications to store state across a browser session requests. Using cookies without certain protections exposes them to interception, spoofing, corruption, and deletion.
 
+### Attacks 
+<br/>
+The process of tampering with cookies with the goal of bypassing security measures or sending false information to the server is called cookie manipulation. Typically an attacks would intercept insecure communications to tamper with other people's cookies. Alternatively, they might tamper with their own cookies to attack the application server.
 
 ### Impact 
 <br/>
+A successful exploit can allow unauthorized access to the victim's account, either by poisioning the original cookie value, or tricking the server into accepting a new version of the initial cookie with modified values.
+
 - For cookies that control behaviour from user actions, a malicious actor may be able to manipulate the cookie's value in order to perform unintended actions on behalf of the user.
-- For session tracking cookies, the attacker may be able to leverage a session fixation attack. 
-This attack works by using a valid token within the cookie parameter, and hijacking the user's next interaction with the site. The risk of this can range from privacy concerns to takeover of user's account.
+- For session (and other authentication) cookies, the attacker may be able to replay a user's token and hijack their session. Attackers may also be able to perform "session fixation" by setting a known session cookie in a user's browser and then wait for the user to log in and authenticate that session, providing the attacker with access.
 
 
 
-### Prevention
+### How to Fix
 <br/>
-
-- Ensure you restrict data from untrusted sources dynamically writing to cookies.
-
-- Always apply appropriate sanitization to all incoming data to protect your application.
-
-
-## Cookie Flags  
-<br/>
+FIXME
+Ensure cookies are only sent via encrypted communications.
 
 Ensuring the `secure` and `httponly` flags are set in your Cookie headers prevents prevents the browser from sending them over a connection that isn't encrypted with SSL or TLS.  When code generates a cookie without setting the secure flag, this creates the possibility that an attacker could gain access to it on an unencrypted connection. 
 
 If this cookie is used for authentication or session management, disclosing it could allow account hijacking. Other cookies may also be sensitive and should not be disclosed.  Note that an attack called sidejacking tricks browsers into using unencrypted connections even if your site generally uses encryption. 
+
+
+## Command Injection by Language 
 
 
 ### .NET 

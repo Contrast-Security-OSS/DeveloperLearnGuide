@@ -22,12 +22,14 @@ nav_order: 1
 
 ### Overview 
 <br/>
+Applications sometimes invoke the operating system to perform tasks. Application server processes often run with significan privilege, so the commands sent to the operating system are powerful.
 
-With a Command Injection attack, the goal is to hijack a vulnerable application in order to execute arbitrary commands on the host operating system. Command injection is made possible when an application passes unsafe user-supplied data (forms, cookies, HTTP headers, etc.) to a system shell. In this attack, the attacker-supplied operating system commands are usually executed with the privileges of the vulnerable application. 
-<br/><br/>
-Command injection vulnerabilities are most often found in older, legacy code, such as CGI scripts. By identifying a critical vulnerability, attackers can insert malicious code in an application, gaining functionality and ultimately executing specific commands that infect the targeted user and system networks.
-<br/><br/> 
-Under this attack, functionality on the application server can be modified and invoked. With unauthorized access to data, an account can add additional commands and potentially take complete control of the web server’s host operating system.
+In some cases, applications use untrusted data (URL, form data, cookies, headers, etc...) as part of the command sent to the operating system. Unless that data is carefully validated and escaped, special characters could change the meaning of the command. In some cases it's possible to chain additional commands. This is a Command Injection vulnerability.
+
+
+### Impact 
+<br/>
+Command injection vulnerabilities can potentially run arbitrary code on an application server host and access or corrupt all data stored there, including software code, credentials, keys, tokens, and data.
 
 
 ## Command Injection by Language 
@@ -77,7 +79,7 @@ In other languages, this is a high impact flaw without much further consideratio
 
 ### Java
 <br/>
-Most of the time, arbitrary command execution isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk:
+Unless a call to Runtime.exec() actually invokes the shell, arbitrary command execution usually isn't possible, but passing arbitrary command arguments to the target function can lead to similar dangers. Here are a few best practices that may help reduce your risk:
 
 
 - **Refactor the command line call out** There are many who believe that Runtime.exec()calls inherently represent a bad design. If possible, use existing Java APIs, libraries, or external batch systems to accomplish the functionality without needing a dangerous, platform-dependent Java-to-OS bridge.

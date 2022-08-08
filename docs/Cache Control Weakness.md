@@ -19,20 +19,18 @@
 
 By default, web browsers and proxies aggressively cache web content, including pages as well as their static content, often for performance reasons.
 
-When an application doesnt effectively inform the browsers to not save this content on the client side, it is left vulnerable.
+However, applications and APIs can use headers to inform browsers and proxies that certain content is sensitive and should not be persisted.
 
 
 ### Impact 
 <br/>
-This flaw may be leveraged too expose sensitive information previously displayed to the user, such as passwords and bank details.
+When caching heeaders are missing or malformed, attackers may be able to access sensitive information previously displayed to the user, such as passwords and bank details.
 
 
 ## Anti-Caching Controls by Language
 <br/>
-There are a couple ways in the HTTP response to tell the browser and any intervening proxies to not cache this data. 
-Given the ever increasing number of browser and proxy version permutations, keeping up to date with what browser or proxy requires
-what cache control is hard, and thus our recommendation is to issue a combination of caching controls in
-order to properly inform user agents of different types of the application's intentions.
+There are several ways in the HTTP response to tell the browser and any intervening proxies to not cache this data. 
+Given the ever increasing number of browser and proxy version permutations, keeping up to date with what browser or proxy requires which technique is difficult, and thus our recommendation is to issue a combination of caching controls in order to properly inform user agents of the application's intentions.
 
 Issuing only a subset of these controls guarantees that some version of some browser or proxy will retain the page data when it shouldn't.
 <br/>
