@@ -40,10 +40,7 @@ A successful exploit can allow unauthorized access to the victim's account, eith
 
 ### How to Fix
 <br/>
-FIXME
-Ensure cookies are only sent via encrypted communications.
-
-Ensuring the `secure` and `httponly` flags are set in your Cookie headers prevents prevents the browser from sending them over a connection that isn't encrypted with SSL or TLS.  When code generates a cookie without setting the secure flag, this creates the possibility that an attacker could gain access to it on an unencrypted connection. 
+Ensure cookies are only sent via encrypted communications by using `secure` and `httponly` flags in your Cookie headers prevents prevents the browser from sending them over a connection that isn't encrypted with SSL or TLS.  When code generates a cookie without setting the secure flag, this creates the possibility that an attacker could gain access to it on an unencrypted connection. 
 
 If this cookie is used for authentication or session management, disclosing it could allow account hijacking. Other cookies may also be sensitive and should not be disclosed.  Note that an attack called sidejacking tricks browsers into using unencrypted connections even if your site generally uses encryption. 
 

@@ -20,26 +20,31 @@ nav_order: 18
 
 ## Arbitrary Server Side Forwards 
 
-### Overview
+### Vulnerability
 <br/>
- Applications often receive requests that need to be "forwarded" to another piece of server-side code for processing. If the application forwards the request to a location that came from the user, such as a URL parameter or cookie, we call this an Arbritrary Server-Side Forward. In this case, although the attacker cannot access the location directly, the forwarded request can bypass the access control check.
+ Applications often receive requests that need to be "forwarded" to another piece of server-side code for processing. In some cases, applications use untrusted data (URL, form data, cookies, headers, etc...) as part of the target being forwarded to. Unless care is taken, the attacker may be able to forward their request to a location they couldn't access directly.
 
-### Attack
+ The data flow that untrusted data follows to a request forward can often be quite complex, with application frameworks, business logic, data layers, libraries, and other complicated code paths that make arbitrary server side forwards difficult to see.
+
+
+### Attacks
+The attacker finds a parameter (or other untrusted data) that is used by an application as the target of a request forward. By manipulating this parameter, the attacker is able to get the application to forward their request to parts of the application that they do not have direct access to.
 <br/>
 
 
 ### Impact 
 <br/>
 
-Generally, the biggest impact occurs when an attacker, as an unprivileged user, can trick the application into forwarding a request to privileged functions.
+The range of severity can depend on what functions are available for the attacker to forward a request to. Generally, the biggest impact occurs when an attacker, as an unprivileged user, can trick the application into forwarding a request to privileged functions, such as deleting users, creating admin accounts, dropping database tables, etc...
 
 
-## Arbitrary Server Side Forwards by Langugage
+### How To Fix 
+<br/>
+
 
 ### Java 
 <br/>
-For applications running in Java, the application takes input from the user, and uses it to build a file path to which the user is forwarded. 
-If a user controls a part of that path, they may be able to direct themselves to sensitive files, like ```/WEB-INF/web.xml```, application code, or configuration files, which may contain passwords. 
+For applications running in Java, the application takes input from the user, and uses it to build a file path to which the user is forwarded. If a user controls a part of that path, they may be able to direct themselves to sensitive files, like ```/WEB-INF/web.xml```, application code, configuration files that may contain credentials, or powerful application functionality. 
 
 
 There's probably some code in your application that looks like this:

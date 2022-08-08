@@ -20,23 +20,31 @@ nav_order: 1
 
 ## Command Injection
 
-### Overview 
+### Vulnerability 
 <br/>
 Applications sometimes invoke the operating system to perform tasks. Application server processes often run with significan privilege, so the commands sent to the operating system are powerful.
 
 In some cases, applications use untrusted data (URL, form data, cookies, headers, etc...) as part of the command sent to the operating system. Unless that data is carefully validated and escaped, special characters could change the meaning of the command. In some cases it's possible to chain additional commands. This is a Command Injection vulnerability.
 
+The data flow that untrusted data follows to an operating system command can often be quite complex, with application frameworks, business logic, data layers, libraries, and other complicated code paths that make XSS difficult to see.
+
+### Attacks
+<br/>
 
 ### Impact 
 <br/>
 Command injection vulnerabilities can potentially run arbitrary code on an application server host and access or corrupt all data stored there, including software code, credentials, keys, tokens, and data.
 
 
+### How To Fix 
+Generally you should avoid the use of operating system commands in your applications. If you must use them, try not to use any untrusted data in them. If you must use untrusted data, be sure to escape all non-ASCII characters and validate carefully. See language specific details below.
+<br/>
+
+
 ## Command Injection by Language 
 
 ### .NET 
 <br/>
-Any time user input is used to build a system command, the possibilities for abuse are real. Passing arbitrary command arguments to a process can lead to code execution or similar dangers. Here are a few best practices that may help reduce your risk:
 
 - Refactor the command line call out. There are many who believe that native OS calls represent an inherently bad software design. In .NET, this is done by using the `System.Diagnostics.Process` class as illustrated in the example below. If possible, use existing .NET APIs, libraries, or external systems to accomplish the functionality without needing a dangerous, platform-dependent .NET-to-OS bridge.
 - Avoid starting your command with the shell. Starting a command with the shell (e.g. `cmd.exe /c` on Windows or `/bin/sh -c` on Linux) allows any user input in the command to be processed by the command shell instead of as parameters to a native program.  If the shell is used, malicious input can redirect commands, chain new commands, and in general cause more damage than otherwise possible. Instead, calls to `System.Diagnostics.Process.Start` should directly invoke the program you want to execute. Don't pass the program name as a parameter to a shell.

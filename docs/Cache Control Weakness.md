@@ -14,7 +14,7 @@
 
 ## Anti-Caching Controls Missing 
 
-### Overview 
+### Vulnerability 
 <br/>
 
 By default, web browsers and proxies aggressively cache web content, including pages as well as their static content, often for performance reasons.
@@ -24,7 +24,7 @@ However, applications and APIs can use headers to inform browsers and proxies th
 
 ### Impact 
 <br/>
-When caching heeaders are missing or malformed, attackers may be able to access sensitive information previously displayed to the user, such as passwords and bank details.
+When caching heeaders are missing or malformed, attackers may be able to access sensitive information previously displayed to the user, such as passwords and bank details. The severity can vary depending on the sensitivity of the information cached.
 
 
 ## Anti-Caching Controls by Language

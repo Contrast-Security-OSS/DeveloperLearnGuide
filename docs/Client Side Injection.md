@@ -21,9 +21,12 @@ nav_order: 4
 ## Client Side Injection 
 
 
-### Overview
+### Vulnerability
 <br/>
 Client Side Injection is  occurs when data from an untrusted source is not sanitized sufficiently, and then parsed directly using the Javascript ```eval()``` function.
+
+### Attacks
+<br/>
 
 Let's walkthrough an vulnerable example. 
 Here we have a web application that displays the user profile of airline passenger when viewing their profile photo,
@@ -74,9 +77,8 @@ The user now has elevated their tier level for this airline.
 
 ### Impact
 <br/>
-An attacker may be able to use this flaw in order to process unintended actions on behalf of another user.  
+An attacker may be able to use this flaw in order to process unintended actions on behalf of another user. Vulnerabilities like this can also lead to other dangerous attacks, such as Cross Site Scripting (XSS).
 
-Vulnerabilities like this can also lead to other dangerous attacks, such as Cross Site Scripting (XSS).
 
 ### How to Fix
 <br/>

@@ -9,3 +9,4 @@ _site/
 
 # Ruby
 Gemfile.lock
+docs/Authorization Weakness.md
